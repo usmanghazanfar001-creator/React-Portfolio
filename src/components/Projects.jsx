@@ -12,7 +12,7 @@ const PROJECTS = [
     title: 'Real Estate Website',
     description:
       'Designed and developed a full real estate listing website — featuring property search, detailed listing pages, and a clean, conversion-focused UI. Applied SEO best practices to improve search visibility from launch.',
-    link: 'https://hussnainestateadvisor.netlify.app/',
+    link: 'https://hussnainestateadvisor.vercel.app/',
     linkLabel: 'View Project',
   },
   {
