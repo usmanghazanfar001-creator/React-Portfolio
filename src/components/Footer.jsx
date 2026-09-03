@@ -31,8 +31,8 @@ export default function Footer() {
             <i className="fas fa-envelope"></i>
           </a>
           <a
-            href="https://www.upwork.com/freelancers/~017b46b7bf7be76b9d?mp_source=share"
-            aria-label="Upwork"
+            href="https://www.fiverr.com/afidevelopers?public_mode=true"
+            aria-label="Fiverr"
             target="_blank"
             rel="noreferrer"
           >
