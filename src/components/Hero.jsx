@@ -1,64 +1,101 @@
-import useFadeIn from '../hooks/useFadeIn';
-import Marquee from './Marquee';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Mail, Briefcase, ChevronDown } from 'lucide-react';
+import HeroBackground from './HeroBackground';
 import profileImg from '../assets/images/profile.png';
+import { PROFILE } from '../data/content';
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 22 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+};
 
 export default function Hero() {
-  const ref = useFadeIn();
+  const reduceMotion = useReducedMotion();
 
   return (
-    <header className="hero">
-      <div className="hero-inner fade-in" ref={ref}>
-        <div>
-          <h1 className="hero-title">
-            Usman<br />
-            <span className="hl">Ghazanfar</span>
-          </h1>
-          <p className="hero-sub">
-            I build AI-powered systems and run the growth strategy behind them —
-            combining automation, SEO, and data-driven marketing to help brands scale
-            from Faisalabad to the world.
-          </p>
-          <div className="hero-cta">
-            <a href="#projects" className="btn btn-primary">See the work</a>
-            <a href="#contact" className="btn btn-outline">Get in touch</a>
-          </div>
-        </div>
+    <header className="hero" id="home">
+      <HeroBackground />
 
-        <div className="hero-side">
-          <div className="id-card">
-            <img src={profileImg} alt="Usman Ghazanfar" className="id-photo" />
-            <div className="id-meta">
-              <span className="id-label">Identity</span>
-              <span className="id-name">Usman Ghazanfar</span>
-            </div>
+      <div className="section-inner hero-inner">
+        <motion.div
+          variants={reduceMotion ? undefined : container}
+          initial={reduceMotion ? undefined : 'hidden'}
+          animate={reduceMotion ? undefined : 'show'}
+        >
+          <motion.div variants={item} className="hero-badge glass">
+            <span className="dot" />
+            {PROFILE.openToWork ? 'Open to work' : PROFILE.title}
+          </motion.div>
+
+          <motion.h1 variants={item} className="hero-title">
+            {PROFILE.firstName}
+            <br />
+            <span className="hero-title-gradient">{PROFILE.lastName}</span>
+          </motion.h1>
+
+          <motion.p variants={item} className="hero-sub">
+            {PROFILE.tagline}
+          </motion.p>
+
+          <motion.div variants={item} className="hero-cta">
+            <a href="#projects" className="btn btn-primary">
+              View My Work
+            </a>
+            <a href="#contact" className="btn btn-outline">
+              Contact Me
+            </a>
+          </motion.div>
+
+          <motion.div variants={item} className="hero-social">
+            <a href={`mailto:${PROFILE.email}`} aria-label="Email">
+              <Mail size={18} />
+            </a>
+            <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <i className="fa-brands fa-linkedin-in" aria-hidden="true" />
+            </a>
+            <a href={PROFILE.fiverr} target="_blank" rel="noreferrer" aria-label="Fiverr">
+              <Briefcase size={18} />
+            </a>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="hero-side"
+          initial={reduceMotion ? undefined : { opacity: 0, scale: 0.92 }}
+          animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="hero-photo-ring">
+            <div className="hero-photo-glow" />
+            <img src={profileImg} alt={PROFILE.name} className="hero-photo" />
           </div>
 
-          <div className="stamp">
-            <span className="dot"></span>
-            Open to work
-          </div>
-          <div className="spec-box">
-            <div className="spec-row">
-              <span className="spec-key">Role</span>
-              <span className="spec-val">AI Engineer / Growth Marketer</span>
+          <div className="hero-spec glass">
+            <div className="hero-spec-row">
+              <span className="hero-spec-key">Role</span>
+              <span className="hero-spec-val">{PROFILE.title}</span>
             </div>
-            <div className="spec-row">
-              <span className="spec-key">Based</span>
-              <span className="spec-val">Faisalabad, Pakistan</span>
+            <div className="hero-spec-row">
+              <span className="hero-spec-key">Based</span>
+              <span className="hero-spec-val">{PROFILE.location}</span>
             </div>
-            <div className="spec-row">
-              <span className="spec-key">Stack</span>
-              <span className="spec-val">LangChain · React · Shopify · n8n</span>
-            </div>
-            <div className="spec-row">
-              <span className="spec-key">Focus</span>
-              <span className="spec-val">Automation, SEO, AI agents</span>
+            <div className="hero-spec-row">
+              <span className="hero-spec-key">Focus</span>
+              <span className="hero-spec-val">AI agents · Automation · Web apps</span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <Marquee />
+      <a href="#about" className="hero-scroll-cue" aria-label="Scroll to About section">
+        Scroll
+        <ChevronDown size={16} />
+      </a>
     </header>
   );
 }
