@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import Reveal from './Reveal';
 import { PROFILE } from '../data/content';
 
@@ -16,13 +16,19 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const subject = encodeURIComponent(form.subject || `Portfolio message from ${form.name}`);
-    const body = encodeURIComponent(
-      `${form.message}\n\n— ${form.name} (${form.email})`
-    );
-    window.location.href = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`;
-       setStatus("Thank you for your message. Your email client will open shortly to complete sending.");
+    const text =
+      `New inquiry from portfolio website\n\n` +
+      `Name: ${form.name}\n` +
+      `Email: ${form.email}\n` +
+      `Subject: ${form.subject}\n\n` +
+      `Message:\n${form.message}`;
+
+    const whatsappUrl = `${PROFILE.whatsappLink}?text=${encodeURIComponent(text)}`;
+
+    setStatus('Redirecting you to WhatsApp to send your inquiry…');
     setForm(initialForm);
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -95,8 +101,8 @@ export default function Contact() {
             </div>
 
             <button type="submit" className="btn btn-primary">
-              <Send size={16} />
-              Send Message
+              <i className="fa-brands fa-whatsapp" aria-hidden="true" />
+              Send via WhatsApp
             </button>
 
             {status && <p className="form-status" role="status">{status}</p>}
