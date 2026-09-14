@@ -164,7 +164,7 @@ export const PROJECTS = [
     solution:
       'Built a full-stack educational web application using Python, Flask and SQLite, covering logic, sets, relations, functions, combinatorics and number theory — with quizzes, PDF export and an admin dashboard.',
     features: ['Logic, sets & relations solvers', 'Combinatorics & number theory', 'Quizzes with PDF export', 'Admin dashboard'],
-    link: 'https://discretemathcalculator.vercel.app/',
+    link: 'https://discretiq.vercel.app/',
     linkLabel: 'View Project',
     linkType: 'demo',
   },
@@ -181,9 +181,9 @@ export const PROJECTS = [
     solution:
       'Built NexSeat, a SaaS platform that enables users to share premium AI tool subscriptions securely with trusted groups — reducing subscription costs by letting multiple users access team plans through an intuitive, responsive experience.',
     features: ['Secure group subscription sharing', 'Reduced per-user cost', 'Responsive, user-friendly interface'],
-    link: 'https://github.com/usmanghazanfar001-creator/NexSeat.git',
-    linkLabel: 'GitHub Repository',
-    linkType: 'github',
+    link: 'https://nex-seat.vercel.app/',
+    linkLabel: 'View Project',
+    linkType: 'demo',
   },
   {
     key: 'ai-ecommerce',
