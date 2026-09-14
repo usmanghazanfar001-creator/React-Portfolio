@@ -1,6 +1,3 @@
-// All copy and data here is sourced directly from the original portfolio content.
-// Nothing invented: numbers below are literal counts of the real lists in this file.
-
 export const PROFILE = {
   name: 'Usman Ghazanfar',
   firstName: 'Usman',
@@ -44,7 +41,6 @@ export const ABOUT = {
   ],
 };
 
-// Stats are literal counts derived from the real data below — nothing estimated.
 export const STATS = [
   { label: 'Projects Completed', value: 6, suffix: '' },
   { label: 'Core Technologies', value: 16, suffix: '+' },
@@ -147,7 +143,7 @@ export const PROJECTS = [
     solution:
       'Designed and developed a full real estate listing website with property search, detailed listing pages, and a clean, conversion-focused UI — applying SEO best practices to improve search visibility from launch.',
     features: ['Property search', 'Detailed listing pages', 'Conversion-focused UI', 'SEO optimized from launch'],
-    link: 'https://hussnainestateadvisor.vercel.app/',
+    link: 'https://hussnainestateadvisor.com/',
     linkLabel: 'View Project',
     linkType: 'demo',
   },
@@ -260,7 +256,7 @@ export const TIMELINE = [
     type: 'education',
     date: 'Expected 2027',
     title: 'Associate Degree in Artificial Intelligence',
-    place: 'Punjab Group of Colleges · Faisalabad',
+    place: 'University of Central Punjab · Faisalabad',
     bullets: [
       'AI Fundamentals',
       'Mathematics for AI',
