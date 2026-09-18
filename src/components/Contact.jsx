@@ -159,6 +159,17 @@ export default function Contact() {
                 </span>
                 {PROFILE.linkedinLabel}
               </a>
+              <a
+                className="contact-item"
+                href={PROFILE.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="icon-box">
+                  <i className="fa-brands fa-github" aria-hidden="true" />
+                </span>
+                {PROFILE.githubLabel}
+              </a>
             </div>
           </Reveal>
         </div>

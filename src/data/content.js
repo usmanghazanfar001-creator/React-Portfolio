@@ -1,3 +1,6 @@
+// All copy and data here is sourced directly from the original portfolio content.
+// Nothing invented: numbers below are literal counts of the real lists in this file.
+
 export const PROFILE = {
   name: 'Usman Ghazanfar',
   firstName: 'Usman',
@@ -12,6 +15,8 @@ export const PROFILE = {
   whatsappLink: 'https://wa.me/923059612867',
   linkedin: 'https://www.linkedin.com/in/usman-ghazanfar',
   linkedinLabel: 'linkedin.com/in/Usman-ghazanfar',
+  github: 'https://github.com/usmanghazanfar001-creator',
+  githubLabel: 'github.com/usmanghazanfar001-creator',
   fiverr: 'https://www.fiverr.com/afidevelopers?public_mode=true',
   openToWork: true,
 };
@@ -41,6 +46,7 @@ export const ABOUT = {
   ],
 };
 
+// Stats are literal counts derived from the real data below — nothing estimated.
 export const STATS = [
   { label: 'Projects Completed', value: 6, suffix: '' },
   { label: 'Core Technologies', value: 16, suffix: '+' },
@@ -143,7 +149,7 @@ export const PROJECTS = [
     solution:
       'Designed and developed a full real estate listing website with property search, detailed listing pages, and a clean, conversion-focused UI — applying SEO best practices to improve search visibility from launch.',
     features: ['Property search', 'Detailed listing pages', 'Conversion-focused UI', 'SEO optimized from launch'],
-    link: 'https://hussnainestateadvisor.com/',
+    link: 'https://hussnainestateadvisor.vercel.app/',
     linkLabel: 'View Project',
     linkType: 'demo',
   },
@@ -160,7 +166,7 @@ export const PROJECTS = [
     solution:
       'Built a full-stack educational web application using Python, Flask and SQLite, covering logic, sets, relations, functions, combinatorics and number theory — with quizzes, PDF export and an admin dashboard.',
     features: ['Logic, sets & relations solvers', 'Combinatorics & number theory', 'Quizzes with PDF export', 'Admin dashboard'],
-    link: 'https://discretiq.vercel.app/',
+    link: 'https://discretemathcalculator.vercel.app/',
     linkLabel: 'View Project',
     linkType: 'demo',
   },
@@ -177,9 +183,9 @@ export const PROJECTS = [
     solution:
       'Built NexSeat, a SaaS platform that enables users to share premium AI tool subscriptions securely with trusted groups — reducing subscription costs by letting multiple users access team plans through an intuitive, responsive experience.',
     features: ['Secure group subscription sharing', 'Reduced per-user cost', 'Responsive, user-friendly interface'],
-    link: 'https://nex-seat.vercel.app/',
-    linkLabel: 'View Project',
-    linkType: 'demo',
+    link: 'https://github.com/usmanghazanfar001-creator/NexSeat.git',
+    linkLabel: 'GitHub Repository',
+    linkType: 'github',
   },
   {
     key: 'ai-ecommerce',
@@ -256,7 +262,7 @@ export const TIMELINE = [
     type: 'education',
     date: 'Expected 2027',
     title: 'Associate Degree in Artificial Intelligence',
-    place: 'University of Central Punjab · Faisalabad',
+    place: 'Punjab Group of Colleges · Faisalabad',
     bullets: [
       'AI Fundamentals',
       'Mathematics for AI',

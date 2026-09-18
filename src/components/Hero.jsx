@@ -55,6 +55,9 @@ export default function Hero() {
             <a href={`mailto:${PROFILE.email}`} aria-label="Email">
               <Mail size={18} />
             </a>
+            <a href={PROFILE.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+              <i className="fa-brands fa-github" aria-hidden="true" />
+            </a>
             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
               <i className="fa-brands fa-linkedin-in" aria-hidden="true" />
             </a>
