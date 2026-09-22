@@ -149,7 +149,7 @@ export const PROJECTS = [
     solution:
       'Designed and developed a full real estate listing website with property search, detailed listing pages, and a clean, conversion-focused UI — applying SEO best practices to improve search visibility from launch.',
     features: ['Property search', 'Detailed listing pages', 'Conversion-focused UI', 'SEO optimized from launch'],
-    link: 'https://hussnainestateadvisor.vercel.app/',
+    link: 'https://hussnainestateadvisor.com/',
     linkLabel: 'View Project',
     linkType: 'demo',
   },
@@ -166,7 +166,7 @@ export const PROJECTS = [
     solution:
       'Built a full-stack educational web application using Python, Flask and SQLite, covering logic, sets, relations, functions, combinatorics and number theory — with quizzes, PDF export and an admin dashboard.',
     features: ['Logic, sets & relations solvers', 'Combinatorics & number theory', 'Quizzes with PDF export', 'Admin dashboard'],
-    link: 'https://discretemathcalculator.vercel.app/',
+    link: 'https://descretiq.online/',
     linkLabel: 'View Project',
     linkType: 'demo',
   },
