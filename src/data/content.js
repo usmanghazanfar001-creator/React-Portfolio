@@ -48,7 +48,7 @@ export const ABOUT = {
 
 // Stats are literal counts derived from the real data below — nothing estimated.
 export const STATS = [
-  { label: 'Projects Completed', value: 6, suffix: '' },
+  { label: 'Projects Completed', value: 7, suffix: '' },
   { label: 'Core Technologies', value: 16, suffix: '+' },
   { label: 'Services Offered', value: 6, suffix: '' },
 ];
@@ -186,6 +186,29 @@ export const PROJECTS = [
     link: 'https://github.com/usmanghazanfar001-creator/NexSeat.git',
     linkLabel: 'GitHub Repository',
     linkType: 'github',
+  },
+  {
+    key: 'weatheriq',
+    badge: 'Case — Weather App',
+    title: 'WeatherIQ – Weather Forecast Web App',
+    category: 'Web',
+    tags: ['Next.js', 'Weather API', 'SEO', 'UI/UX'],
+    description:
+      'A fast weather web app with current conditions, hourly and daily forecasts, and air quality for locations worldwide.',
+    problem:
+      'People need a quick, clear way to check accurate weather for any city without signing up or wading through clutter.',
+    solution:
+      'Built WeatherIQ, a responsive Next.js weather app powered by WeatherAPI.com. Users can search any city, region, country or postal code, or use their location, and see current conditions, hourly and daily forecasts and air quality — with light/dark themes and °C/°F units.',
+    features: [
+      'Search by city, region, country or postal code',
+      'Current conditions, hourly & daily forecasts',
+      'Air quality (PM2.5, PM10) in plain language',
+      'Light/dark themes and °C/°F toggle',
+      'Favorites & recent searches saved locally, no account needed',
+    ],
+    link: 'https://weathercatch.vercel.app/',
+    linkLabel: 'View Project',
+    linkType: 'demo',
   },
   {
     key: 'ai-ecommerce',
