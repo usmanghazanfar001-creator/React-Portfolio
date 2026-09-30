@@ -7,34 +7,4 @@
     <priority>1.0</priority>
   </url>
 
-  <url>
-    <loc>https://usmanghazanfar.vercel.app/#about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://usmanghazanfar.vercel.app/#skills</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://usmanghazanfar.vercel.app/#projects</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://usmanghazanfar.vercel.app/#services</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://usmanghazanfar.vercel.app/#contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
 </urlset>
