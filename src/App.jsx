@@ -4,16 +4,13 @@ import { useRef } from 'react'
 import {
   ArrowUpRight, ArrowUp, Mail, Phone, MessageCircle, MapPin, X, Menu, Check,
   Code2, BrainCircuit, Globe2, Workflow, Sparkles, LayoutTemplate, Building2,
-  GraduationCap, Briefcase, RotateCcw,
+  GraduationCap, Briefcase,
 } from 'lucide-react'
 import {
   PROFILE, NAV_LINKS, ABOUT, STATS, SKILL_GROUPS, SERVICES, PROJECTS,
   PROJECT_FILTERS, TIMELINE,
 } from './data/content'
-import profileImg from './assets/images/profile.webp'
-import logoVideo from './assets/video/logo-intro.mp4'
-import posterFirst from './assets/video/poster-first.jpg'
-import posterLast from './assets/video/poster-last.jpg'
+import profileImg from './assets/images/profile.png'
 
 const ICONS = { Code2, BrainCircuit, Globe2, Workflow, Sparkles, LayoutTemplate, Building2 }
 const Icon = ({ name, ...p }) => { const C = ICONS[name] || Sparkles; return <C {...p} /> }
@@ -31,10 +28,10 @@ const Reveal = ({ children, delay = 0, className = '' }) => (
   </motion.div>
 )
 const Section = ({ id, eyebrow, title, children }) => (
-  <section id={id} aria-labelledby={`${id}-title`} className="relative mx-auto max-w-6xl px-5 py-24 sm:py-28">
+  <section id={id} className="relative mx-auto max-w-6xl px-5 py-24 sm:py-28">
     <Reveal>
       <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-accent-2">{eyebrow}</p>
-      <h2 id={`${id}-title`} className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">{title}</h2>
+      <h2 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">{title}</h2>
     </Reveal>
     <div className="mt-12">{children}</div>
   </section>
@@ -44,7 +41,7 @@ function Counter({ to, suffix }) {
   const inView = useInView(ref, { once: true })
   const [n, setN] = useState(0)
   useEffect(() => { if (inView) { const c = animate(0, to, { duration: 1.4, onUpdate: (v) => setN(Math.round(v)) }); return () => c.stop() } }, [inView, to])
-  return <><span className="sr-only">{to}{suffix}</span><span ref={ref} aria-hidden="true">{n}{suffix}</span></>
+  return <span ref={ref}>{n}{suffix}</span>
 }
 
 /* ---------- nav ---------- */
@@ -61,7 +58,7 @@ function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <motion.div style={{ scaleX: bar }} className="h-0.5 origin-left bg-gradient-to-r from-accent via-accent-2 to-accent-3" />
-      <nav aria-label="Main" className="mx-auto mt-3 flex max-w-6xl items-center justify-between rounded-full border border-line bg-ink/70 px-5 py-2.5 backdrop-blur-xl max-sm:mx-3">
+      <nav className="mx-auto mt-3 flex max-w-6xl items-center justify-between rounded-full border border-line bg-ink/70 px-5 py-2.5 backdrop-blur-xl max-sm:mx-3">
         <a href="#home" className="font-display text-lg font-bold text-white">{PROFILE.firstName}<span className="grad-text">.</span></a>
         <ul className="hidden gap-1 md:flex">
           {NAV_LINKS.map((l) => (
@@ -83,62 +80,35 @@ function Navbar() {
 }
 
 /* ---------- hero ---------- */
-function LogoVideo() {
-  const ref = useRef(null)
-  const [done, setDone] = useState(false)
-  const [reduce, setReduce] = useState(false)
-  useEffect(() => { setReduce(window.matchMedia('(prefers-reduced-motion: reduce)').matches) }, [])
-  const replay = () => { const v = ref.current; if (!v) return; v.currentTime = 0; setDone(false); v.play() }
-  return (
-    <div className="relative mx-auto mt-14 max-w-6xl px-5">
-      <div className="absolute inset-x-10 -inset-y-4 rounded-[3rem] bg-gradient-to-r from-accent via-accent-2 to-accent-3 opacity-25 blur-3xl" />
-      <div className="relative aspect-video overflow-hidden rounded-3xl border border-line bg-black shadow-2xl shadow-accent-2/10">
-        {reduce ? (
-          <img src={posterLast} alt="Neon logo sign" className="size-full object-cover" />
-        ) : (
-          <video ref={ref} className="size-full object-cover" src={logoVideo} poster={posterFirst} autoPlay muted playsInline preload="auto"
-            aria-label="Brand logo animation" onEnded={() => setDone(true)} />
-        )}
-        <AnimatePresence>
-          {done && !reduce && (
-            <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={replay}
-              className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full border border-line bg-ink/70 px-4 py-2 text-sm text-white backdrop-blur hover:bg-ink">
-              <RotateCcw size={14} /> Replay
-            </motion.button>
-          )}
-        </AnimatePresence>
-      </div>
-    </div>
-  )
-}
-
 function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-32 pb-20">
+    <section id="home" className="relative overflow-hidden pt-36 pb-20">
       <div className="aurora absolute inset-0" /><div className="grid-bg absolute inset-0" />
-      <div className="relative mx-auto max-w-6xl px-5">
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-wrap items-center gap-3">
-          <img src={profileImg} alt={PROFILE.name} width="44" height="44" fetchPriority="high" decoding="async" className="size-11 rounded-full border border-line object-cover" />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-[1.3fr_1fr]">
+        <div>
           {PROFILE.openToWork && (
-            <span className="chip inline-flex items-center gap-2">
+            <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="chip inline-flex items-center gap-2">
               <span className="relative flex size-2"><span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" /><span className="relative size-2 rounded-full bg-emerald-400" /></span>
               Open to work
-            </span>
+            </motion.span>
           )}
-          <span className="flex items-center gap-1.5 text-sm text-zinc-500"><MapPin size={14} /> {PROFILE.location}</span>
-        </motion.div>
-        <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }}
-          className="mt-6 max-w-4xl font-display text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-7xl">
-          Hi, I'm <span className="grad-text">{PROFILE.name}</span> — {PROFILE.title}
-        </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">{PROFILE.tagline}</motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }} className="mt-8 flex flex-wrap gap-3">
-          <a href="#projects" className="rounded-full bg-white px-6 py-3 font-medium text-ink transition hover:scale-105">View projects</a>
-          <a href="#contact" className="rounded-full border border-line px-6 py-3 font-medium text-white transition hover:bg-white/5">Get in touch</a>
+          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }}
+            className="mt-6 font-display text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-7xl">
+            Hi, I'm <span className="grad-text">{PROFILE.name}</span><br />{PROFILE.title}
+          </motion.h1>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400">{PROFILE.tagline}</motion.p>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }} className="mt-8 flex flex-wrap gap-3">
+            <a href="#projects" className="rounded-full bg-white px-6 py-3 font-medium text-ink transition hover:scale-105">View projects</a>
+            <a href="#contact" className="rounded-full border border-line px-6 py-3 font-medium text-white transition hover:bg-white/5">Get in touch</a>
+          </motion.div>
+          <p className="mt-8 flex items-center gap-2 text-sm text-zinc-500"><MapPin size={14} /> {PROFILE.location}</p>
+        </div>
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="relative mx-auto w-64 sm:w-80">
+          <div className="absolute -inset-3 rounded-[2.2rem] bg-gradient-to-br from-accent via-accent-2 to-accent-3 opacity-60 blur-2xl" />
+          <img src={profileImg} alt={PROFILE.name} className="relative aspect-[4/5] w-full rounded-[2rem] border border-line object-cover" />
         </motion.div>
       </div>
-      <LogoVideo />
-      <div className="relative mx-auto mt-12 grid max-w-6xl grid-cols-3 gap-3 px-5">
+      <div className="relative mx-auto mt-16 grid max-w-6xl grid-cols-3 gap-3 px-5">
         {STATS.map((s) => (
           <div key={s.label} className="card p-5 text-center">
             <div className="font-display text-3xl font-bold text-white sm:text-5xl"><Counter to={s.value} suffix={s.suffix} /></div>
@@ -306,7 +276,7 @@ function Footer() {
   useEffect(() => { const f = () => setShow(window.scrollY > 600); window.addEventListener('scroll', f, { passive: true }); return () => window.removeEventListener('scroll', f) }, [])
   return (
     <>
-      <footer suppressHydrationWarning className="border-t border-line py-8 text-center text-sm text-zinc-500">© {new Date().getFullYear()} {PROFILE.name} · {PROFILE.location}</footer>
+      <footer className="border-t border-line py-8 text-center text-sm text-zinc-500">© {new Date().getFullYear()} {PROFILE.name} · {PROFILE.location}</footer>
       <AnimatePresence>
         {show && (
           <motion.button initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.7 }} aria-label="Back to top"
