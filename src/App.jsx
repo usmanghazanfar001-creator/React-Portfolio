@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence, useScroll, useSpring, useInView, animate } from 'motion/react'
+import { motion, AnimatePresence, useScroll, useSpring, useInView, useTransform, useMotionValue, animate } from 'motion/react'
 import { useRef } from 'react'
 import {
-  ArrowUpRight, ArrowUp, Mail, Phone, MessageCircle, MapPin, X, Menu, Check,
+  ArrowUpRight, ArrowUp, Phone, MapPin, X, Menu, Check,
   Code2, BrainCircuit, Globe2, Workflow, Sparkles, LayoutTemplate, Building2,
   GraduationCap, Briefcase,
 } from 'lucide-react'
@@ -11,6 +11,8 @@ import {
   PROJECT_FILTERS, TIMELINE,
 } from './data/content'
 import profileImg from './assets/images/profile.png'
+import Orbit from './components/Orbit'
+import { GithubIcon, WhatsAppIcon, FiverrIcon, GmailIcon, LinkedInIcon } from './components/BrandIcons'
 
 const ICONS = { Code2, BrainCircuit, Globe2, Workflow, Sparkles, LayoutTemplate, Building2 }
 const Icon = ({ name, ...p }) => { const C = ICONS[name] || Sparkles; return <C {...p} /> }
@@ -35,6 +37,18 @@ const Section = ({ id, eyebrow, title, children }) => (
     </Reveal>
     <div className="mt-12">{children}</div>
   </section>
+)
+const Words = ({ text, delay = 0 }) => (
+  <span aria-hidden="true">
+    {text.split(' ').map((w, i) => (
+      <span key={i} className="inline-block overflow-hidden pb-[0.12em] align-bottom">
+        <motion.span className="inline-block" initial={{ y: '105%' }} animate={{ y: 0 }}
+          transition={{ duration: 0.75, delay: delay + i * 0.08, ease: [0.22, 1, 0.36, 1] }}>
+          {w}{'\u00A0'}
+        </motion.span>
+      </span>
+    ))}
+  </span>
 )
 function Counter({ to, suffix }) {
   const ref = useRef(null)
@@ -80,22 +94,39 @@ function Navbar() {
 }
 
 /* ---------- hero ---------- */
+function Portrait({ children }) {
+  const x = useMotionValue(0), y = useMotionValue(0)
+  const rx = useSpring(useTransform(y, [-0.5, 0.5], [7, -7]), { stiffness: 120, damping: 14 })
+  const ry = useSpring(useTransform(x, [-0.5, 0.5], [-9, 9]), { stiffness: 120, damping: 14 })
+  const move = (e) => { const r = e.currentTarget.getBoundingClientRect(); x.set((e.clientX - r.left) / r.width - 0.5); y.set((e.clientY - r.top) / r.height - 0.5) }
+  const leave = () => { x.set(0); y.set(0) }
+  return (
+    <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.8 }}
+      onMouseMove={move} onMouseLeave={leave} style={{ perspective: 900 }} className="relative mx-auto w-[var(--w)] [--w:11rem] sm:[--w:17rem] lg:[--w:18rem]">
+      <Orbit />
+      <motion.div style={{ rotateX: rx, rotateY: ry }} animate={{ y: [0, -10, 0] }} transition={{ y: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }} className="relative z-10">
+        {children}
+      </motion.div>
+    </motion.div>
+  )
+}
 function Hero() {
   return (
     <section id="home" className="relative overflow-hidden pt-36 pb-20">
       <div className="aurora absolute inset-0" /><div className="grid-bg absolute inset-0" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-[1.3fr_1fr]">
-        <div>
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-[1.1fr_1fr]">
+        <div className="relative z-10">
           {PROFILE.openToWork && (
             <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="chip inline-flex items-center gap-2">
               <span className="relative flex size-2"><span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" /><span className="relative size-2 rounded-full bg-emerald-400" /></span>
               Open to work
             </motion.span>
           )}
-          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }}
-            className="mt-6 font-display text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-7xl">
-            Hi, I'm <span className="grad-text">{PROFILE.name}</span><br />{PROFILE.title}
-          </motion.h1>
+          <h1 className="mt-6 font-display text-5xl font-bold leading-[1.02] tracking-tight text-white sm:text-7xl lg:text-6xl xl:text-7xl" aria-label={`Hi, I'm ${PROFILE.name} ${PROFILE.title}`}>
+            <Words text="Hi, I'm" delay={0.1} />
+            <span className="grad-text"><Words text={PROFILE.name} delay={0.25} /></span><br />
+            <Words text={PROFILE.title} delay={0.5} />
+          </h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400">{PROFILE.tagline}</motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }} className="mt-8 flex flex-wrap gap-3">
             <a href="#projects" className="rounded-full bg-white px-6 py-3 font-medium text-ink transition hover:scale-105">View projects</a>
@@ -103,10 +134,12 @@ function Hero() {
           </motion.div>
           <p className="mt-8 flex items-center gap-2 text-sm text-zinc-500"><MapPin size={14} /> {PROFILE.location}</p>
         </div>
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="relative mx-auto w-64 sm:w-80">
-          <div className="absolute -inset-3 rounded-[2.2rem] bg-gradient-to-br from-accent via-accent-2 to-accent-3 opacity-60 blur-2xl" />
-          <img src={profileImg} alt={PROFILE.name} className="relative aspect-[4/5] w-full rounded-[2rem] border border-line object-cover" />
-        </motion.div>
+        <Portrait>
+          <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-accent via-accent-2 to-accent-3 opacity-60 blur-2xl" />
+          <div className="relative rounded-full bg-gradient-to-br from-accent via-accent-2 to-accent-3 p-1">
+            <img src={profileImg} alt={PROFILE.name} className="aspect-square w-full rounded-full border-4 border-ink object-cover object-top" />
+          </div>
+        </Portrait>
       </div>
       <div className="relative mx-auto mt-16 grid max-w-6xl grid-cols-3 gap-3 px-5">
         {STATS.map((s) => (
@@ -116,7 +149,19 @@ function Hero() {
           </div>
         ))}
       </div>
+      <Marquee />
     </section>
+  )
+}
+
+function Marquee() {
+  const items = SKILL_GROUPS.flatMap((g) => g.items)
+  return (
+    <div className="relative mt-14 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]" aria-hidden="true">
+      <div className="marquee flex w-max gap-3">
+        {[...items, ...items].map((t, i) => <span key={i} className="chip whitespace-nowrap">{t}</span>)}
+      </div>
+    </div>
   )
 }
 
@@ -225,9 +270,14 @@ function Projects() {
 }
 
 /* ---------- experience & education ---------- */
-const Experience = () => (
+const Experience = () => {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 70%', 'end 70%'] })
+  const draw = useSpring(scrollYProgress, { stiffness: 90, damping: 25 })
+  return (
   <Section id="experience" eyebrow="Experience & Education" title="My journey.">
-    <div className="relative space-y-6 border-l border-line pl-8">
+    <div ref={ref} className="relative space-y-6 border-l border-line pl-8">
+      <motion.span style={{ scaleY: draw }} className="absolute -left-px top-0 h-full w-px origin-top bg-gradient-to-b from-accent via-accent-2 to-accent-3" />
       {TIMELINE.map((t) => (
         <Reveal key={t.key}>
           <div className="card relative p-6">
@@ -243,27 +293,34 @@ const Experience = () => (
       ))}
     </div>
   </Section>
-)
+  )
+}
 
 /* ---------- contact + footer ---------- */
 const Contact = () => {
   const links = [
-    { Ic: Mail, label: 'Email', value: PROFILE.email, href: `mailto:${PROFILE.email}` },
-    { Ic: MessageCircle, label: 'WhatsApp', value: PROFILE.whatsapp, href: PROFILE.whatsappLink },
-    { Ic: Phone, label: 'Phone', value: PROFILE.phone, href: `tel:${PROFILE.phone.replace(/\s/g, '')}` },
-    { Ic: ArrowUpRight, label: 'LinkedIn', value: PROFILE.linkedinLabel, href: PROFILE.linkedin },
-    { Ic: ArrowUpRight, label: 'GitHub', value: PROFILE.githubLabel, href: PROFILE.github },
-    { Ic: ArrowUpRight, label: 'Fiverr', value: 'fiverr.com/afidevelopers', href: PROFILE.fiverr },
+    { Ic: GmailIcon, label: 'Email', value: PROFILE.email, href: `mailto:${PROFILE.email}`, color: '#EA4335' },
+    { Ic: WhatsAppIcon, label: 'WhatsApp', value: PROFILE.whatsapp, href: PROFILE.whatsappLink, color: '#25D366' },
+    { Ic: Phone, label: 'Phone', value: PROFILE.phone, href: `tel:${PROFILE.phone.replace(/\s/g, '')}`, color: '#8b7cff' },
+    { Ic: LinkedInIcon, label: 'LinkedIn', value: PROFILE.linkedinLabel, href: PROFILE.linkedin, color: '#0A66C2' },
+    { Ic: GithubIcon, label: 'GitHub', value: PROFILE.githubLabel, href: PROFILE.github, color: '#ffffff' },
+    { Ic: FiverrIcon, label: 'Fiverr', value: 'fiverr.com/afidevelopers', href: PROFILE.fiverr, color: '#1DBF73' },
   ]
   return (
     <Section id="contact" eyebrow="Contact" title="Let's build something together.">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {links.map(({ Ic, label, value, href }, i) => (
+        {links.map(({ Ic, label, value, href, color }, i) => (
           <Reveal key={label} delay={(i % 3) * 0.06}>
-            <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" onMouseMove={spotlight} className="card glow relative flex items-center gap-4 p-5">
-              <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-accent/15 text-accent"><Ic size={20} /></span>
-              <span className="min-w-0"><span className="block text-xs text-zinc-500">{label}</span><span className="block truncate text-white">{value}</span></span>
-            </a>
+            <motion.a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" onMouseMove={spotlight}
+              whileHover="hover" whileTap={{ scale: 0.98 }} style={{ '--brand': color }}
+              className="card glow brand-card group relative flex items-center gap-4 p-5">
+              <motion.span variants={{ hover: { scale: 1.12, rotate: -6 } }} transition={{ type: 'spring', stiffness: 350, damping: 14 }}
+                className="brand-icon grid size-12 shrink-0 place-items-center rounded-2xl">
+                <Ic size={22} />
+              </motion.span>
+              <span className="min-w-0 flex-1"><span className="block text-xs text-zinc-500">{label}</span><span className="block truncate text-white">{value}</span></span>
+              <ArrowUpRight size={18} className="shrink-0 text-zinc-600 transition group-hover:text-white" />
+            </motion.a>
           </Reveal>
         ))}
       </div>
