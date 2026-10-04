@@ -1,9 +1,11 @@
 # Usman Ghazanfar — Portfolio v2
 
-Stack: React 19 · Vite · Tailwind CSS v4 · Motion · Lucide · self-hosted variable fonts.
+React 19 · Vite · Tailwind v4 · Motion · pre-rendered for SEO.
 
     npm install
-    npm run dev      # local dev
-    npm run build    # production build -> dist/
+    npm run dev       # local dev
+    npm run build     # build + pre-render static HTML (dist/)
+    npm run preview   # test the production build
 
-All your content (profile, skills, services, projects, timeline) is unchanged in `src/data/content.js`. Edit it there.
+Content lives in `src/data/content.js`. SEO: `index.html` (meta/OG), `scripts/prerender.mjs` (JSON-LD, built from content.js), `public/` (sitemap, robots, manifest, og-image).
+Domain used everywhere: https://usmanghazanfar.vercel.app/

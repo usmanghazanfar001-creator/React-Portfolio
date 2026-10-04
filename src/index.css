@@ -40,3 +40,13 @@ body { @apply bg-ink text-zinc-300 font-sans antialiased; }
 .grid-bg { background-image: linear-gradient(var(--color-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
   background-size: 56px 56px; mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 70%); }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* ---- hero 2D animations ---- */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes ping-ring { 0% { transform: scale(.7); opacity: .55; } 100% { transform: scale(1.35); opacity: 0; } }
+@keyframes run { to { transform: translateX(-50%); } }
+.spin { animation: spin var(--d, 30s) linear infinite; }
+.spin-rev { animation: spin var(--d, 30s) linear infinite reverse; }
+.ping-ring { animation: ping-ring 3.6s ease-out infinite; }
+.run { animation: run 30s linear infinite; width: max-content; }
+.run:hover { animation-play-state: paused; }
