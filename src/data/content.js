@@ -48,7 +48,7 @@ export const ABOUT = {
 
 // Stats are literal counts derived from the real data below — nothing estimated.
 export const STATS = [
-  { label: 'Projects Completed', value: 7, suffix: '' },
+  { label: 'Projects Completed', value: 8, suffix: '' },
   { label: 'Core Technologies', value: 16, suffix: '+' },
   { label: 'Services Offered', value: 6, suffix: '' },
 ];
@@ -136,6 +136,23 @@ export const SERVICES = [
 ];
 
 export const PROJECTS = [
+  {
+    key: 'ma-fabrics',
+    badge: 'Case — E-commerce',
+    title: 'MA Fabrics – Premium Fabric Store',
+    category: 'Web',
+    tags: ['Next.js', 'E-commerce', 'UI/UX'],
+    description:
+      'A premium online storefront for a Lahore-based textile and suiting brand, with shop, collections, gallery and fabric videos.',
+    problem:
+      'A Pakistani fabric brand needed an elegant online presence where customers could browse suiting by category and color, see the fabric in motion, and get help choosing.',
+    solution:
+      'Designed and built a modern Next.js storefront with a shop, curated collections, a photo gallery and fabric videos, plus customer accounts, cart, order tracking and a WhatsApp button for personal fabric advice.',
+    features: ['Shop & curated collections', 'Gallery and fabric videos', 'Cart, accounts & order tracking', 'WhatsApp fabric-advice contact'],
+    link: 'https://ma-fabrics.vercel.app/',
+    linkLabel: 'View Project',
+    linkType: 'demo',
+  },
   {
     key: 'real-estate',
     badge: 'Case — Real Estate',
