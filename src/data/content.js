@@ -34,8 +34,9 @@ export const NAV_LINKS = [
 
 export const ABOUT = {
   intro: [
-    "I'm a motivated, tech-savvy Digital Marketing & Growth Associate based in Faisalabad, Pakistan, blending web design, content strategy and social media marketing with a strong foundation in Artificial Intelligence.",
-    "Currently pursuing an Associate Degree in AI at Punjab Group of Colleges, I use technology and data-driven strategies to drive measurable online growth and real business results — from automating store operations to shipping AI agents and modern websites.",
+    "I'm Usman Ghazanfar, an AI & Web Developer based in Faisalabad, Pakistan. I build things people actually use — from AI agents that run parts of a Shopify store to storefronts, listing sites and web apps — using Python, JavaScript, React, Next.js and n8n.",
+    "My work spans three areas. In AI & automation, I've built a LangChain and LangGraph multi-agent store manager and a Shopify management system that reduce repetitive manual work. In web products, I've shipped the MA Fabrics e-commerce storefront in Next.js, a real estate listing site with SEO built in from launch, the WeatherIQ forecast app and NexSeat, a SaaS for sharing AI tool subscriptions. Underneath it all are solid engineering foundations: DiscreteSolver, a Flask and SQLite learning app, and a Hospital Management System in C++.",
+    "I'm studying for an Associate Degree in Artificial Intelligence at Punjab Group of Colleges (expected 2027) and working at SKILL SIDER, supporting SEO, online marketing and web development — so I build with both engineering and growth in mind. I'm open to work: if you need an AI agent, a workflow automation or a fast, SEO-ready website, let's talk.",
   ],
   interests: [
     'Artificial Intelligence',
