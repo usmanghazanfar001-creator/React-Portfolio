@@ -12,6 +12,7 @@ import {
 } from './data/content'
 import profileImg from './assets/images/profile.webp'
 import Orbit from './components/Orbit'
+import { SITE } from '../site/config'
 import { GithubIcon, WhatsAppIcon, FiverrIcon, GmailIcon, LinkedInIcon } from './components/BrandIcons'
 
 const ICONS = { Code2, BrainCircuit, Globe2, Workflow, Sparkles, LayoutTemplate, Building2 }
@@ -76,8 +77,21 @@ function Navbar() {
         <a href="#home" className="font-display text-lg font-bold text-white">{PROFILE.firstName}<span className="grad-text">.</span></a>
         <ul className="hidden gap-1 md:flex">
           {NAV_LINKS.map((l) => (
-            <li key={l.href}><a href={l.href} className={`rounded-full px-3 py-1.5 text-sm transition ${active === l.href.slice(1) ? 'bg-white/10 text-white' : 'hover:text-white'}`}>{l.label}</a></li>
+            <li key={l.href} className={l.href === '#services' ? 'group relative' : undefined}>
+              <a href={l.href} className={`rounded-full px-3 py-1.5 text-sm transition ${active === l.href.slice(1) ? 'bg-white/10 text-white' : 'hover:text-white'}`}>{l.label}</a>
+              {l.href === '#services' && (
+                <div className="invisible absolute left-0 top-full z-50 w-72 pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                  <ul className="rounded-2xl border border-line bg-ink/95 p-2 backdrop-blur-xl">
+                    <li aria-hidden="true" className="px-3 pb-1 pt-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">AI, automation &amp; development</li>
+                    {SITE.globalPages.map((s) => <li key={s.slug}><a href={`/${s.slug}`} className="block rounded-xl px-3 py-2 text-sm hover:bg-white/5 hover:text-white">{s.label}</a></li>)}
+                    <li aria-hidden="true" className="px-3 pb-1 pt-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">Web design · Sharjah &amp; UAE</li>
+                    {SITE.servicePages.map((s) => <li key={s.slug}><a href={`/${s.slug}`} className="block rounded-xl px-3 py-2 text-sm hover:bg-white/5 hover:text-white">{s.label}</a></li>)}
+                  </ul>
+                </div>
+              )}
+            </li>
           ))}
+          <li><a href="/blog" className="rounded-full px-3 py-1.5 text-sm transition hover:text-white">Blog</a></li>
         </ul>
         <button className="md:hidden" aria-label="Menu" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>{open ? <X size={22} /> : <Menu size={22} />}</button>
       </nav>
@@ -85,7 +99,13 @@ function Navbar() {
         {open && (
           <motion.ul id="mobile-menu" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             className="mx-3 mt-2 rounded-3xl border border-line bg-ink/95 p-3 backdrop-blur-xl md:hidden">
-            {NAV_LINKS.map((l) => <li key={l.href}><a onClick={() => setOpen(false)} href={l.href} className="block rounded-xl px-4 py-3 hover:bg-white/5">{l.label}</a></li>)}
+            {NAV_LINKS.map((l) => (
+              <li key={l.href}>
+                <a onClick={() => setOpen(false)} href={l.href} className="block rounded-xl px-4 py-3 hover:bg-white/5">{l.label}</a>
+                {l.href === '#services' && [...SITE.globalPages, ...SITE.servicePages].map((s) => <a key={s.slug} href={`/${s.slug}`} className="block rounded-xl px-4 py-2.5 pl-8 text-sm text-zinc-400 hover:bg-white/5 hover:text-white">{s.label}</a>)}
+              </li>
+            ))}
+            <li><a href="/blog" className="block rounded-xl px-4 py-3 hover:bg-white/5">Blog</a></li>
           </motion.ul>
         )}
       </AnimatePresence>
@@ -210,6 +230,16 @@ const Services = () => (
         </Reveal>
       ))}
     </div>
+    <Reveal className="mt-10">
+      <p className="text-sm text-zinc-500">AI, automation and development services (worldwide)</p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {SITE.globalPages.map((s) => <a key={s.slug} href={`/${s.slug}`} className="chip transition hover:border-white/30 hover:text-white">{s.label}</a>)}
+      </div>
+      <p className="mt-6 text-sm text-zinc-500">Web services for businesses in Sharjah, Dubai and the UAE</p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {SITE.servicePages.map((s) => <a key={s.slug} href={`/${s.slug}`} className="chip transition hover:border-white/30 hover:text-white">{s.label}</a>)}
+      </div>
+    </Reveal>
   </Section>
 )
 
@@ -265,6 +295,7 @@ function Projects() {
         </AnimatePresence>
       </motion.div>
       <AnimatePresence>{sel && <ProjectModal p={sel} onClose={() => setSel(null)} />}</AnimatePresence>
+      <p className="mt-8 text-sm text-zinc-500"><a href="/portfolio" className="text-accent-2 underline underline-offset-4">Read the full case studies</a></p>
     </Section>
   )
 }
@@ -333,7 +364,32 @@ function Footer() {
   useEffect(() => { const f = () => setShow(window.scrollY > 600); window.addEventListener('scroll', f, { passive: true }); return () => window.removeEventListener('scroll', f) }, [])
   return (
     <>
-      <footer className="border-t border-line py-8 text-center text-sm text-zinc-500">© {new Date().getFullYear()} {PROFILE.name} · {PROFILE.location}</footer>
+      <footer className="border-t border-line text-sm text-zinc-500">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <p className="font-display text-xl font-bold text-white">{PROFILE.name}</p>
+            <p className="mt-3 leading-relaxed">AI automation and web development for businesses worldwide, including Sharjah, Dubai and the UAE.</p>
+          </div>
+          <nav aria-label="AI and development services">
+            <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-white">AI &amp; Development</h2>
+            <ul className="mt-4 space-y-2">{SITE.globalPages.map((s) => <li key={s.slug}><a href={`/${s.slug}`} className="hover:text-white">{s.label}</a></li>)}</ul>
+          </nav>
+          <nav aria-label="Web design services">
+            <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-white">Web Design · UAE</h2>
+            <ul className="mt-4 space-y-2">{SITE.servicePages.map((s) => <li key={s.slug}><a href={`/${s.slug}`} className="hover:text-white">{s.label}</a></li>)}</ul>
+          </nav>
+          <nav aria-label="Company">
+            <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-white">Company</h2>
+            <ul className="mt-4 space-y-2">
+              <li><a href="/portfolio" className="hover:text-white">Portfolio &amp; case studies</a></li>
+              <li><a href="/blog" className="hover:text-white">Blog</a></li>
+              <li><a href="/about" className="hover:text-white">About</a></li>
+              <li><a href="/contact" className="hover:text-white">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <p className="border-t border-line py-6 text-center">© {new Date().getFullYear()} {PROFILE.name} · {PROFILE.location}</p>
+      </footer>
       <AnimatePresence>
         {show && (
           <motion.button initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.7 }} aria-label="Back to top"
