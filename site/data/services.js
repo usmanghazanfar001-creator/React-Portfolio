@@ -37,6 +37,13 @@ export const SERVICE_PAGES = [
           `Audiences in the UAE are multilingual, so I plan your site structure to leave room for English and Arabic, including right-to-left layouts. If Arabic is on your roadmap, tell me early and I will design the foundation so you are not forced into a rebuild later.`,
         ],
       },
+      {
+        h2: 'What makes a business website convert',
+        paragraphs: [
+          `A website that looks good but does not produce enquiries has failed at its main job. The pages that convert tend to share a few traits. They state clearly, near the top, what you do and which area you serve. They show proof such as real projects, reviews or recognisable clients. They give each page one primary action instead of five competing buttons. And they make contact effortless, with a phone number, WhatsApp button and short form always within reach.`,
+          `I design with these principles in mind and then test them on real screen sizes before launch, so you are not guessing whether a visitor in Sharjah can find your number on a small phone in bright sunlight.`,
+        ],
+      },
     ],
     servicesHeading: 'What is included in a web design project',
     services: [
@@ -106,6 +113,13 @@ export const SERVICE_PAGES = [
         paragraphs: [
           `[MA Fabrics](/portfolio) is a premium online storefront I built in Next.js for a Lahore-based textile brand. It includes a shop, curated collections, a photo gallery, fabric videos, customer accounts, a cart, order tracking and a WhatsApp button for personal fabric advice. It is the same catalogue-plus-advice experience that many UAE retailers need.`,
           `I have also built an AI-powered Shopify management system and a multi-agent store manager using LangChain and LangGraph. They automate repetitive work such as product research, SEO, listing generation, customer support and analytics, so store owners can spend their time on growth instead of admin. If you already run a Shopify store, that automation experience can be added to it.`,
+        ],
+      },
+      {
+        h2: 'Choosing the right platform for your store',
+        paragraphs: [
+          `There is no single best platform for every shop. A custom Next.js storefront gives you the fastest pages and complete control over design and checkout, which suits brands that want a distinctive experience. An existing Shopify store can be a sensible base when you want a hosted solution and plenty of ready-made apps, and I can add automation and improvements on top of it.`,
+          `The right answer depends on the size of your catalogue, your budget, how often you will update products and who will manage the store day to day. I recommend the option that fits those facts, and I will tell you plainly if a simpler setup would serve you better than a fully custom build.`,
         ],
       },
     ],
@@ -178,6 +192,13 @@ export const SERVICE_PAGES = [
           `Most slow, fragile WordPress sites share the same problems: a heavy page-builder theme, dozens of overlapping plugins and oversized images. I start with a lightweight theme or a custom one, keep plugins to the few that earn their place, compress and resize images and configure caching so pages respond quickly.`,
           `Security and reliability are part of the build rather than an afterthought. That means sensible login protection, regular updates, automated backups and a staging copy where changes can be tested before they reach your live site. For a business in Dubai, where customers judge you quickly, a site that is down or hacked costs more than the time it takes to prevent it.`,
           `Dubai audiences are international, so many sites need English and Arabic versions. WordPress has mature multilingual plugins that handle translated pages and right-to-left layouts, and I plan the structure for this at the beginning, along with hosting that places your site close to your visitors, through a nearby data centre or a content delivery network.`,
+        ],
+      },
+      {
+        h2: 'Moving to WordPress from another platform',
+        paragraphs: [
+          `Many businesses reach WordPress after outgrowing a drag-and-drop builder or an old custom site. A move is straightforward when it is planned: I export your content, rebuild your key pages in a clean theme and map every old address to its new one with permanent redirects, so you keep the search visibility you have already earned.`,
+          `The new site is built and tested on a private staging copy first, so your live website stays untouched until everything has been checked, from forms and menus to mobile layouts and page speed.`,
         ],
       },
     ],
@@ -257,6 +278,13 @@ export const SERVICE_PAGES = [
           `The biggest risk in any redesign is traffic loss. When pages change address, titles disappear or content is thinned out, Google can drop pages you spent years building. I treat SEO as part of the redesign brief, not a clean-up job afterwards.`,
           `Before changing anything I record your current pages, the keywords and URLs that bring visitors and the content that performs. I keep what works, improve what does not, and set up permanent redirects from every old address to its new equivalent so visitors and search engines land in the right place. The new site is built on a private staging copy and checked thoroughly before it replaces the live one.`,
           `After launch I check Google Search Console for crawl errors, confirm the new sitemap is processed and watch your key pages in the first weeks so any dip is spotted and fixed early rather than discovered months later.`,
+        ],
+      },
+      {
+        h2: 'What stays and what changes',
+        paragraphs: [
+          `A redesign does not have to mean starting from zero. Your logo, brand colours and best-performing content often carry over, while the layout, navigation, page speed and technical foundations are rebuilt. The audit tells us which pages earn traffic and enquiries today, so those are protected, and which pages are thin, outdated or duplicated and should be merged or removed.`,
+          `You stay involved at every stage through a private preview link, so there are no surprises on launch day and every change has a clear reason behind it.`,
         ],
       },
     ],
