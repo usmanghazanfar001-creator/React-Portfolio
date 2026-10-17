@@ -9,7 +9,8 @@ import { esc } from '../html.js'
 const showPlaceholders = () => process.env.SHOW_PLACEHOLDERS === '1'
 const liveTestimonials = () => TESTIMONIALS.filter((t) => showPlaceholders() || !t.placeholder)
 
-const serviceCards = () => SERVICE_PAGES.map((x) => ({ href: '/' + x.slug, title: x.nav, text: x.blurb }))
+const FEATURED = ['web-design-sharjah', 'ecommerce-website-development-uae', 'ai-automation-services', 'ai-agent-development', 'nextjs-web-development', 'shopify-automation-services']
+const serviceCards = () => FEATURED.map((s) => SERVICE_PAGES.find((x) => x.slug === s)).map((x) => ({ href: '/' + x.slug, title: x.nav, text: x.blurb }))
 
 function testimonialsSection() {
   const list = liveTestimonials()
@@ -81,8 +82,8 @@ ${s.bullets ? ul(s.bullets) : ''}
   return `${pageHeader({
     crumbs: [{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }],
     eyebrow: 'About',
-    h1: 'About Usman Ghazanfar, Web Developer for UAE Businesses',
-    lead: 'I design and build fast, search-friendly websites for businesses in Sharjah, Dubai and across the UAE, and I automate the repetitive work around them.',
+    h1: 'About Usman Ghazanfar, AI and Web Developer',
+    lead: 'I build fast, search-friendly websites and AI-powered automation for businesses worldwide, including clients in Sharjah, Dubai and across the UAE.',
   })}
 <div class="mx-auto max-w-3xl px-5">
 ${img ? `<img src="${img}" width="640" height="640" alt="Portrait of Usman Ghazanfar, web designer and developer" decoding="async" fetchpriority="high" class="mt-2 size-40 rounded-full border-4 border-ink object-cover object-top sm:size-48" />` : ''}
@@ -191,8 +192,8 @@ export const trustPages = (assets) => [
   },
   {
     path: '/about',
-    title: 'About Usman Ghazanfar | Web Developer for UAE Businesses',
-    description: 'Meet Usman Ghazanfar: a web designer and developer building fast, SEO-ready websites and automation for businesses in Sharjah, Dubai and the UAE.',
+    title: 'About Usman Ghazanfar | AI & Web Developer',
+    description: 'Meet Usman Ghazanfar: an AI and web developer building automation, AI agents and fast, SEO-ready websites for clients worldwide and in the UAE.',
     body: aboutBody(assets),
     schema: [{ '@type': 'AboutPage', '@id': abs('/about') + '#page', url: abs('/about'), name: 'About Usman Ghazanfar', mainEntity: { '@id': ids.person } }, personNode()],
   },

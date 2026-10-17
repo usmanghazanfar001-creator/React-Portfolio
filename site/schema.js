@@ -9,6 +9,7 @@ export const ids = {
 }
 
 const areaServed = [
+  'Worldwide',
   { '@type': 'AdministrativeArea', name: 'Sharjah' },
   { '@type': 'City', name: 'Dubai' },
   { '@type': 'Country', name: 'United Arab Emirates' },
@@ -19,12 +20,12 @@ export function businessNode({ withCatalog = false } = {}) {
   const node = {
     '@type': 'ProfessionalService',
     '@id': ids.business,
-    name: `${PROFILE.name} — Web Design & Development`, // TODO(owner): use your registered business name if you have one
+    name: `${PROFILE.name} — AI Automation & Web Development`, // TODO(owner): use your registered business name if you have one
     url: abs('/'),
     logo: { '@type': 'ImageObject', url: abs('/icon-512.png'), width: 512, height: 512 }, // TODO(owner): replace with your real logo file
     image: abs(SITE.ogImage),
     description:
-      'Web design, e-commerce, WordPress and website redesign services for businesses in Sharjah, Dubai and across the UAE.',
+      'AI automation, AI agents, n8n workflows, Next.js development and web design for businesses worldwide, including Sharjah, Dubai and the UAE.',
     email: PROFILE.email,
     telephone: PROFILE.phone.replace(/\s/g, ''),
     // Address below is the one already published on the site (Faisalabad, Pakistan).

@@ -6,7 +6,9 @@
 //  * WordPress is not listed in your skills/projects on the home page. The WordPress page assumes you offer it.
 //  * Process/timeline statements are generic. Edit them to match how you actually work.
 
-export const SERVICE_PAGES = [
+import { GLOBAL_SERVICE_PAGES } from './global-services.js'
+
+const UAE_PAGES = [
   /* ------------------------------------------------------------------ */
   {
     slug: 'web-design-sharjah',
@@ -329,4 +331,10 @@ export const SERVICE_PAGES = [
     },
     blogSlugs: ['web-design-trends-in-the-uae', 'how-to-choose-a-web-design-company-in-sharjah'],
   },
+]
+
+// All service landing pages. `group` drives nav/footer grouping: 'uae' (Sharjah/UAE web services) or 'global' (AI, automation, dev).
+export const SERVICE_PAGES = [
+  ...UAE_PAGES.map((p) => ({ group: 'uae', ...p })),
+  ...GLOBAL_SERVICE_PAGES.map((p) => ({ group: 'global', ...p })),
 ]

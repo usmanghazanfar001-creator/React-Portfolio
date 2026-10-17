@@ -33,8 +33,9 @@ ${h2(page.stepsHeading, 'process')}
     )
     .join('')}</ol></section>`
 
-  const others = SERVICE_PAGES.filter((x) => x.slug !== page.slug).map((x) => ({ href: '/' + x.slug, title: x.nav, text: x.blurb }))
-  const posts = page.blogSlugs.map((s) => POSTS.find((x) => x.slug === s)).map((x) => ({ href: '/blog/' + x.slug, title: x.title, text: x.metaDescription }))
+  const pool = page.related ? page.related.map((s) => SERVICE_PAGES.find((x) => x.slug === s)) : SERVICE_PAGES.filter((x) => x.group === page.group && x.slug !== page.slug)
+  const others = pool.map((x) => ({ href: '/' + x.slug, title: x.nav, text: x.blurb }))
+  const posts = (page.blogSlugs || []).map((s) => POSTS.find((x) => x.slug === s)).map((x) => ({ href: '/blog/' + x.slug, title: x.title, text: x.metaDescription }))
 
   return `${pageHeader({
     crumbs: [{ name: 'Home', path: '/' }, { name: page.nav, path: '/' + page.slug }],
@@ -48,7 +49,7 @@ ${steps}
 ${faqBlock(page.faqs)}
 ${ctaBlock(page.cta)}
 ${linkCards(others, 'Other services', 'other-services')}
-${linkCards(posts, 'Helpful guides', 'guides')}`
+${posts.length ? linkCards(posts, 'Helpful guides', 'guides') : ''}`
 }
 
 export const servicePages = () =>

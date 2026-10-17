@@ -57,10 +57,10 @@ const menuIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
 
 export function nav(activePath = '') {
   const cur = (p) => (p === activePath ? ' aria-current="page"' : '')
-  const svc = SITE.servicePages
-    .map((s) => `<li><a href="/${s.slug}"${cur('/' + s.slug)} class="block rounded-xl px-3 py-2 text-sm hover:bg-white/5 hover:text-white">${esc(s.label)}</a></li>`)
-    .join('')
-  const mobileSvc = SITE.servicePages
+  const item = (s) => `<li><a href="/${s.slug}"${cur('/' + s.slug)} class="block rounded-xl px-3 py-2 text-sm hover:bg-white/5 hover:text-white">${esc(s.label)}</a></li>`
+  const groupLabel = (t) => `<li class="px-3 pb-1 pt-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500" aria-hidden="true">${t}</li>`
+  const svc = groupLabel('AI, automation &amp; development') + SITE.globalPages.map(item).join('') + groupLabel('Web design · Sharjah &amp; UAE') + SITE.servicePages.map(item).join('')
+  const mobileSvc = [...SITE.globalPages, ...SITE.servicePages]
     .map((s) => `<li><a href="/${s.slug}"${cur('/' + s.slug)} class="block rounded-xl px-4 py-2.5 pl-8 text-sm text-zinc-400 hover:bg-white/5 hover:text-white">${esc(s.label)}</a></li>`)
     .join('')
   const top = (href, label) => `<li><a href="${href}"${cur(href)} class="${link}${href === activePath ? ' bg-white/10 text-white' : ''}">${label}</a></li>`
@@ -90,10 +90,12 @@ export function footer() {
   const col = 'mt-4 space-y-2 text-sm'
   const a = 'text-zinc-400 hover:text-white'
   return `<footer class="mt-24 border-t border-line">
-<div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
+<div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-5">
 <div><p class="font-display text-xl font-bold text-white">${esc(PROFILE.name)}</p>
-<p class="mt-3 text-sm leading-relaxed text-zinc-500">Web design and development for businesses in Sharjah, Dubai and across the UAE.</p></div>
-<nav aria-label="Services"><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">Services</h2>
+<p class="mt-3 text-sm leading-relaxed text-zinc-500">AI automation and web development for businesses worldwide, including Sharjah, Dubai and the UAE.</p></div>
+<nav aria-label="AI and development services"><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">AI &amp; Development</h2>
+<ul class="${col}">${SITE.globalPages.map((s) => `<li><a class="${a}" href="/${s.slug}">${esc(s.label)}</a></li>`).join('')}</ul></nav>
+<nav aria-label="Web design services"><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">Web Design · UAE</h2>
 <ul class="${col}">${SITE.servicePages.map((s) => `<li><a class="${a}" href="/${s.slug}">${esc(s.label)}</a></li>`).join('')}</ul></nav>
 <nav aria-label="Company"><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">Company</h2>
 <ul class="${col}"><li><a class="${a}" href="/portfolio">Portfolio &amp; case studies</a></li><li><a class="${a}" href="/blog">Blog</a></li><li><a class="${a}" href="/about">About</a></li><li><a class="${a}" href="/contact">Contact</a></li></ul></nav>

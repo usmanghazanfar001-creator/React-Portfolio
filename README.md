@@ -16,7 +16,8 @@ The home page is the React app (`src/`). Every other page is **statically genera
 | Path | What it is | Edit here |
 | --- | --- | --- |
 | `/` | React SPA + build-time crawlable fallback + JSON-LD | `src/`, `index.html`, `seo-plugin.js`, `src/data/content.js` |
-| `/web-design-sharjah`, `/ecommerce-website-development-uae`, `/wordpress-development-dubai`, `/website-redesign-uae` | Service landing pages (Service + FAQPage schema) | `site/data/services.js` |
+| `/web-design-sharjah`, `/ecommerce-website-development-uae`, `/wordpress-development-dubai`, `/website-redesign-uae` | UAE service landing pages (Service + FAQPage schema) | `site/data/services.js` |
+| `/ai-automation-services`, `/ai-agent-development`, `/n8n-workflow-automation`, `/shopify-automation-services`, `/nextjs-web-development`, `/portfolio-website-design` | Worldwide service landing pages | `site/data/global-services.js` |
 | `/blog`, `/blog/<slug>` | Blog (BlogPosting schema) | `site/data/posts.js` |
 | `/portfolio`, `/about`, `/contact` | Trust pages | `site/pages/trust.js`, `site/data/trust.js` |
 | `/sitemap.xml`, `/robots.txt`, `/404` | Generated on every build | `seo-plugin.js` |
