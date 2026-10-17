@@ -2,8 +2,13 @@
 // Single source of truth = src/data/content.js. At build (and dev) time it:
 //   1. injects crawlable, semantic HTML into #root (React replaces it on load),
 //   2. injects JSON-LD structured data (WebSite, ProfilePage, Person, Services, Projects),
-//   3. emits sitemap.xml with a fresh <lastmod>.
+//   3. emits sitemap.xml (home + every generated page) with a fresh <lastmod> and robots.txt,
+//   4. statically generates the service / blog / about / contact / portfolio pages from ./site (see site/build-pages.js),
+//   5. preloads the critical latin web fonts on every page (fewer layout shifts).
 import { PROFILE, NAV_LINKS, ABOUT, SKILL_GROUPS, SERVICES, PROJECTS, TIMELINE } from './src/data/content.js'
+import { SITE } from './site/config.js'
+import { buildPages } from './site/build-pages.js'
+import { businessNode } from './site/schema.js'
 
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const ul = (items) => `<ul>${items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`
@@ -19,7 +24,7 @@ function fallbackHtml() {
   const skills = SKILL_GROUPS.map((g) => `<article><h3>${esc(g.title)}</h3><p>${esc(g.description)}</p>${ul(g.items)}</article>`).join('')
   const timeline = TIMELINE.map((t) => `<article><h3>${esc(t.title)}</h3><p>${esc(t.place)} · ${esc(t.date)}</p>${ul(t.bullets)}</article>`).join('')
   return `<div class="seo-static" style="max-width:56rem;margin:0 auto;padding:6rem 1.25rem;font-family:system-ui,sans-serif;line-height:1.6;color:#d4d4d8">
-<header><nav aria-label="Main">${NAV_LINKS.map((l) => `<a href="${l.href}">${esc(l.label)}</a>`).join(' · ')}</nav></header>
+<header><nav aria-label="Main">${NAV_LINKS.map((l) => `<a href="${l.href}">${esc(l.label)}</a>`).join(' · ')} · ${SITE.servicePages.map((s) => `<a href="/${s.slug}">${esc(s.label)}</a>`).join(' · ')} · <a href="/portfolio">Portfolio</a> · <a href="/blog">Blog</a> · <a href="/about">About</a> · <a href="/contact">Contact</a></nav></header>
 <main>
 <section id="home"><h1>${esc(PROFILE.name)} — ${esc(PROFILE.title)} in ${esc(PROFILE.location)}</h1><p>${esc(PROFILE.tagline)}</p></section>
 <section id="about"><h2>About ${esc(PROFILE.name)}</h2>${ABOUT.intro.map((p) => `<p>${esc(p)}</p>`).join('')}<h3>Interests</h3>${ul(ABOUT.interests)}</section>
@@ -57,15 +62,7 @@ function jsonLd() {
       alumniOf: { '@type': 'EducationalOrganization', name: 'Punjab Group of Colleges' },
       sameAs: [PROFILE.linkedin, PROFILE.github, PROFILE.fiverr],
     },
-    {
-      '@type': 'ProfessionalService', '@id': url + '#service', name: `${PROFILE.name} — AI & Web Development`, url,
-      image: PROFILE.siteUrl + '/og-image.png', provider: { '@id': personId },
-      areaServed: 'Worldwide', address: { '@type': 'PostalAddress', addressLocality: 'Faisalabad', addressCountry: 'PK' },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog', name: 'Services',
-        itemListElement: SERVICES.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.title, description: s.description } })),
-      },
-    },
+    businessNode({ withCatalog: true }), // ProfessionalService (LocalBusiness) — areaServed Sharjah, Dubai, UAE; see site/schema.js
     {
       '@type': 'ItemList', '@id': url + '#projects', name: 'Selected projects',
       itemListElement: PROJECTS.map((p, i) => ({
@@ -80,6 +77,23 @@ function jsonLd() {
 import fs from 'node:fs'
 import path from 'node:path'
 
+const FONT_RE = /^(inter|space-grotesk)-latin-wght-normal-.+\.woff2$/
+
+// Reads the freshly built dist/index.html to learn the hashed CSS / font / image file names.
+function discoverAssets(outDir) {
+  const indexHtml = fs.readFileSync(path.join(outDir, 'index.html'), 'utf8')
+  const files = fs.existsSync(path.join(outDir, 'assets')) ? fs.readdirSync(path.join(outDir, 'assets')) : []
+  const css = [...indexHtml.matchAll(/<link rel="stylesheet"[^>]*>/g)].map((m) => m[0])
+  const fonts = files.filter((f) => FONT_RE.test(f)).map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`)
+  const profile = files.find((f) => /^profile-.+\.webp$/.test(f))
+  return { headHtml: [...fonts, ...css].join('\n'), preloadHtml: fonts.join('\n'), profileImg: profile ? `/assets/${profile}` : null }
+}
+
+const devAssets = {
+  headHtml: `<script type="module">import '/src/index.css'</script>`,
+  profileImg: '/src/assets/images/profile.webp',
+}
+
 export default function seoPlugin() {
   let outDir = 'dist'
   return {
@@ -91,22 +105,51 @@ export default function seoPlugin() {
       },
     },
     configResolved(cfg) { outDir = path.resolve(cfg.root, cfg.build.outDir) },
+    // Dev only: serve the generated pages too (restart `vite` after editing files in ./site).
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const url = (req.url || '/').split('?')[0].replace(/\/$/, '') || '/'
+        if (url === '/' || /\.[a-z0-9]+$/i.test(url)) return next()
+        const page = buildPages(devAssets).find((pg) => pg.path === url)
+        if (!page) return next()
+        res.setHeader('Content-Type', 'text/html; charset=utf-8')
+        res.end(page.html)
+      })
+    },
     // closeBundle runs AFTER public/ is copied, so stale public/sitemap.xml or
     // public/robots.txt files can never override these generated ones.
     closeBundle() {
       const lastmod = new Date().toISOString().slice(0, 10)
+      const assets = discoverAssets(outDir)
+
+      // 1. preload critical fonts on the home page too
+      const homeFile = path.join(outDir, 'index.html')
+      const home = fs.readFileSync(homeFile, 'utf8')
+      if (assets.preloadHtml && !home.includes('rel="preload" href="/assets/inter-latin')) {
+        fs.writeFileSync(homeFile, home.replace('</head>', `${assets.preloadHtml}\n</head>`))
+      }
+
+      // 2. generate every other page (service pages, blog, about, contact, portfolio, 404)
+      const pages = buildPages(assets)
+      for (const pg of pages) {
+        const target = path.join(outDir, pg.file)
+        fs.mkdirSync(path.dirname(target), { recursive: true })
+        fs.writeFileSync(target, pg.html)
+      }
+
+      // 3. robots.txt + sitemap.xml (home + all indexable generated pages)
       fs.writeFileSync(path.join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${PROFILE.siteUrl}/sitemap.xml\n`)
-      fs.writeFileSync(path.join(outDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>${PROFILE.siteUrl}/</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <image:image><image:loc>${PROFILE.siteUrl}/og-image.png</image:loc></image:image>
-  </url>
-</urlset>
-`)
+      const urls = [
+        { loc: `${PROFILE.siteUrl}/`, lastmod, priority: '1.0' },
+        ...pages.filter((pg) => pg.indexable).map((pg) => ({ loc: `${PROFILE.siteUrl}${pg.path}`, lastmod: pg.lastmod, priority: pg.path.startsWith('/blog/') ? '0.6' : '0.8' })),
+      ]
+      fs.writeFileSync(
+        path.join(outDir, 'sitemap.xml'),
+        `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
+          .map((u) => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <priority>${u.priority}</priority>\n  </url>`)
+          .join('\n')}\n</urlset>\n`,
+      )
+      console.log(`[portfolio-seo] generated ${pages.length} pages + sitemap.xml (${urls.length} URLs) + robots.txt`)
     },
   }
 }
