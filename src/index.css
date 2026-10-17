@@ -1,6 +1,8 @@
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/space-grotesk';
 @import 'tailwindcss';
+/* The statically generated pages (service pages, blog, about, contact, portfolio) are plain JS templates in ./site; make sure Tailwind scans them. */
+@source "../site";
 
 @theme {
   --font-sans: 'Inter Variable', system-ui, sans-serif;

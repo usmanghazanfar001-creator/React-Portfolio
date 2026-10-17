@@ -88,3 +88,23 @@ export const articleNode = (post) => ({
 })
 
 export const graph = (...nodes) => ({ '@context': 'https://schema.org', '@graph': nodes.flat().filter(Boolean) })
+
+// Person node for About / ProfilePage-style pages (same @id as the home page graph).
+export const personNode = () => ({
+  '@type': 'Person',
+  '@id': ids.person,
+  name: PROFILE.name,
+  jobTitle: 'Web Designer & Developer',
+  url: abs('/'),
+  image: abs('/icon-512.png'),
+  email: `mailto:${PROFILE.email}`,
+  sameAs: [PROFILE.linkedin, PROFILE.github, PROFILE.fiverr, ...SITE.extraSameAs],
+  alumniOf: { '@type': 'EducationalOrganization', name: 'Punjab Group of Colleges' },
+})
+
+export const reviewNode = (t) => ({
+  '@type': 'Review',
+  reviewBody: t.quote,
+  author: { '@type': 'Person', name: t.name },
+  itemReviewed: { '@id': ids.business },
+})
