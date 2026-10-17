@@ -8,7 +8,8 @@
 import { PROFILE, NAV_LINKS, ABOUT, SKILL_GROUPS, SERVICES, PROJECTS, TIMELINE } from './src/data/content.js'
 import { SITE } from './site/config.js'
 import { buildPages } from './site/build-pages.js'
-import { businessNode } from './site/schema.js'
+import { businessNode, serviceNode } from './site/schema.js'
+import { SERVICE_PAGES } from './site/data/services.js'
 
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 const ul = (items) => `<ul>${items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>`
@@ -60,9 +61,10 @@ function jsonLd() {
       address: { '@type': 'PostalAddress', addressLocality: 'Faisalabad', addressRegion: 'Punjab', addressCountry: 'PK' },
       knowsAbout: [...new Set(SKILL_GROUPS.flatMap((g) => g.items))],
       alumniOf: { '@type': 'EducationalOrganization', name: 'Punjab Group of Colleges' },
-      sameAs: [PROFILE.linkedin, PROFILE.github, PROFILE.fiverr],
+      sameAs: [PROFILE.linkedin, PROFILE.github, PROFILE.fiverr, ...SITE.extraSameAs],
     },
     businessNode({ withCatalog: true }), // ProfessionalService (LocalBusiness) — areaServed Sharjah, Dubai, UAE; see site/schema.js
+    ...SERVICE_PAGES.map(serviceNode), // one Service entity per landing page
     {
       '@type': 'ItemList', '@id': url + '#projects', name: 'Selected projects',
       itemListElement: PROJECTS.map((p, i) => ({
@@ -126,7 +128,10 @@ export default function seoPlugin() {
       const homeFile = path.join(outDir, 'index.html')
       const home = fs.readFileSync(homeFile, 'utf8')
       if (assets.preloadHtml && !home.includes('rel="preload" href="/assets/inter-latin')) {
-        fs.writeFileSync(homeFile, home.replace('</head>', `${assets.preloadHtml}\n</head>`))
+        // The hero portrait is drawn by React, so the browser would only discover it after the JS bundle runs.
+        // Preloading it (27 KB WebP) lets it download in parallel and improves LCP.
+        const heroPreload = assets.profileImg ? `\n<link rel="preload" as="image" type="image/webp" href="${assets.profileImg}" fetchpriority="high" />` : ''
+        fs.writeFileSync(homeFile, home.replace('</head>', `${assets.preloadHtml}${heroPreload}\n</head>`))
       }
 
       // 2. generate every other page (service pages, blog, about, contact, portfolio, 404)
