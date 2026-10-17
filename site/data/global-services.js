@@ -80,6 +80,7 @@ export const GLOBAL_SERVICE_PAGES = [
       text: 'Describe the process you would most like to stop doing by hand and I will tell you whether it can be automated, how and roughly what it involves.',
     },
     related: ['ai-agent-development', 'n8n-workflow-automation', 'shopify-automation-services'],
+    blogSlugs: ['ai-agents-vs-chatbots-vs-workflows', 'n8n-vs-zapier-vs-make'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -157,6 +158,7 @@ export const GLOBAL_SERVICE_PAGES = [
       text: 'Tell me what the task involves and what a good result looks like, and I will advise whether an agent, a workflow or something simpler is the right tool.',
     },
     related: ['ai-automation-services', 'n8n-workflow-automation', 'shopify-automation-services'],
+    blogSlugs: ['ai-agents-vs-chatbots-vs-workflows'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -241,6 +243,7 @@ export const GLOBAL_SERVICE_PAGES = [
       text: 'Tell me which apps you use and what you want to happen between them, and I will outline a workflow and what it would take to build it.',
     },
     related: ['ai-automation-services', 'shopify-automation-services', 'ai-agent-development'],
+    blogSlugs: ['n8n-vs-zapier-vs-make', 'ai-agents-vs-chatbots-vs-workflows'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -324,6 +327,7 @@ export const GLOBAL_SERVICE_PAGES = [
       text: 'Send me the tasks that take most of your week and I will suggest what to automate first.',
     },
     related: ['ai-automation-services', 'ecommerce-website-development-uae', 'n8n-workflow-automation'],
+    blogSlugs: ['how-to-automate-shopify-store-with-ai'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -400,6 +404,7 @@ export const GLOBAL_SERVICE_PAGES = [
       text: 'Describe what you want to build and who it is for, and I will reply with a plan and a quote.',
     },
     related: ['portfolio-website-design', 'ecommerce-website-development-uae', 'website-redesign-uae'],
+    blogSlugs: ['nextjs-vs-wordpress-for-business-websites'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -484,5 +489,6 @@ export const GLOBAL_SERVICE_PAGES = [
       text: 'Tell me about your work and who you want to reach, and I will propose a design, a timeline and a quote.',
     },
     related: ['nextjs-web-development', 'web-design-sharjah', 'website-redesign-uae'],
+    blogSlugs: ['nextjs-vs-wordpress-for-business-websites'],
   },
 ]

@@ -2,7 +2,9 @@
 // TODO(owner): after reading each post, add your own real examples (e.g. a real project timeline or price range).
 // Posts that say "from AED X" with real numbers tend to rank and convert better for "how much" searches.
 
-export const POSTS = [
+import { GLOBAL_POSTS } from './posts-global.js'
+
+const UAE_POSTS = [
   /* ------------------------------------------------------------------ */
   {
     slug: 'how-much-does-a-website-cost-in-sharjah',
@@ -317,3 +319,6 @@ export const POSTS = [
     relatedServices: ['web-design-sharjah', 'website-redesign-uae'],
   },
 ]
+
+// All posts, in display order (newest topics first on the index page).
+export const POSTS = [...GLOBAL_POSTS, ...UAE_POSTS]

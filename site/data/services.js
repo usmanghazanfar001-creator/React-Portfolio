@@ -242,7 +242,7 @@ const UAE_PAGES = [
       heading: 'Need a WordPress site that stays fast and easy to manage?',
       text: 'Send me a few details about your project, or the address of the WordPress site you want fixed, and I will reply with a clear recommendation and a quote.',
     },
-    blogSlugs: ['how-to-choose-a-web-design-company-in-sharjah', 'web-design-trends-in-the-uae'],
+    blogSlugs: ['how-to-choose-a-web-design-company-in-sharjah', 'web-design-trends-in-the-uae', 'nextjs-vs-wordpress-for-business-websites'],
   },
 
   /* ------------------------------------------------------------------ */

@@ -21,7 +21,11 @@ ${(s.h3s || []).map((x) => `${h3(x.h3)}\n${x.paragraphs.map(p).join('\n')}`).joi
 
   const related = [
     ...post.relatedServices.map((s) => SERVICE_PAGES.find((x) => x.slug === s)).map((s) => ({ href: '/' + s.slug, title: s.nav, text: s.blurb })),
-    ...POSTS.filter((x) => x.slug !== post.slug).slice(0, 2).map((x) => ({ href: '/blog/' + x.slug, title: x.title, text: x.metaDescription })),
+    ...POSTS.filter((x) => x.slug !== post.slug)
+      .map((x) => ({ x, score: x.relatedServices.filter((s) => post.relatedServices.includes(s)).length + (x.category === post.category ? 1 : 0) }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 2)
+      .map(({ x }) => ({ href: '/blog/' + x.slug, title: x.title, text: x.metaDescription })),
   ].slice(0, 4)
 
   return `${pageHeader({
@@ -45,29 +49,29 @@ function indexBody() {
   return `${pageHeader({
     crumbs: [{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }],
     eyebrow: 'Blog',
-    h1: 'Web Design Insights for Businesses in Sharjah and the UAE',
-    lead: 'Practical guides on website costs, design trends and choosing the right developer, written for business owners rather than for other developers.',
+    h1: 'Guides on AI Automation, Web Development and Web Design',
+    lead: 'Practical guides on AI agents, workflow automation, Shopify, Next.js and web design, written for business owners rather than for other developers.',
   })}
 ${linkCards(
     POSTS.map((x) => ({ href: '/blog/' + x.slug, title: x.title, text: x.metaDescription })),
     'Latest articles',
     'posts',
   )}
-${wrap(`${p('Looking for help rather than reading? See my [web design service for Sharjah businesses](/web-design-sharjah) or [get in touch](/contact).')}`, 'max-w-4xl')}`
+${wrap(`${p('Looking for help rather than reading? See my [AI automation services](/ai-automation-services), my [web design service for Sharjah businesses](/web-design-sharjah) or [get in touch](/contact).')}`, 'max-w-4xl')}`
 }
 
 export const blogPages = () => [
   {
     path: '/blog',
-    title: 'Web Design Blog for UAE Businesses | Usman Ghazanfar',
-    description: 'Guides on website costs, web design trends and choosing a developer in Sharjah and the UAE, written for business owners.',
+    title: 'AI Automation & Web Design Blog | Usman Ghazanfar',
+    description: 'Practical guides on AI automation, n8n, Shopify, Next.js and web design, plus website costs and trends for businesses in Sharjah and the UAE.',
     body: indexBody(),
     schema: [
       {
         '@type': 'Blog',
         '@id': abs('/blog') + '#blog',
         url: abs('/blog'),
-        name: 'Web design insights for businesses in Sharjah and the UAE',
+        name: 'AI automation and web design guides',
         publisher: { '@id': ids.business },
         blogPost: POSTS.map((x) => ({ '@type': 'BlogPosting', '@id': abs('/blog/' + x.slug) + '#article', headline: x.title, url: abs('/blog/' + x.slug), datePublished: x.published })),
       },
