@@ -1,8 +1,6 @@
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/space-grotesk';
 @import 'tailwindcss';
-/* The statically generated pages (service pages, blog, about, contact, portfolio) are plain JS templates in ./site; make sure Tailwind scans them. */
-@source "../site";
 
 @theme {
   --font-sans: 'Inter Variable', system-ui, sans-serif;
@@ -92,3 +90,14 @@ body { @apply bg-ink text-zinc-300 font-sans antialiased; }
 .planet-in:hover .planet-tip, .planet-in:focus-visible .planet-tip { opacity: 1; }
 .star { position: absolute; border-radius: 50%; background: #fff; animation: twinkle 4s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* ---- mobile stability / performance ---- */
+html, body { overflow-x: clip; }
+@media (max-width: 639px) {
+  .aurora { animation: none; }
+  .card { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora, .marquee { animation: none; }
+  html { scroll-behavior: auto; }
+}
