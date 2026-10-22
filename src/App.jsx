@@ -102,7 +102,7 @@ function Portrait({ children }) {
   const leave = () => { x.set(0); y.set(0) }
   return (
     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.8 }}
-      onMouseMove={move} onMouseLeave={leave} style={{ perspective: 900 }} className="relative mx-auto w-[var(--w)] [--w:11rem] sm:[--w:17rem] lg:[--w:18rem]">
+      onMouseMove={move} onMouseLeave={leave} style={{ perspective: 900 }} className="relative mx-auto max-lg:mt-20 w-[var(--w)] [--w:11rem] sm:[--w:17rem] lg:[--w:18rem]">
       <Orbit />
       <motion.div style={{ rotateX: rx, rotateY: ry }} animate={{ y: [0, -10, 0] }} transition={{ y: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }} className="relative z-10">
         {children}
@@ -137,7 +137,7 @@ function Hero() {
         <Portrait>
           <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-accent via-accent-2 to-accent-3 opacity-60 blur-xl sm:blur-2xl" />
           <div className="relative rounded-full bg-gradient-to-br from-accent via-accent-2 to-accent-3 p-1">
-            <img src={profileImg} width="640" height="640" fetchPriority="high" decoding="async" alt={`${PROFILE.name}, ${PROFILE.title} based in Faisalabad, Pakistan`} className="aspect-square w-full rounded-full border-4 border-ink object-cover object-top" />
+            <img src={profileImg} width="470" height="470" fetchPriority="high" decoding="async" alt={`${PROFILE.name}, ${PROFILE.title} based in Faisalabad, Pakistan`} className="aspect-square w-full rounded-full border-4 border-ink object-cover object-top" />
           </div>
         </Portrait>
       </div>
