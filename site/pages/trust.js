@@ -17,7 +17,7 @@ function testimonialsSection() {
   if (!list.length) return ''
   return `<section class="mx-auto max-w-6xl px-5 pt-20" aria-labelledby="testimonials">
 <div class="mx-auto max-w-4xl">${h2('What clients say', 'testimonials')}</div>
-<ul class="mt-10 grid gap-4 md:grid-cols-3">${list
+<ul class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">${list
     .map(
       (t) => `<li class="card p-6"><blockquote><p class="leading-relaxed text-zinc-300">“${esc(t.quote)}”</p><footer class="mt-4 text-sm text-zinc-500"><span class="font-semibold text-white">${esc(t.name)}</span>, ${esc(t.role)}${t.project ? ` · ${esc(t.project)}` : ''}</footer></blockquote></li>`,
     )
@@ -52,7 +52,7 @@ function portfolioBody() {
     if (!items.length) return ''
     return `<section class="mx-auto max-w-6xl px-5 pt-20" aria-labelledby="${g.cats[0].toLowerCase()}-projects">
 <div class="mx-auto max-w-4xl">${h2(g.h2, g.cats[0].toLowerCase() + '-projects')}${p(g.intro)}</div>
-<ul class="mt-10 grid gap-4 md:grid-cols-2">${items.map(projectCard).join('')}</ul></section>`
+<ul class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">${items.map(projectCard).join('')}</ul></section>`
   }).join('\n')
 
   return `${pageHeader({
@@ -86,7 +86,7 @@ ${s.bullets ? ul(s.bullets) : ''}
     lead: 'I build fast, search-friendly websites and AI-powered automation for businesses worldwide, including clients in Sharjah, Dubai and across the UAE.',
   })}
 <div class="mx-auto max-w-3xl px-5">
-${img ? `<img src="${img}" width="640" height="640" alt="Portrait of Usman Ghazanfar, web designer and developer" decoding="async" fetchpriority="high" class="mt-2 size-40 rounded-full border-4 border-ink object-cover object-top sm:size-48" />` : ''}
+${img ? `<img src="${img}" width="470" height="470" alt="Portrait of Usman Ghazanfar, web designer and developer" decoding="async" fetchpriority="high" class="mt-2 size-40 rounded-full border-4 border-ink object-cover object-top sm:size-48" />` : ''}
 ${sections}
 </div>
 ${testimonialsSection()}
@@ -106,12 +106,12 @@ function contactBody() {
     h1: 'Contact Usman Ghazanfar for a Web Design Quote',
     lead: 'Tell me about your business and your project. I will reply with questions, ideas and a clear quote for web design, e-commerce, WordPress or a website redesign in Sharjah and the UAE.',
   })}
-<div class="mx-auto grid max-w-6xl gap-10 px-5 lg:grid-cols-[1.3fr_1fr]">
+<div class="mx-auto grid grid-cols-1 max-w-6xl gap-10 px-5 lg:grid-cols-[1.3fr_1fr]">
 <section aria-labelledby="form-heading">
 ${h2('Send me a message', 'form-heading')}
 <form id="contact-form" class="mt-8 space-y-5" action="mailto:${esc(SITE.email)}" method="post" enctype="text/plain">
 <div><label for="name" class="text-sm font-medium text-white">Your name</label><input id="name" name="name" type="text" autocomplete="name" required class="${field}" /></div>
-<div class="grid gap-5 sm:grid-cols-2">
+<div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
 <div><label for="email" class="text-sm font-medium text-white">Email</label><input id="email" name="email" type="email" autocomplete="email" required class="${field}" /></div>
 <div><label for="phone" class="text-sm font-medium text-white">Phone or WhatsApp <span class="text-zinc-500">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" class="${field}" /></div>
 </div>

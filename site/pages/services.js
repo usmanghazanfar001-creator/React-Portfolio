@@ -19,7 +19,7 @@ ${s.bullets ? ul(s.bullets) : ''}
 
   const services = `<section class="mx-auto max-w-6xl px-5 pt-20" aria-labelledby="services-list">
 <div class="mx-auto max-w-4xl">${h2(page.servicesHeading, 'services-list')}</div>
-<ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">${page.services
+<ul class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">${page.services
     .map(
       (s) => `<li class="card glow relative p-6"><h3 class="font-display text-xl font-semibold text-white">${esc(s.title)}</h3><p class="mt-3 text-sm leading-relaxed text-zinc-400">${esc(s.text)}</p></li>`,
     )

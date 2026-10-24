@@ -134,7 +134,7 @@ function Hero() {
   return (
     <section id="home" className="relative overflow-hidden pt-36 pb-20">
       <div className="aurora absolute inset-0" /><div className="grid-bg absolute inset-0" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-[1.1fr_1fr]">
+      <div className="relative mx-auto grid grid-cols-1 max-w-6xl items-center gap-12 px-5 lg:grid-cols-[1.1fr_1fr]">
         <div className="relative z-10">
           {PROFILE.openToWork && (
             <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="chip inline-flex items-center gap-2">
@@ -188,7 +188,7 @@ function Marquee() {
 /* ---------- about + skills ---------- */
 const About = () => (
   <Section id="about" eyebrow="About" title="Technology meets growth.">
-    <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.4fr_1fr]">
       <Reveal className="space-y-5 text-lg leading-relaxed text-zinc-400">{ABOUT.intro.map((p) => <p key={p}>{p}</p>)}</Reveal>
       <Reveal delay={0.1} className="card p-6">
         <h3 className="mb-4 font-display text-lg text-white">Interests</h3>
@@ -200,7 +200,7 @@ const About = () => (
 
 const Skills = () => (
   <Section id="skills" eyebrow="Skills" title="My toolbox.">
-    <div className="grid gap-4 sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {SKILL_GROUPS.map((g, i) => (
         <Reveal key={g.key} delay={i * 0.07}>
           <div onMouseMove={spotlight} className="card glow relative h-full p-6">
@@ -218,7 +218,7 @@ const Skills = () => (
 /* ---------- services ---------- */
 const Services = () => (
   <Section id="services" eyebrow="Services" title="What I can build for you.">
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {SERVICES.map((s, i) => (
         <Reveal key={s.key} delay={(i % 3) * 0.07}>
           <div onMouseMove={spotlight} className="card glow relative h-full p-6">
@@ -280,7 +280,7 @@ function Projects() {
           <button key={f} onClick={() => setFilter(f)} className={`rounded-full border px-4 py-1.5 text-sm transition ${filter === f ? 'border-white bg-white text-ink' : 'border-line hover:border-white/30'}`}>{f}</button>
         ))}
       </div>
-      <motion.div layout className="grid gap-4 md:grid-cols-2">
+      <motion.div layout className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <AnimatePresence mode="popLayout">
           {list.map((p) => (
             <motion.button layout key={p.key} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }}
@@ -318,7 +318,7 @@ const Experience = () => {
             <p className="font-mono text-xs uppercase tracking-widest text-accent-2">{t.date}</p>
             <h3 className="mt-2 font-display text-xl font-semibold text-white">{t.title}</h3>
             <p className="text-sm text-zinc-500">{t.place}</p>
-            <ul className="mt-4 grid gap-2 text-sm sm:grid-cols-2">{t.bullets.map((b) => <li key={b} className="flex items-start gap-2"><Check size={14} className="mt-1 shrink-0 text-accent" />{b}</li>)}</ul>
+            <ul className="mt-4 grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">{t.bullets.map((b) => <li key={b} className="flex items-start gap-2"><Check size={14} className="mt-1 shrink-0 text-accent" />{b}</li>)}</ul>
           </div>
         </Reveal>
       ))}
@@ -339,7 +339,7 @@ const Contact = () => {
   ]
   return (
     <Section id="contact" eyebrow="Contact" title="Let's build something together.">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {links.map(({ Ic, label, value, href, color }, i) => (
           <Reveal key={label} delay={(i % 3) * 0.06}>
             <motion.a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" onMouseMove={spotlight}
@@ -365,7 +365,7 @@ function Footer() {
   return (
     <>
       <footer className="border-t border-line text-sm text-zinc-500">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid grid-cols-1 max-w-6xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="font-display text-xl font-bold text-white">{PROFILE.name}</p>
             <p className="mt-3 leading-relaxed">AI automation and web development for businesses worldwide, including Sharjah, Dubai and the UAE.</p>

@@ -90,7 +90,7 @@ export function footer() {
   const col = 'mt-4 space-y-2 text-sm'
   const a = 'text-zinc-400 hover:text-white'
   return `<footer class="mt-24 border-t border-line">
-<div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-5">
+<div class="mx-auto grid grid-cols-1 max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-5">
 <div><p class="font-display text-xl font-bold text-white">${esc(PROFILE.name)}</p>
 <p class="mt-3 text-sm leading-relaxed text-zinc-500">AI automation and web development for businesses worldwide, including Sharjah, Dubai and the UAE.</p></div>
 <nav aria-label="AI and development services"><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">AI &amp; Development</h2>
@@ -170,6 +170,6 @@ export const ctaBlock = ({ heading, text, primary = { href: '/contact', label: '
 
 export const linkCards = (items, heading, id) => `<section class="mx-auto max-w-4xl px-5 pt-20" aria-labelledby="${id}">
 ${h2(heading, id)}
-<ul class="mt-8 grid gap-4 sm:grid-cols-2">${items
+<ul class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">${items
     .map((i) => `<li><a href="${i.href}" class="card glow relative block h-full p-6 transition hover:-translate-y-0.5"><span class="font-display text-lg font-semibold text-white">${esc(i.title)}</span><span class="mt-2 block text-sm leading-relaxed text-zinc-400">${esc(i.text)}</span><span class="mt-4 block text-sm text-accent-2">Read more →</span></a></li>`)
     .join('')}</ul></section>`
