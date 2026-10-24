@@ -98,7 +98,7 @@ function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.ul id="mobile-menu" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
-            className="mx-3 mt-2 rounded-3xl border border-line bg-ink/95 p-3 backdrop-blur-xl md:hidden">
+            className="mx-3 mt-2 max-h-[calc(100dvh-6.5rem)] overflow-y-auto overscroll-contain rounded-3xl border border-line bg-ink/95 p-3 backdrop-blur-xl md:hidden">
             {NAV_LINKS.map((l) => (
               <li key={l.href}>
                 <a onClick={() => setOpen(false)} href={l.href} className="block rounded-xl px-4 py-3 hover:bg-white/5">{l.label}</a>
@@ -157,7 +157,7 @@ function Hero() {
         <Portrait>
           <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-accent via-accent-2 to-accent-3 opacity-60 blur-2xl" />
           <div className="relative rounded-full bg-gradient-to-br from-accent via-accent-2 to-accent-3 p-1">
-            <img src={profileImg} width="640" height="640" fetchPriority="high" decoding="async" alt={`${PROFILE.name}, ${PROFILE.title} based in Faisalabad, Pakistan`} className="aspect-square w-full rounded-full border-4 border-ink object-cover object-top" />
+            <img src={profileImg} width="470" height="470" fetchPriority="high" decoding="async" alt={`${PROFILE.name}, ${PROFILE.title} based in Faisalabad, Pakistan`} className="aspect-square w-full rounded-full border-4 border-ink object-cover object-top" />
           </div>
         </Portrait>
       </div>

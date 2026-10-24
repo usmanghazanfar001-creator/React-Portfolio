@@ -74,7 +74,7 @@ ${top('/', 'Home')}
 ${top('/portfolio', 'Portfolio')}${top('/blog', 'Blog')}${top('/about', 'About')}${top('/contact', 'Contact')}
 </ul>
 <details class="relative md:hidden"><summary aria-label="Menu" class="grid cursor-pointer list-none place-items-center p-1 [&::-webkit-details-marker]:hidden">${menuIcon}</summary>
-<ul class="absolute right-0 top-full mt-4 w-72 rounded-3xl border border-line bg-ink/95 p-3 backdrop-blur-xl">
+<ul class="absolute right-0 top-full mt-4 max-h-[calc(100dvh-6.5rem)] w-72 max-w-[calc(100vw-1.5rem)] overflow-y-auto overscroll-contain rounded-3xl border border-line bg-ink/95 p-3 backdrop-blur-xl">
 <li><a href="/" class="block rounded-xl px-4 py-3 hover:bg-white/5">Home</a></li>
 <li><a href="/#services" class="block rounded-xl px-4 py-3 hover:bg-white/5">Services</a></li>${mobileSvc}
 <li><a href="/portfolio" class="block rounded-xl px-4 py-3 hover:bg-white/5">Portfolio</a></li>
