@@ -28,6 +28,8 @@ body { @apply bg-ink text-zinc-300 font-sans antialiased; }
   transition: border-color .3s, transform .3s;
 }
 .card:hover { border-color: rgb(139 124 255 / .45); }
+/* Performance: backdrop blur is expensive on phones and invisible on these near-opaque cards, so it is desktop-only. */
+@media (max-width: 767px) { .card { -webkit-backdrop-filter: none; backdrop-filter: none; } }
 .glow::before {
   content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
   background: radial-gradient(500px circle at var(--mx,50%) var(--my,50%), rgb(139 124 255 / .14), transparent 45%);

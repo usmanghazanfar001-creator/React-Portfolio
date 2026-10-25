@@ -9,7 +9,7 @@ const sectionId = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-
 function body(page) {
   const sections = page.sections
     .map(
-      (s) => `<section class="mx-auto max-w-3xl px-5 pt-16" aria-labelledby="${sectionId(s.h2)}">
+      (s) => `<section class="mx-auto max-w-4xl px-5 pt-16" aria-labelledby="${sectionId(s.h2)}">
 ${h2(s.h2, sectionId(s.h2))}
 ${s.paragraphs.map(p).join('\n')}
 ${s.bullets ? ul(s.bullets) : ''}
@@ -25,7 +25,7 @@ ${s.bullets ? ul(s.bullets) : ''}
     )
     .join('')}</ul></section>`
 
-  const steps = `<section class="mx-auto max-w-3xl px-5 pt-20" aria-labelledby="process">
+  const steps = `<section class="mx-auto max-w-4xl px-5 pt-20" aria-labelledby="process">
 ${h2(page.stepsHeading, 'process')}
 <ol class="mt-6 space-y-4">${page.steps
     .map(

@@ -23,7 +23,7 @@ export function head({ title, description, path, type = 'website', jsonLd, asset
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-<meta name="theme-color" content="#07070b" />
+<meta name="theme-color" content="#09080a" />
 <meta name="color-scheme" content="dark" />
 <meta property="og:type" content="${type}" />
 <meta property="og:site_name" content="${esc(PROFILE.name)}" />
@@ -47,7 +47,7 @@ export function head({ title, description, path, type = 'website', jsonLd, asset
 <meta name="twitter:description" content="${esc(description)}" />
 <meta name="twitter:image" content="${img}" />
 <meta name="twitter:image:alt" content="${esc(SITE.ogImageAlt)}" />
-<style>html,body{background:#07070b;color:#d4d4d8}</style>
+<style>html,body{background:#09080a;color:#d4d4d8}</style>
 ${assets?.headHtml || ''}
 ${jsonLd ? jsonLdScript(jsonLd) : ''}
 </head>`
@@ -126,7 +126,7 @@ ${footer()}${scripts}
 }
 
 /* ---------- reusable blocks ---------- */
-export const wrap = (inner, w = 'max-w-3xl') => `<div class="mx-auto ${w} px-5">${inner}</div>`
+export const wrap = (inner, w = 'max-w-4xl') => `<div class="mx-auto ${w} px-5">${inner}</div>`
 
 export function breadcrumbs(crumbs) {
   return `<nav aria-label="Breadcrumb" class="text-sm text-zinc-500"><ol class="flex flex-wrap items-center gap-2">${crumbs
@@ -149,9 +149,9 @@ ${lead ? `<p class="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-400">${inli
 
 export const h2 = (t, id) => `<h2${id ? ` id="${id}"` : ''} class="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">${esc(t)}</h2>`
 export const h3 = (t) => `<h3 class="mt-8 font-display text-xl font-semibold text-white">${esc(t)}</h3>`
-export const p = (t) => `<p class="mt-4 text-lg leading-relaxed text-zinc-400">${inline(t)}</p>`
+export const p = (t) => `<p class="mt-4 max-w-3xl text-lg leading-relaxed text-zinc-400">${inline(t)}</p>`
 export const ul = (items) =>
-  `<ul class="mt-4 space-y-2 text-lg text-zinc-400">${items.map((i) => `<li class="flex items-start gap-3"><span class="mt-3 size-1.5 shrink-0 rounded-full bg-accent-2" aria-hidden="true"></span><span>${inline(i)}</span></li>`).join('')}</ul>`
+  `<ul class="mt-4 max-w-3xl space-y-2 text-lg text-zinc-400">${items.map((i) => `<li class="flex items-start gap-3"><span class="mt-3 size-1.5 shrink-0 rounded-full bg-accent-2" aria-hidden="true"></span><span>${inline(i)}</span></li>`).join('')}</ul>`
 
 export const faqBlock = (faqs, heading = 'Frequently asked questions') => `<section class="mx-auto max-w-4xl px-5 pt-20" aria-labelledby="faq">
 ${h2(heading, 'faq')}

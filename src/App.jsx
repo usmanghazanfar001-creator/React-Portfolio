@@ -332,7 +332,7 @@ const Contact = () => {
   const links = [
     { Ic: GmailIcon, label: 'Email', value: PROFILE.email, href: `mailto:${PROFILE.email}`, color: '#EA4335' },
     { Ic: WhatsAppIcon, label: 'WhatsApp', value: PROFILE.whatsapp, href: PROFILE.whatsappLink, color: '#25D366' },
-    { Ic: Phone, label: 'Phone', value: PROFILE.phone, href: `tel:${PROFILE.phone.replace(/\s/g, '')}`, color: '#8b7cff' },
+    { Ic: Phone, label: 'Phone', value: PROFILE.phone, href: `tel:${PROFILE.phone.replace(/\s/g, '')}`, color: 'var(--color-accent)' },
     { Ic: LinkedInIcon, label: 'LinkedIn', value: PROFILE.linkedinLabel, href: PROFILE.linkedin, color: '#0A66C2' },
     { Ic: GithubIcon, label: 'GitHub', value: PROFILE.githubLabel, href: PROFILE.github, color: '#ffffff' },
     { Ic: FiverrIcon, label: 'Fiverr', value: 'fiverr.com/afidevelopers', href: PROFILE.fiverr, color: '#1DBF73' },

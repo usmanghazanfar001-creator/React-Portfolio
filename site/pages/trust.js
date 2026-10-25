@@ -85,7 +85,7 @@ ${s.bullets ? ul(s.bullets) : ''}
     h1: 'About Usman Ghazanfar, AI and Web Developer',
     lead: 'I build fast, search-friendly websites and AI-powered automation for businesses worldwide, including clients in Sharjah, Dubai and across the UAE.',
   })}
-<div class="mx-auto max-w-3xl px-5">
+<div class="mx-auto max-w-4xl px-5">
 ${img ? `<img src="${img}" width="470" height="470" alt="Portrait of Usman Ghazanfar, web designer and developer" decoding="async" fetchpriority="high" class="mt-2 size-40 rounded-full border-4 border-ink object-cover object-top sm:size-48" />` : ''}
 ${sections}
 </div>

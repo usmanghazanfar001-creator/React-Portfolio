@@ -24,7 +24,7 @@ function fallbackHtml() {
   const services = SERVICES.map((s) => `<article><h3>${esc(s.title)}</h3><p>${esc(s.description)}</p>${ul(s.points)}</article>`).join('')
   const skills = SKILL_GROUPS.map((g) => `<article><h3>${esc(g.title)}</h3><p>${esc(g.description)}</p>${ul(g.items)}</article>`).join('')
   const timeline = TIMELINE.map((t) => `<article><h3>${esc(t.title)}</h3><p>${esc(t.place)} · ${esc(t.date)}</p>${ul(t.bullets)}</article>`).join('')
-  return `<div class="seo-static" style="max-width:56rem;margin:0 auto;padding:6rem 1.25rem;font-family:system-ui,sans-serif;line-height:1.6;color:#d4d4d8">
+  return `<div class="boot" aria-hidden="true"><span></span></div><div class="seo-static">
 <header><nav aria-label="Main">${NAV_LINKS.map((l) => `<a href="${l.href}">${esc(l.label)}</a>`).join(' · ')} · ${[...SITE.globalPages, ...SITE.servicePages].map((s) => `<a href="/${s.slug}">${esc(s.label)}</a>`).join(' · ')} · <a href="/portfolio">Portfolio</a> · <a href="/blog">Blog</a> · <a href="/about">About</a> · <a href="/contact">Contact</a></nav></header>
 <main>
 <section id="home"><h1>${esc(PROFILE.name)} — ${esc(PROFILE.title)} in ${esc(PROFILE.location)}</h1><p>${esc(PROFILE.tagline)}</p></section>
@@ -52,7 +52,7 @@ function jsonLd() {
     {
       '@type': 'ProfilePage', '@id': url + '#profilepage', url, name: `${PROFILE.name} — ${PROFILE.title}`,
       isPartOf: { '@id': url + '#website' }, mainEntity: { '@id': personId },
-      primaryImageOfPage: { '@type': 'ImageObject', url: PROFILE.siteUrl + '/og-image.png', width: 1200, height: 630 },
+      primaryImageOfPage: { '@type': 'ImageObject', url: PROFILE.siteUrl + '/og-image.jpg', width: 1200, height: 630 },
     },
     {
       '@type': 'Person', '@id': personId, name: PROFILE.name, givenName: PROFILE.firstName, familyName: PROFILE.lastName,

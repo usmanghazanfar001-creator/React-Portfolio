@@ -34,7 +34,7 @@ ${(s.h3s || []).map((x) => `${h3(x.h3)}\n${x.paragraphs.map(p).join('\n')}`).joi
     h1: post.title,
     lead: post.intro[0],
   })}
-<article class="mx-auto max-w-3xl px-5">
+<article class="mx-auto max-w-4xl px-5">
 <p class="text-sm text-zinc-500">By <a href="/about" class="text-zinc-300 hover:text-white">${esc(SITE.name)}</a> · <time datetime="${post.published}">${fmt(post.published)}</time>${post.modified !== post.published ? ` · Updated <time datetime="${post.modified}">${fmt(post.modified)}</time>` : ''} · ${post.readMinutes} min read</p>
 ${post.intro.slice(1).map(p).join('\n')}
 ${sections}

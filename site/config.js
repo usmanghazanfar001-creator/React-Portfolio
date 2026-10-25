@@ -10,7 +10,7 @@ export const SITE = {
   phone: PROFILE.phone,
   whatsappLink: PROFILE.whatsappLink,
   locale: 'en_US',
-  ogImage: '/og-image.png', // 1200x630
+  ogImage: '/og-image.jpg', // 1200x630
   ogImageAlt: 'Usman Ghazanfar — AI automation and web development',
   // Pages in the top-level "Services" menu, in display order.
   servicePages: [
