@@ -13,6 +13,8 @@
   --color-accent: #f5c451;
   --color-accent-2: #fde68a;
   --color-accent-3: #fb923c;
+  /* Accessibility: Tailwind's default zinc-500 is only ~4:1 on this dark background; this keeps the same look at >=5:1 */
+  --color-zinc-500: #8e8e97;
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: 5rem; }

@@ -85,10 +85,29 @@ const FONT_RE = /^(inter|space-grotesk)-latin-wght-normal-.+\.woff2$/
 function discoverAssets(outDir) {
   const indexHtml = fs.readFileSync(path.join(outDir, 'index.html'), 'utf8')
   const files = fs.existsSync(path.join(outDir, 'assets')) ? fs.readdirSync(path.join(outDir, 'assets')) : []
-  const css = [...indexHtml.matchAll(/<link rel="stylesheet"[^>]*>/g)].map((m) => m[0])
+  const linkTags = [...indexHtml.matchAll(/<link rel="stylesheet"[^>]*>/g)].map((m) => m[0])
+  // Performance: inline the (small, ~8 KB gzip) stylesheet so it is never a render-blocking request.
+  const cssTexts = linkTags.map((tag) => {
+    const href = tag.match(/href="([^"]+)"/)?.[1]
+    const file = href && path.join(outDir, href.replace(/^\//, ''))
+    return file && fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null
+  })
+  let inlineCss = linkTags.length && cssTexts.every((t) => t != null) ? `<style>${cssTexts.join('\n')}</style>` : null
+  if (!inlineCss) {
+    // Home page already optimised (e.g. plugin ran twice): fall back to the built stylesheet(s) in dist/assets.
+    const cssFiles = files.filter((f) => f.endsWith('.css'))
+    if (cssFiles.length) inlineCss = `<style>${cssFiles.map((f) => fs.readFileSync(path.join(outDir, 'assets', f), 'utf8')).join('\n')}</style>`
+  }
+  const css = inlineCss ? [inlineCss] : linkTags
   const fonts = files.filter((f) => FONT_RE.test(f)).map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`)
-  const profile = files.find((f) => /^profile-.+\.webp$/.test(f))
-  return { headHtml: [...fonts, ...css].join('\n'), preloadHtml: fonts.join('\n'), profileImg: profile ? `/assets/${profile}` : null }
+  const profile = files.find((f) => /^profile-[\w-]{8}\.webp$/.test(f))
+  return {
+    headHtml: [...fonts, ...css].join('\n'),
+    preloadHtml: fonts.join('\n'),
+    linkTags,
+    inlineCss,
+    profileImg: profile ? `/assets/${profile}` : null,
+  }
 }
 
 const devAssets = {
@@ -124,14 +143,19 @@ export default function seoPlugin() {
       const lastmod = new Date().toISOString().slice(0, 10)
       const assets = discoverAssets(outDir)
 
-      // 1. preload critical fonts on the home page too
+      // 1. home page: inline the CSS, preload critical fonts + hero portrait
       const homeFile = path.join(outDir, 'index.html')
-      const home = fs.readFileSync(homeFile, 'utf8')
-      if (assets.preloadHtml && !home.includes('rel="preload" href="/assets/inter-latin')) {
+      let home = fs.readFileSync(homeFile, 'utf8')
+      if (!home.includes('data-seo-optimised')) {
+        if (assets.inlineCss) {
+          assets.linkTags.forEach((tag, i) => { home = home.replace(tag, () => (i === 0 ? assets.inlineCss : '')) })
+        }
         // The hero portrait is drawn by React, so the browser would only discover it after the JS bundle runs.
-        // Preloading it (27 KB WebP) lets it download in parallel and improves LCP.
-        const heroPreload = assets.profileImg ? `\n<link rel="preload" as="image" type="image/webp" href="${assets.profileImg}" fetchpriority="high" />` : ''
-        fs.writeFileSync(homeFile, home.replace('</head>', `${assets.preloadHtml}${heroPreload}\n</head>`))
+        // Preloading it lets it download in parallel and improves LCP.
+        const heroPreload = assets.profileImg ? `<link rel="preload" as="image" type="image/webp" href="${assets.profileImg}" fetchpriority="high" />` : ''
+        const extra = [assets.preloadHtml, heroPreload, '<meta name="seo-optimised" data-seo-optimised content="1" />'].filter(Boolean).join('\n')
+        home = home.replace('</head>', () => `${extra}\n</head>`)
+        fs.writeFileSync(homeFile, home)
       }
 
       // 2. generate every other page (service pages, blog, about, contact, portfolio, 404)

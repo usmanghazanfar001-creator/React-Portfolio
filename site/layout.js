@@ -129,10 +129,10 @@ ${footer()}${scripts}
 export const wrap = (inner, w = 'max-w-4xl') => `<div class="mx-auto ${w} px-5">${inner}</div>`
 
 export function breadcrumbs(crumbs) {
-  return `<nav aria-label="Breadcrumb" class="text-sm text-zinc-500"><ol class="flex flex-wrap items-center gap-2">${crumbs
+  return `<nav aria-label="Breadcrumb" class="text-sm text-zinc-400"><ol class="flex flex-wrap items-center gap-2">${crumbs
     .map((c, i) =>
       i === crumbs.length - 1
-        ? `<li aria-current="page" class="text-zinc-400">${esc(c.name)}</li>`
+        ? `<li aria-current="page" class="text-zinc-300">${esc(c.name)}</li>`
         : `<li><a href="${c.path}" class="hover:text-white">${esc(c.name)}</a></li><li aria-hidden="true">/</li>`,
     )
     .join('')}</ol></nav>`
