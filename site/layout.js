@@ -23,7 +23,7 @@ export function head({ title, description, path, type = 'website', jsonLd, asset
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-<meta name="theme-color" content="#09080a" />
+<meta name="theme-color" content="#050a14" />
 <meta name="color-scheme" content="dark" />
 <meta property="og:type" content="${type}" />
 <meta property="og:site_name" content="${esc(PROFILE.name)}" />
@@ -47,7 +47,7 @@ export function head({ title, description, path, type = 'website', jsonLd, asset
 <meta name="twitter:description" content="${esc(description)}" />
 <meta name="twitter:image" content="${img}" />
 <meta name="twitter:image:alt" content="${esc(SITE.ogImageAlt)}" />
-<style>html,body{background:#09080a;color:#d4d4d8}</style>
+<style>html,body{background:#050a14;color:#d4d4d8}</style>
 ${assets?.headHtml || ''}
 ${jsonLd ? jsonLdScript(jsonLd) : ''}
 </head>`

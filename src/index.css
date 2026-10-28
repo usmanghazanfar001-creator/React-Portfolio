@@ -7,12 +7,12 @@
 @theme {
   --font-sans: 'Inter Variable', system-ui, sans-serif;
   --font-display: 'Space Grotesk Variable', 'Inter Variable', sans-serif;
-  --color-ink: #09080a;
-  --color-panel: #141115;
+  --color-ink: #050a14;
+  --color-panel: #0b1426;
   --color-line: rgb(255 255 255 / 0.08);
-  --color-accent: #f5c451;
-  --color-accent-2: #fde68a;
-  --color-accent-3: #fb923c;
+  --color-accent: #3b82f6;
+  --color-accent-2: #22d3ee;
+  --color-accent-3: #818cf8;
   /* Accessibility: Tailwind's default zinc-500 is only ~4:1 on this dark background; this keeps the same look at >=5:1 */
   --color-zinc-500: #8e8e97;
 }
