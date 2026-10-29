@@ -11,7 +11,7 @@ export const GLOBAL_SERVICE_PAGES = [
     blurb: 'Replace repetitive manual work with reliable AI-driven pipelines.',
     metaTitle: 'AI Automation Services for Business | Usman Ghazanfar',
     metaDescription:
-      'AI automation services that remove repetitive work: lead handling, support triage, listings and reporting. Built with Python, n8n and LangChain.',
+      'AI automation services that remove repetitive work: lead handling, support triage, listings and reporting. Built with Python, n8n and LangChain. Free quote.',
     areaServed: areaWorldwide,
     eyebrow: 'AI automation',
     h1: 'AI Automation Services That Take Repetitive Work Off Your Team',
@@ -169,7 +169,7 @@ export const GLOBAL_SERVICE_PAGES = [
     blurb: 'Connect your apps and AI models with robust, documented n8n workflows.',
     metaTitle: 'n8n Workflow Automation Expert | Usman Ghazanfar',
     metaDescription:
-      'n8n workflow automation for business: connect apps, APIs and AI models, handle leads, orders and reports automatically. Reliable and well documented.',
+      'n8n workflow automation for business: connect apps, APIs and AI models, handle leads, orders and reports automatically. Reliable, documented. Free quote.',
     areaServed: areaWorldwide,
     eyebrow: 'n8n workflows',
     h1: 'n8n Workflow Automation Expert for Business Processes',
@@ -252,14 +252,14 @@ export const GLOBAL_SERVICE_PAGES = [
     serviceName: 'Shopify Automation Services',
     nav: 'Shopify Automation Services',
     blurb: 'Automate listings, SEO, support and reports for your Shopify store.',
-    metaTitle: 'Shopify Automation Services | Usman Ghazanfar',
+    metaTitle: 'Shopify AI Automation Services | Usman Ghazanfar',
     metaDescription:
-      'Shopify automation services: AI-assisted listings and SEO, support triage, notifications and reports that cut manual store work.',
+      'Cut hours of manual Shopify work with AI automation for listings, SEO, data sync and support. Safe and reviewed. Get a free quote.',
     areaServed: areaWorldwide,
     eyebrow: 'Shopify automation',
-    h1: 'Shopify Automation Services for Busier Stores and Fewer Manual Tasks',
+    h1: 'Shopify AI Automation Services for Busier Stores and Fewer Manual Tasks',
     lead:
-      'Running a Shopify store means a long list of repetitive jobs: writing listings, updating products, answering the same questions, checking reports. I build Shopify automation, including AI-powered tools, that handles that routine work so you can focus on growth.',
+      'Running a Shopify store means a long list of repetitive jobs: writing listings, updating products, answering the same questions, checking reports. I build Shopify AI automation, from data syncing to agent-based tools, that handles that routine work so you can focus on growth.',
     sections: [
       {
         h2: 'Where Shopify owners lose the most time',
@@ -299,6 +299,19 @@ export const GLOBAL_SERVICE_PAGES = [
           `You do not need to automate your whole store at once. I usually suggest picking the single task that costs the most time, such as drafting listing copy or sending order alerts, and automating that first. You see the result quickly, you learn how much to trust the system and you decide what comes next with real evidence instead of guesses.`,
         ],
       },
+      {
+        h2: 'AI automation for Shopify store operations',
+        paragraphs: [
+          `Store operations are the daily jobs that keep a shop running: checking new orders, watching stock, answering customers, updating products and reviewing numbers. AI automation for Shopify store operations puts a layer of software on top of those jobs. It watches for events, such as an order, a low-stock level or a new customer message, decides what kind of event it is and then takes a defined action, or prepares one for you to approve.`,
+          `The value is consistency. A person doing these tasks by hand gets tired and busy, while an automated flow handles the thousandth order the same way as the first.`,
+        ],
+      },
+      {
+        h2: 'Shopify data automation: products, stock and orders in sync',
+        paragraphs: [
+          `Many stores keep information in several places: a supplier spreadsheet, an inventory tool, Shopify itself and sometimes a shared document for the team. Shopify data automation keeps those in sync so nobody retypes figures. Typical jobs include importing supplier product data into draft listings, updating stock levels when they change elsewhere, and exporting orders to a spreadsheet or accounting tool. I build these with Shopify's APIs and workflow tools, and I add checks that flag anything unusual, such as a price that suddenly changes, before it reaches your live store.`,
+        ],
+      },
     ],
     servicesHeading: 'What is included in a Shopify automation project',
     services: [
@@ -317,6 +330,8 @@ export const GLOBAL_SERVICE_PAGES = [
       '**Expand.** As trust grows, we automate more and remove checks that are no longer needed.',
     ],
     faqs: [
+      { q: 'What is Shopify AI automation?', a: 'It means using software, and AI where judgement is needed, to do repetitive store tasks automatically: drafting listings and SEO text, sorting and answering customer messages, syncing product data and sending reports or alerts. A person reviews anything important.' },
+      { q: 'What is Shopify data automation?', a: 'It keeps information consistent across your tools, for example importing supplier data into draft products, updating stock levels and sending orders to a spreadsheet, so nobody has to copy figures by hand.' },
       { q: 'Will this work with my Shopify theme?', a: 'Most automation runs behind the scenes through Shopify’s APIs, so it does not depend on your theme. Anything that changes what visitors see is discussed with you first.' },
       { q: 'Is it safe to give an automation access to my store?', a: 'Access is limited to the permissions a task needs, credentials are kept secure, and important actions can wait for your approval.' },
       { q: 'Will AI-written product descriptions hurt my SEO?', a: 'Not if they are accurate, useful and reviewed. The risk is publishing generic text in bulk, which is why I draft from real product data and keep a review step.' },
