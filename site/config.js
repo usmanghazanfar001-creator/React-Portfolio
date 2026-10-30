@@ -28,6 +28,13 @@ export const SITE = {
     { slug: 'nextjs-web-development', label: 'Next.js Web Development' },
     { slug: 'portfolio-website-design', label: 'Portfolio Website Design' },
   ],
+  // Guides linked from the home page and every footer (internal links: these posts earn the search impressions).
+  featuredGuides: [
+    { slug: 'how-to-automate-shopify-store-with-ai', label: 'Shopify AI Automation Guide' },
+    { slug: 'n8n-vs-zapier-vs-make', label: 'n8n vs Make vs Zapier' },
+    { slug: 'ai-agents-vs-chatbots-vs-workflows', label: 'AI Agents vs Chatbots vs Workflows' },
+    { slug: 'how-much-does-a-website-cost-in-sharjah', label: 'Website Cost in Sharjah' },
+  ],
   // TODO(owner): add any other profiles you actually have (Instagram, Facebook, X, Google Business Profile URL).
   // They are added to the `sameAs` list in the JSON-LD automatically once listed here.
   extraSameAs: [],

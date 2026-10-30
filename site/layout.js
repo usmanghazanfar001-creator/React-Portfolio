@@ -98,7 +98,7 @@ export function footer() {
 <nav aria-label="Web design services"><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">Web Design · UAE</h2>
 <ul class="${col}">${SITE.servicePages.map((s) => `<li><a class="${a}" href="/${s.slug}">${esc(s.label)}</a></li>`).join('')}</ul></nav>
 <nav aria-label="Company"><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">Company</h2>
-<ul class="${col}"><li><a class="${a}" href="/portfolio">Portfolio &amp; case studies</a></li><li><a class="${a}" href="/blog">Blog</a></li><li><a class="${a}" href="/about">About</a></li><li><a class="${a}" href="/contact">Contact</a></li></ul></nav>
+<ul class="${col}"><li><a class="${a}" href="/portfolio">Portfolio &amp; case studies</a></li><li><a class="${a}" href="/blog">Blog</a></li><li><a class="${a}" href="/about">About</a></li><li><a class="${a}" href="/contact">Contact</a></li><li aria-hidden="true" class="pt-3 text-xs uppercase tracking-widest text-zinc-500">Popular guides</li>${SITE.featuredGuides.map((g) => `<li><a class="${a}" href="/blog/${g.slug}">${esc(g.label)}</a></li>`).join('')}</ul></nav>
 <div><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">Get in touch</h2>
 <ul class="${col}"><li><a class="${a}" href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a></li>
 <li><a class="${a}" href="${esc(SITE.whatsappLink)}" rel="noopener">WhatsApp ${esc(PROFILE.whatsapp)}</a></li>

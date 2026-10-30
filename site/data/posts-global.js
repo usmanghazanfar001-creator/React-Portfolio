@@ -95,7 +95,7 @@ export const GLOBAL_POSTS = [
     metaDescription: 
       'n8n vs Make vs Zapier compared on ease of use, flexibility, cost model, control and AI. See which fits your business before you pay for a plan.',
     published: '2026-10-17',
-    modified: '2026-10-28',
+    modified: '2026-10-30',
     readMinutes: 7,
     category: 'AI automation',
     about: 'Comparing workflow automation tools n8n, Zapier and Make',
@@ -183,6 +183,12 @@ export const GLOBAL_POSTS = [
         ],
       },
     ],
+    faqs: [
+      { q: 'Is n8n better than Zapier?', a: 'Neither is better in every case. Zapier is easier to start with, while n8n offers more flexibility, custom code and the option to host it yourself. Choose based on your process, volume and who will maintain it.' },
+      { q: 'Is Make easier than n8n?', a: 'Make is generally friendlier for people who prefer a visual canvas without writing code, while n8n is more technical but more flexible. Both take some time to learn.' },
+      { q: 'Which automation tool is cheapest?', a: 'It depends on how often your workflows run and how each provider counts steps, so check each provider’s current pricing. Self-hosting n8n replaces per-task fees with server and maintenance costs.' },
+      { q: 'Can I use AI in Zapier, Make and n8n?', a: 'Yes. All three can call language models as a step in a workflow, so AI support is rarely the deciding factor.' },
+    ],
     relatedServices: ['n8n-workflow-automation', 'ai-automation-services'],
   },
 
@@ -194,7 +200,7 @@ export const GLOBAL_POSTS = [
     metaDescription: 
       'New to Shopify AI automation? Get 6 practical tips for listings, SEO, support and data, plus the safeguards that keep your store safe.',
     published: '2026-10-17',
-    modified: '2026-10-28',
+    modified: '2026-10-30',
     readMinutes: 7,
     category: 'E-commerce',
     about: 'Automating a Shopify store with AI',
@@ -284,12 +290,26 @@ export const GLOBAL_POSTS = [
         ],
       },
       {
+        h2: 'Shopify Flow versus custom AI automation',
+        paragraphs: [
+          `Shopify has its own built-in automation tool, Shopify Flow, which lets you build simple when-this-happens-do-that workflows inside your store, such as tagging an order, flagging a high-value customer or notifying your team. It is a good first step for rule-based tasks, and it is worth checking which Shopify plans include it, because plan details change.`,
+          `Flow works best when the logic is fixed and everything happens inside Shopify. When you need to read messy text, draft copy with AI, pull data from suppliers or other tools, or coordinate several steps across systems, a workflow tool or custom automation is usually the better fit. Many stores use both: Flow for the simple store rules and an n8n or custom workflow for the AI and data jobs.`,
+        ],
+      },
+      {
         h2: 'A sensible rollout',
         paragraphs: [
           `Automate in stages. First, set up reporting and alerts. Second, add drafted listings and SEO text with human review. Third, introduce support triage with drafted replies. Only then consider letting selected tasks run without approval, one at a time, once they have proved reliable on real data. Each stage teaches you how much to trust the system and what to adjust.`,
           `I have built an AI-powered Shopify management system and an AI E-Commerce Store Manager that coordinates agents for product research, SEO, listing generation, customer support, analytics and store management, and this staged approach is how I think about both. If you would like help planning yours, see my [Shopify automation services](/shopify-automation-services) or [send me a message](/contact).`,
         ],
       },
+    ],
+    faqs: [
+      { q: 'Can AI really automate a Shopify store?', a: 'It can automate many repetitive tasks, such as drafting listings and SEO text, sorting support messages, syncing product data and sending reports. It works best with a person reviewing important actions like pricing, publishing and refunds.' },
+      { q: 'What is the easiest way to start automating a Shopify store?', a: 'Start with reporting and notifications, which only read data and send messages, then add drafted listings and support triage with human review. Automate one task at a time.' },
+      { q: 'Is it safe to give an automation access to my Shopify store?', a: 'It can be, if you give each automation only the permissions it needs, keep access keys secure, test on a development store or a few products first and back up your product data before bulk edits.' },
+      { q: 'Will AI-written product descriptions hurt my SEO?', a: 'Not if they are accurate, specific and reviewed. The risk is publishing generic text across a whole catalogue, so draft from real product data and edit before publishing.' },
+      { q: 'Do I need coding skills to automate Shopify?', a: 'Not for simple jobs, because built-in tools such as Shopify Flow and ready-made apps cover many needs. Connecting several systems or adding AI steps usually needs a workflow tool or a developer.' },
     ],
     relatedServices: ['shopify-automation-services', 'ai-automation-services'],
   },

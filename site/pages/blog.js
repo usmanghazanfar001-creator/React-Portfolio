@@ -1,8 +1,8 @@
 import { POSTS } from '../data/posts.js'
 import { SERVICE_PAGES } from '../data/services.js'
 import { abs, SITE } from '../config.js'
-import { articleNode, ids } from '../schema.js'
-import { pageHeader, wrap, h2, h3, p, ul, ctaBlock, linkCards } from '../layout.js'
+import { articleNode, faqNode, ids } from '../schema.js'
+import { pageHeader, wrap, h2, h3, p, ul, ctaBlock, faqBlock, linkCards } from '../layout.js'
 import { esc } from '../html.js'
 
 const fmt = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
@@ -39,6 +39,7 @@ ${(s.h3s || []).map((x) => `${h3(x.h3)}\n${x.paragraphs.map(p).join('\n')}`).joi
 ${post.intro.slice(1).map(p).join('\n')}
 ${sections}
 </article>
+${post.faqs ? faqBlock(post.faqs) : ''}
 ${ctaBlock({ heading: 'Want a clear quote for your own website?', text: 'Tell me about your business and I will reply with a written scope, a timeline and a price. No obligation.' })}
 ${linkCards(related, 'Keep reading', 'related')}`
 }
@@ -87,6 +88,6 @@ export const blogPages = () => [
     lastmod: post.modified,
     crumbs: [{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }, { name: post.title, path: '/blog/' + post.slug }],
     body: postBody(post),
-    schema: [articleNode(post)],
+    schema: [articleNode(post), ...(post.faqs ? [faqNode('/blog/' + post.slug, post.faqs)] : [])],
   })),
 ]

@@ -239,6 +239,10 @@ const Services = () => (
       <div className="mt-3 flex flex-wrap gap-2">
         {SITE.servicePages.map((s) => <a key={s.slug} href={`/${s.slug}`} className="chip transition hover:border-white/30 hover:text-white">{s.label}</a>)}
       </div>
+      <p className="mt-6 text-sm text-zinc-500">Popular guides</p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {SITE.featuredGuides.map((g) => <a key={g.slug} href={`/blog/${g.slug}`} className="chip transition hover:border-white/30 hover:text-white">{g.label}</a>)}
+      </div>
     </Reveal>
   </Section>
 )
@@ -385,6 +389,8 @@ function Footer() {
               <li><a href="/blog" className="hover:text-white">Blog</a></li>
               <li><a href="/about" className="hover:text-white">About</a></li>
               <li><a href="/contact" className="hover:text-white">Contact</a></li>
+              <li aria-hidden="true" className="pt-3 text-xs uppercase tracking-widest">Popular guides</li>
+              {SITE.featuredGuides.map((g) => <li key={g.slug}><a href={`/blog/${g.slug}`} className="hover:text-white">{g.label}</a></li>)}
             </ul>
           </nav>
         </div>
