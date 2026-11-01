@@ -243,6 +243,7 @@ const Services = () => (
       <div className="mt-3 flex flex-wrap gap-2">
         {SITE.featuredGuides.map((g) => <a key={g.slug} href={`/blog/${g.slug}`} className="chip transition hover:border-white/30 hover:text-white">{g.label}</a>)}
       </div>
+      <p className="mt-6 text-sm"><a href="/services" className="text-accent-2 underline underline-offset-4">View all services</a></p>
     </Reveal>
   </Section>
 )
@@ -385,6 +386,7 @@ function Footer() {
           <nav aria-label="Company">
             <h2 className="font-display text-sm font-semibold uppercase tracking-widest text-white">Company</h2>
             <ul className="mt-4 space-y-2">
+              <li><a href="/services" className="hover:text-white">All services</a></li>
               <li><a href="/portfolio" className="hover:text-white">Portfolio &amp; case studies</a></li>
               <li><a href="/blog" className="hover:text-white">Blog</a></li>
               <li><a href="/about" className="hover:text-white">About</a></li>

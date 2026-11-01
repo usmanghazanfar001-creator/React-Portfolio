@@ -33,5 +33,57 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/ai-automation-services",
+      "destination": "/services/ai-automation",
+      "permanent": true
+    },
+    {
+      "source": "/n8n-workflow-automation",
+      "destination": "/services/n8n-automation",
+      "permanent": true
+    },
+    {
+      "source": "/shopify-automation-services",
+      "destination": "/services/shopify-automation",
+      "permanent": true
+    },
+    {
+      "source": "/nextjs-web-development",
+      "destination": "/services/react-nextjs-development",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agent-development",
+      "destination": "/services/ai-agent-development",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio-website-design",
+      "destination": "/services/portfolio-website-design",
+      "permanent": true
+    },
+    {
+      "source": "/web-design-sharjah",
+      "destination": "/services/web-design-sharjah",
+      "permanent": true
+    },
+    {
+      "source": "/ecommerce-website-development-uae",
+      "destination": "/services/ecommerce-website-development-uae",
+      "permanent": true
+    },
+    {
+      "source": "/wordpress-development-dubai",
+      "destination": "/services/wordpress-development-dubai",
+      "permanent": true
+    },
+    {
+      "source": "/website-redesign-uae",
+      "destination": "/services/website-redesign-uae",
+      "permanent": true
+    }
   ]
 }

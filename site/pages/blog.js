@@ -58,7 +58,7 @@ ${linkCards(
     'Latest articles',
     'posts',
   )}
-${wrap(`${p('Looking for help rather than reading? See my [AI automation services](/ai-automation-services), my [web design service for Sharjah businesses](/web-design-sharjah) or [get in touch](/contact).')}`, 'max-w-4xl')}`
+${wrap(`${p('Looking for help rather than reading? See my [AI automation services](/services/ai-automation), my [web design service for Sharjah businesses](/services/web-design-sharjah) or [get in touch](/contact).')}`, 'max-w-4xl')}`
 }
 
 export const blogPages = () => [

@@ -27,9 +27,9 @@ export const ABOUT_COPY = {
       ],
     },
     {
-      h2: 'How I work with clients in Sharjah, Dubai and across the UAE',
+      h2: 'How I work with clients in Pakistan, the UAE and worldwide',
       paragraphs: [
-        `I work with clients online, so the process is the same whether you are in Sharjah, Dubai or another emirate. We talk by video call, email or WhatsApp, you see a live preview as the site takes shape, and nothing goes live until you have approved it.`,
+        `I am based in Faisalabad, Pakistan, and I work with clients online across Pakistan, the UAE and other markets, so the process is the same whether you are in Faisalabad, Sharjah, Dubai or abroad. We talk by video call, email or WhatsApp, you see a live preview as the site takes shape, and nothing goes live until you have approved it.`,
         `Because audiences in the UAE are multilingual and mobile-first, I plan for Arabic and English layouts, WhatsApp contact points and fast mobile performance from the very beginning of a project, rather than bolting them on at the end.`,
       ],
     },

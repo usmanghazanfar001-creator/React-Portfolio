@@ -10,14 +10,16 @@ All your content (profile, skills, services, projects, timeline) is unchanged in
 
 ## SEO architecture
 
+Service pages live under `/services/<name>` (hub: `/services`). Old addresses redirect permanently via `vercel.json`. Page copy: `site/data/services.js`, `global-services.js`, `services-new.js`. Keyword plan: `KEYWORD-MAP.md`.
+
 The home page is the React app (`src/`). Every other page is **statically generated HTML** from plain JS templates in `site/`
 (no client JavaScript except the small contact-form helper), so crawlers and visitors get fast, complete pages.
 
 | Path | What it is | Edit here |
 | --- | --- | --- |
 | `/` | React SPA + build-time crawlable fallback + JSON-LD | `src/`, `index.html`, `seo-plugin.js`, `src/data/content.js` |
-| `/web-design-sharjah`, `/ecommerce-website-development-uae`, `/wordpress-development-dubai`, `/website-redesign-uae` | UAE service landing pages (Service + FAQPage schema) | `site/data/services.js` |
-| `/ai-automation-services`, `/ai-agent-development`, `/n8n-workflow-automation`, `/shopify-automation-services`, `/nextjs-web-development`, `/portfolio-website-design` | Worldwide service landing pages | `site/data/global-services.js` |
+| `/services/web-design-sharjah`, `/services/ecommerce-website-development-uae`, `/services/wordpress-development-dubai`, `/services/website-redesign-uae` | UAE service landing pages (Service + FAQPage schema) | `site/data/services.js` |
+| `/services/ai-automation`, `/services/ai-agent-development`, `/services/n8n-automation`, `/services/shopify-automation`, `/services/react-nextjs-development`, `/services/portfolio-website-design` | Worldwide service landing pages | `site/data/global-services.js` |
 | `/blog`, `/blog/<slug>` | Blog (BlogPosting schema) | `site/data/posts.js` |
 | `/portfolio`, `/about`, `/contact` | Trust pages | `site/pages/trust.js`, `site/data/trust.js` |
 | `/sitemap.xml`, `/robots.txt`, `/404` | Generated on every build | `seo-plugin.js` |

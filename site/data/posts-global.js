@@ -42,14 +42,14 @@ export const GLOBAL_POSTS = [
         h2: 'Workflows: the most underrated option',
         paragraphs: [
           `Most business processes have a known shape. An enquiry comes in, gets categorised, goes to the right person and is logged. An order is placed, the warehouse is notified and the customer gets a message. Because the steps are known, a workflow can run them every time in the same order, which makes it predictable, quick and cheap.`,
-          `AI fits neatly inside a workflow as a single step that handles the messy part: reading a free-text message, extracting an address from an email, summarising a long document or drafting a reply for approval. You get the intelligence of AI with the reliability of a fixed process. For a large share of real business problems, this is the best design, and it is the one I recommend first. If you want to see how I build them, read about [n8n workflow automation](/n8n-workflow-automation) and [AI automation services](/ai-automation-services).`,
+          `AI fits neatly inside a workflow as a single step that handles the messy part: reading a free-text message, extracting an address from an email, summarising a long document or drafting a reply for approval. You get the intelligence of AI with the reliability of a fixed process. For a large share of real business problems, this is the best design, and it is the one I recommend first. If you want to see how I build them, read about [n8n workflow automation](/services/n8n-automation) and [AI automation services](/services/ai-automation).`,
         ],
       },
       {
         h2: 'Agents: when the path cannot be fixed in advance',
         paragraphs: [
           `An agent earns its place when the steps depend on what it discovers along the way. Researching a topic across several sources, investigating why a metric changed, or handling a support case that may need an order lookup, a policy check and a follow-up question are all tasks where the next step depends on the last result.`,
-          `That flexibility has a price. Agents make more model calls, so they cost more to run, and they are less predictable, because the same request may take a different route twice. They need guardrails: a limited set of tools, caps on how many actions they can take, a record of every step and human approval for anything with consequences. Built carefully, they handle work no fixed workflow could. Built carelessly, they surprise you. How I build them is described on the [AI agent development](/ai-agent-development) page.`,
+          `That flexibility has a price. Agents make more model calls, so they cost more to run, and they are less predictable, because the same request may take a different route twice. They need guardrails: a limited set of tools, caps on how many actions they can take, a record of every step and human approval for anything with consequences. Built carefully, they handle work no fixed workflow could. Built carelessly, they surprise you. How I build them is described on the [AI agent development](/services/ai-agent-development) page.`,
         ],
       },
       {
@@ -84,7 +84,7 @@ export const GLOBAL_POSTS = [
         ],
       },
     ],
-    relatedServices: ['ai-agent-development', 'ai-automation-services'],
+    relatedServices: ['services/ai-agent-development', 'services/ai-automation'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -143,7 +143,7 @@ export const GLOBAL_POSTS = [
         h2: 'n8n: power and control',
         paragraphs: [
           `n8n is the most technical of the three, and the most flexible. It offers a visual editor like Make, plus code nodes, webhooks, deep API access and a rich set of AI-related nodes. Crucially, it can be self-hosted on your own server as well as used as a hosted service, which gives you control over where data lives and how costs scale.`,
-          `That power has a cost in responsibility. If you self-host, you must maintain, update and secure the system, and building complex workflows is easier if you are comfortable with technical concepts. For teams with a developer, or a developer on call, it is often the most capable option. You can read how I use it on my [n8n workflow automation](/n8n-workflow-automation) page.`,
+          `That power has a cost in responsibility. If you self-host, you must maintain, update and secure the system, and building complex workflows is easier if you are comfortable with technical concepts. For teams with a developer, or a developer on call, it is often the most capable option. You can read how I use it on my [n8n workflow automation](/services/n8n-automation) page.`,
         ],
       },
       {
@@ -179,7 +179,7 @@ export const GLOBAL_POSTS = [
       {
         h2: 'Getting help choosing',
         paragraphs: [
-          `If you are unsure, describe your process, the apps involved and roughly how often it runs. With those three facts I can tell you which tool is likely to fit and what a first workflow would involve. See my [AI automation services](/ai-automation-services) or [contact me](/contact) directly.`,
+          `If you are unsure, describe your process, the apps involved and roughly how often it runs. With those three facts I can tell you which tool is likely to fit and what a first workflow would involve. See my [AI automation services](/services/ai-automation) or [contact me](/contact) directly.`,
         ],
       },
     ],
@@ -189,7 +189,7 @@ export const GLOBAL_POSTS = [
       { q: 'Which automation tool is cheapest?', a: 'It depends on how often your workflows run and how each provider counts steps, so check each provider’s current pricing. Self-hosting n8n replaces per-task fees with server and maintenance costs.' },
       { q: 'Can I use AI in Zapier, Make and n8n?', a: 'Yes. All three can call language models as a step in a workflow, so AI support is rarely the deciding factor.' },
     ],
-    relatedServices: ['n8n-workflow-automation', 'ai-automation-services'],
+    relatedServices: ['services/n8n-automation', 'services/ai-automation'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -286,7 +286,7 @@ export const GLOBAL_POSTS = [
       {
         h2: 'Apps, n8n or custom code?',
         paragraphs: [
-          `There are three broad ways to build Shopify automation. Ready-made apps are quickest to install and fine for standard needs. A workflow tool such as n8n gives you more flexibility to connect Shopify with other systems and add AI steps without building everything from scratch. Custom code or an agent-based system suits unusual requirements and larger stores but takes longer to build. I generally recommend starting with the simplest option that does the job and moving up only when you hit its limits. See [n8n workflow automation](/n8n-workflow-automation) for how that works in practice.`,
+          `There are three broad ways to build Shopify automation. Ready-made apps are quickest to install and fine for standard needs. A workflow tool such as n8n gives you more flexibility to connect Shopify with other systems and add AI steps without building everything from scratch. Custom code or an agent-based system suits unusual requirements and larger stores but takes longer to build. I generally recommend starting with the simplest option that does the job and moving up only when you hit its limits. See [n8n workflow automation](/services/n8n-automation) for how that works in practice.`,
         ],
       },
       {
@@ -300,7 +300,7 @@ export const GLOBAL_POSTS = [
         h2: 'A sensible rollout',
         paragraphs: [
           `Automate in stages. First, set up reporting and alerts. Second, add drafted listings and SEO text with human review. Third, introduce support triage with drafted replies. Only then consider letting selected tasks run without approval, one at a time, once they have proved reliable on real data. Each stage teaches you how much to trust the system and what to adjust.`,
-          `I have built an AI-powered Shopify management system and an AI E-Commerce Store Manager that coordinates agents for product research, SEO, listing generation, customer support, analytics and store management, and this staged approach is how I think about both. If you would like help planning yours, see my [Shopify automation services](/shopify-automation-services) or [send me a message](/contact).`,
+          `I have built an AI-powered Shopify management system and an AI E-Commerce Store Manager that coordinates agents for product research, SEO, listing generation, customer support, analytics and store management, and this staged approach is how I think about both. If you would like help planning yours, see my [Shopify automation services](/services/shopify-automation) or [send me a message](/contact).`,
         ],
       },
     ],
@@ -311,7 +311,7 @@ export const GLOBAL_POSTS = [
       { q: 'Will AI-written product descriptions hurt my SEO?', a: 'Not if they are accurate, specific and reviewed. The risk is publishing generic text across a whole catalogue, so draft from real product data and edit before publishing.' },
       { q: 'Do I need coding skills to automate Shopify?', a: 'Not for simple jobs, because built-in tools such as Shopify Flow and ready-made apps cover many needs. Connecting several systems or adding AI steps usually needs a workflow tool or a developer.' },
     ],
-    relatedServices: ['shopify-automation-services', 'ai-automation-services'],
+    relatedServices: ['services/shopify-automation', 'services/ai-automation'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -355,7 +355,7 @@ export const GLOBAL_POSTS = [
       {
         h2: 'SEO',
         paragraphs: [
-          `Neither platform has an inherent ranking advantage. Search engines rank pages on content, relevance, links and technical quality. WordPress offers mature SEO plugins that make titles, descriptions and sitemaps easy for non-technical editors. Next.js handles those same things in code, which gives developers precise control over metadata, structured data and rendering. What matters is that the foundations are done well, whichever route you take. My [web design service](/web-design-sharjah) covers those foundations in detail.`,
+          `Neither platform has an inherent ranking advantage. Search engines rank pages on content, relevance, links and technical quality. WordPress offers mature SEO plugins that make titles, descriptions and sitemaps easy for non-technical editors. Next.js handles those same things in code, which gives developers precise control over metadata, structured data and rendering. What matters is that the foundations are done well, whichever route you take. My [web design service](/services/web-design-sharjah) covers those foundations in detail.`,
         ],
       },
       {
@@ -374,7 +374,7 @@ export const GLOBAL_POSTS = [
       {
         h2: 'Online stores',
         paragraphs: [
-          `For selling online, WordPress often means WooCommerce, which is flexible and familiar. Shopify is a strong hosted alternative. A custom Next.js storefront gives the most control over design and performance, as in my MA Fabrics project, but costs more to build and maintain. Choose based on your catalogue size, budget and how unique the shopping experience needs to be. See my [e-commerce website development](/ecommerce-website-development-uae) page for more.`,
+          `For selling online, WordPress often means WooCommerce, which is flexible and familiar. Shopify is a strong hosted alternative. A custom Next.js storefront gives the most control over design and performance, as in my MA Fabrics project, but costs more to build and maintain. Choose based on your catalogue size, budget and how unique the shopping experience needs to be. See my [e-commerce website development](/services/ecommerce-website-development-uae) page for more.`,
         ],
       },
       {
@@ -392,10 +392,282 @@ export const GLOBAL_POSTS = [
       {
         h2: 'Making the choice',
         paragraphs: [
-          `The right platform is the one that fits your team and goals, not the one with the biggest reputation. Explore my [WordPress development](/wordpress-development-dubai) and [Next.js web development](/nextjs-web-development) services to see how I approach each, or [contact me](/contact) with your requirements and I will recommend one in writing.`,
+          `The right platform is the one that fits your team and goals, not the one with the biggest reputation. Explore my [WordPress development](/services/wordpress-development-dubai) and [Next.js web development](/services/react-nextjs-development) services to see how I approach each, or [contact me](/contact) with your requirements and I will recommend one in writing.`,
         ],
       },
     ],
-    relatedServices: ['nextjs-web-development', 'wordpress-development-dubai'],
+    relatedServices: ['services/react-nextjs-development', 'services/wordpress-development-dubai'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
+    slug: 'what-is-ai-automation',
+    title: 'What Is AI Automation and How Can Businesses Use It?',
+    metaTitle: 'What Is AI Automation? A Practical Business Guide',
+    metaDescription:
+      'AI automation explained in plain language: how it works, real business uses, risks, costs and how to start with one safe, useful process.',
+    published: '2026-10-31',
+    modified: '2026-10-31',
+    readMinutes: 7,
+    category: 'AI automation',
+    about: 'What AI automation is and how businesses can use it',
+    intro: [
+      `AI automation is one of those phrases that sounds either magical or meaningless, depending on who is saying it. For a business owner, what matters is simple: which of the repetitive jobs in my company can software now do for me, and how do I do that without creating new problems? This guide answers that in plain language, with examples you can recognise from your own week.`,
+      `**Quick answer:** AI automation means using software, with artificial intelligence handling the steps that need judgement, to carry out repetitive business tasks automatically. A typical example is reading incoming customer messages, deciding what each one is about, drafting a reply and passing it to the right person, with a human approving anything important.`,
+    ],
+    sections: [
+      {
+        h2: 'AI automation in plain language',
+        paragraphs: [
+          `Automation is not new. For years, businesses have used rules such as when an order arrives, send a confirmation email. The rule is fixed, so it works only when the input is tidy. The arrival of modern language models changed one thing: software can now deal with messy input such as free-text messages, documents and images, where a fixed rule would fail.`,
+          `AI automation combines both. Fixed rules handle the predictable parts, and an AI step handles the parts where a person would normally need to read, judge or write something. The result is a process that runs on its own most of the time and asks for a person only when it should.`,
+        ],
+      },
+      {
+        h2: 'How it differs from traditional automation',
+        paragraphs: [
+          `The easiest way to see the difference is to compare what each can handle.`,
+        ],
+        bullets: [
+          '**Traditional automation** follows exact rules. It is fast and predictable, but it breaks when the input changes shape, for example a customer who writes a long, unusual message instead of ticking a box.',
+          '**AI automation** adds a step that can interpret text, summarise a document, extract details from an email or draft a response. It handles variety, but its output must be checked because it can be wrong.',
+          '**Together** they are strongest: rules for the fixed steps, AI for the flexible ones and a person for the decisions that carry risk.',
+        ],
+      },
+      {
+        h2: 'What it looks like in a real business',
+        paragraphs: [
+          `The best examples are rarely dramatic. They are small, repeated jobs that quietly eat hours every week.`,
+        ],
+        bullets: [
+          'Handling new enquiries: capturing them from a form, categorising them and sending them to the right person with a short summary.',
+          'Customer support triage: sorting messages by topic and drafting suggested replies for a person to approve.',
+          'Writing and updating product listings, titles and descriptions from your product data.',
+          'Producing a weekly report from several tools, without anyone copying numbers by hand.',
+          'Sending order, stock and status alerts to the people who need them.',
+          'Moving data between systems that do not talk to each other, such as a form, a spreadsheet and an accounting tool.',
+        ],
+      },
+      {
+        h2: 'How it works: a trigger, an AI step and an action',
+        paragraphs: [
+          `Almost every AI automation follows the same three-part shape. A trigger starts it, such as a new message, a new order or a scheduled time. An AI step then does the thinking: classify, summarise, extract or draft. Finally an action carries out the result: save a record, send a message, update a listing or notify a person.`,
+          `Tools such as n8n, Make and Zapier connect these parts without building a full application, and custom code or an agent framework such as LangGraph is used when the logic is more complex. My comparison of [n8n, Make and Zapier](/blog/n8n-vs-zapier-vs-make) explains how to choose between the workflow tools.`,
+        ],
+      },
+      {
+        h2: 'Benefits you can reasonably expect',
+        paragraphs: [
+          `Well-chosen automations save time on repetitive work, respond to customers faster, apply the same rules every time and reduce copying errors. They also free people for the work that needs a human, such as relationships, decisions and creativity. These are real benefits, but they depend on picking a suitable process. Automating a confusing process only makes the confusion faster.`,
+        ],
+      },
+      {
+        h2: 'Risks and how to manage them',
+        paragraphs: [
+          `The main risk is that AI output can be wrong while sounding confident. Manage it by keeping a person in the loop for anything involving money, promises or customer commitments, by limiting what the system is allowed to do, and by testing it on real examples before launch. Privacy is the second risk: send an AI service only the data a step truly needs, store access keys securely and decide which information must never leave your systems. Finally, avoid over-automation. If a task is rare, sensitive or relationship-driven, a person usually does it better.`,
+        ],
+      },
+      {
+        h2: 'How to start with one process',
+        paragraphs: [
+          `You do not need a company-wide strategy. Begin with a single process and follow these steps.`,
+        ],
+        bullets: [
+          '**Pick one task** that is frequent, time-consuming and follows a recognisable pattern.',
+          '**Write down the steps** exactly as a person does them today, including the exceptions.',
+          '**Decide where AI is needed.** Use plain rules wherever the logic is simple.',
+          '**Build a small pilot** and review every output at first.',
+          '**Measure the time saved** and the errors found, then expand carefully.',
+        ],
+      },
+      {
+        h2: 'What it costs',
+        paragraphs: [
+          `There is no single price. The cost depends on how complex the process is, how many tools it connects, how often it runs and which AI models it uses, since model usage is typically charged by volume. A single focused workflow costs far less than a multi-step system. Ask for a written scope, separate the build cost from the running cost and start small.`,
+        ],
+      },
+      {
+        h2: 'Where to go next',
+        paragraphs: [
+          `If you would like help choosing a first process, see my [AI automation services](/services/ai-automation), or read about [AI agents, chatbots and workflows](/blog/ai-agents-vs-chatbots-vs-workflows) to understand which design fits your problem. When you are ready, [get in touch](/contact) and describe the task you would most like to stop doing by hand.`,
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'What is AI automation in simple terms?', a: 'It is software that carries out repetitive business tasks on its own, using AI for the steps that need judgement, such as reading a message and deciding what it is about, with a person approving important actions.' },
+      { q: 'What is the difference between AI and automation?', a: 'Automation follows fixed rules, while AI can interpret messy input like text and documents. AI automation combines them so a process can handle variety and still run reliably.' },
+      { q: 'Is AI automation expensive for a small business?', a: 'It does not have to be. A single focused workflow is far cheaper than a large system, and starting with one process lets you prove the value before spending more.' },
+      { q: 'Will AI automation replace my staff?', a: 'It is best used to remove repetitive tasks so people can spend time on work that needs judgement and relationships. Keeping a person in charge of important decisions is good practice.' },
+    ],
+    relatedServices: ['services/ai-automation', 'services/n8n-automation'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
+    slug: 'how-to-build-an-ai-agent-for-your-business',
+    title: 'How to Build an AI Agent for Your Business',
+    metaTitle: 'How to Build an AI Agent for Your Business: 7 Steps',
+    metaDescription:
+      'A practical 7-step guide to building an AI agent for your business: choosing the job, tools, guardrails, testing and launch, without the hype.',
+    published: '2026-10-31',
+    modified: '2026-10-31',
+    readMinutes: 8,
+    category: 'AI agents',
+    about: 'Building an AI agent for a business',
+    intro: [
+      `Everyone is talking about AI agents, but few explain what building one actually involves. The good news is that a useful business agent is not mysterious. It is a clearly defined job, a set of tools the agent may use, a loop that lets it decide what to do next and, most importantly, limits that keep it safe. This guide walks through the seven steps I follow, written for business owners and managers rather than engineers.`,
+      `**Quick answer:** To build an AI agent for your business, choose one specific job, decide whether it needs an agent or a simpler workflow, list the tools and data it needs, design how it decides and loops, add guardrails and human approval, test it on real cases and launch it with monitoring. Frameworks such as LangChain and LangGraph provide the building blocks.`,
+    ],
+    sections: [
+      {
+        h2: 'Step 1: Choose one specific job',
+        paragraphs: [
+          `The biggest mistake is starting with the technology instead of the job. A good first agent has a clear task, a clear finish line and a clear way to tell whether it did well. Researching a topic and returning a short briefing with sources is a good example. Run my business is not. Write the job as one sentence, such as read each new support message, find the relevant policy or order details and prepare a reply for a person to approve.`,
+        ],
+      },
+      {
+        h2: 'Step 2: Decide whether you need an agent at all',
+        paragraphs: [
+          `Agents choose their own sequence of actions, which makes them flexible but also less predictable and more expensive to run. If the steps are known in advance, a fixed workflow with an AI step inside it is usually the better design. Use an agent only when the next step genuinely depends on what the previous step found. My guide to [AI agents, chatbots and workflows](/blog/ai-agents-vs-chatbots-vs-workflows) explains how to tell the difference.`,
+        ],
+      },
+      {
+        h2: 'Step 3: List the tools and data the agent needs',
+        paragraphs: [
+          `An agent is only as useful as the tools it can use. Tools might include searching your documents, looking up an order in your store, reading a spreadsheet or sending a message. List each one, decide what the agent may read and what it may change, and give it the minimum access required. An agent that can only read information is much safer than one that can edit or delete it.`,
+        ],
+      },
+      {
+        h2: 'Step 4: Design how the agent decides and loops',
+        paragraphs: [
+          `Behind the scenes, an agent repeats a loop: look at the situation, decide on an action, use a tool, look at the result and decide again until the job is done. I design this explicitly with LangGraph, which represents the agent as a graph of steps with shared state, branches, retries and clear stopping points. LangChain supplies the connections to language models and tools. For larger jobs I split the work between several narrow agents, such as a researcher and a writer, coordinated by an orchestrator, because narrow agents make fewer mistakes.`,
+        ],
+      },
+      {
+        h2: 'Step 5: Add guardrails and human approval',
+        paragraphs: [
+          `Guardrails are what make an agent safe enough for real work. Limit the tools it can use, cap the number of actions and the money it can spend, block topics it should not handle and keep a record of every step. For anything with real consequences, such as publishing content, issuing a refund or changing a price, require a person to approve the action, at least at first. The agent should also know when to stop and ask for help.`,
+        ],
+      },
+      {
+        h2: 'Step 6: Test on real cases',
+        paragraphs: [
+          `Collect real examples of the job: past emails, support tickets or research questions. Run the agent on them and compare the results with what a good person would have done. Fix the failures, then run them again. This test set also protects you later, because every change you make can be checked against it. No agent will be right every time, so decide in advance what level of accuracy is good enough and how mistakes will be caught.`,
+        ],
+      },
+      {
+        h2: 'Step 7: Launch small and monitor',
+        paragraphs: [
+          `Start with a limited rollout and review the agent's work closely. Watch for wrong answers, unexpected actions, slow responses and cost per task. Keep logs so you can see what happened and why, and set alerts for failures. As the agent proves reliable you can reduce the approvals and extend its scope, one step at a time.`,
+        ],
+      },
+      {
+        h2: 'A real example',
+        paragraphs: [
+          `My AI E-Commerce Store Manager uses LangGraph and LangChain to coordinate specialised agents for product research, SEO, listing generation, customer support, analytics and Shopify store management. Each agent has a narrow role, and the system is built so a person stays in control of what goes live. You can see the approach in my [portfolio case studies](/portfolio).`,
+        ],
+      },
+      {
+        h2: 'Should you build it yourself or hire a developer?',
+        paragraphs: [
+          `Simple automations can be built with no-code tools. A multi-step agent that touches your customers or your data benefits from a developer who understands testing, security and failure handling. If you would like help, see my [AI agent development](/services/ai-agent-development) service, or [contact me](/contact) with the job you have in mind.`,
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'How long does it take to build an AI agent?', a: 'It depends on the job, the tools involved and how much testing is needed. A narrow agent with a few tools is much quicker than a multi-agent system, and I give an estimate after defining the job.' },
+      { q: 'Do I need to know how to code to build an AI agent?', a: 'Simple automations can be built with no-code tools. A reliable multi-step agent usually needs a developer, especially for testing, security and error handling.' },
+      { q: 'Is an AI agent safe to run on its own?', a: 'It can be, if its tools and permissions are limited, its actions are logged and risky actions need human approval. Start with approvals and relax them as trust grows.' },
+      { q: 'What does an AI agent cost to run?', a: 'Running cost depends mainly on how many model calls each task needs and how often it runs. Agents make more calls than fixed workflows, so set limits and monitor the cost per task.' },
+    ],
+    relatedServices: ['services/ai-agent-development', 'services/ai-chatbot-development'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
+    slug: 'why-every-business-needs-an-seo-friendly-website',
+    title: 'Why Every Business Needs an SEO-Friendly Website',
+    metaTitle: 'Why Your Business Needs an SEO-Friendly Website',
+    metaDescription:
+      'What an SEO-friendly website is, why it matters for finding customers, the common problems that hold sites back and a checklist you can use today.',
+    published: '2026-10-31',
+    modified: '2026-10-31',
+    readMinutes: 7,
+    category: 'SEO',
+    about: 'Why businesses need a search-friendly website',
+    intro: [
+      `A website that looks good but cannot be found is like a shop with no sign on a side street. Most people who need a product or service start by searching, and what they find is decided largely by how well each website is built for search. This guide explains what an SEO-friendly website is, why it matters to a business of any size and what you can check yourself without being an expert.`,
+      `**Quick answer:** An SEO-friendly website is built so search engines can find, read and understand every important page, and so visitors get a fast, clear experience on any device. It matters because organic search can bring a steady flow of customers who are already looking for what you sell, without paying for each click.`,
+    ],
+    sections: [
+      {
+        h2: 'What SEO-friendly actually means',
+        paragraphs: [
+          `SEO stands for search engine optimisation, and an SEO-friendly website has a few basic qualities. Search engines can crawl it, which means their software can reach every page that matters. Each page has a clear purpose, a descriptive title and headings that explain the content. The site loads quickly and works well on phones. And the content answers the questions real people type into search.`,
+          `None of this is about tricks. It is about removing obstacles between your good content and the people who want it.`,
+        ],
+      },
+      {
+        h2: 'Why it matters for a business',
+        paragraphs: [
+          `Search brings people who already have a need, which makes them more valuable than people who happened to see an advertisement. A page that ranks keeps working for you month after month, while paid advertising stops the moment you stop paying. An SEO-friendly site also tends to be a better site: faster, clearer and easier to use, which helps customers trust you and helps your enquiries convert.`,
+          `It is also a form of credibility. Customers often compare several businesses before contacting one. If yours appears with a clear description, a sensible page and a fast experience, you start ahead of competitors whose sites are slow or confusing.`,
+        ],
+      },
+      {
+        h2: 'Common problems that hold websites back',
+        paragraphs: [
+          `Most small business sites lose visibility for the same few reasons.`,
+        ],
+        bullets: [
+          '**Slow pages.** Large images and heavy scripts make pages slow, especially on mobile connections.',
+          '**Content hidden behind JavaScript.** Some modern sites show search engines an almost empty page until scripts run, which can delay or prevent indexing.',
+          '**Weak page structure.** Missing titles, duplicate titles, no headings or several pages competing for the same search.',
+          '**Poor mobile experience.** Text that is too small, buttons too close together or layouts that overflow the screen.',
+          '**Thin or generic content.** Pages that say little, or the same thing as every competitor.',
+          '**No monitoring.** Nobody checks Google Search Console, so indexing errors go unnoticed.',
+        ],
+      },
+      {
+        h2: 'A simple checklist you can use today',
+        paragraphs: [
+          `You do not need special software to spot the basics. Work through these questions for your most important pages.`,
+        ],
+        bullets: [
+          'Does each page have its own clear title and a short description?',
+          'Is there one main heading, followed by sensible subheadings?',
+          'Does the page load quickly on your phone using a mobile connection?',
+          'Do the images have descriptive text and a sensible file size?',
+          'Can you reach every important page from your menu or from other pages?',
+          'Do you have an XML sitemap and a robots.txt file, and is the site registered in Google Search Console?',
+          'Does the page answer the question a customer would actually search for?',
+        ],
+      },
+      {
+        h2: 'Free tools to check your site',
+        paragraphs: [
+          `Two free tools from Google give you real data. Google Search Console shows which pages are indexed, which searches show your site and where errors appear. PageSpeed Insights measures loading speed and points out specific fixes for mobile and desktop. Check them regularly rather than once, because small problems tend to accumulate.`,
+        ],
+      },
+      {
+        h2: 'Content and links still matter',
+        paragraphs: [
+          `Technical quality removes obstacles, but it does not create demand. To rank, you also need useful content that answers real questions, and over time links from other reputable websites that show your pages are worth recommending. Be wary of anyone who promises a guaranteed first-page ranking. Competition, content and links all play a part, and nobody controls Google.`,
+        ],
+      },
+      {
+        h2: 'When to get help',
+        paragraphs: [
+          `If your site is slow, not appearing in Google, built on a framework that hides content from search engines or simply out of date, an expert review can save months of guessing. My [technical SEO services](/services/technical-seo) cover audits and fixes, and a [website redesign](/services/website-redesign-uae) can rebuild a weak site without losing the rankings you already have. For a sense of what a new site involves, read how [website costs](/blog/how-much-does-a-website-cost-in-sharjah) are built up, or [get in touch](/contact) to talk about yours.`,
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'What does SEO-friendly mean?', a: 'It means search engines can crawl and understand your pages, and visitors get a fast, clear experience on any device. It is about removing obstacles between good content and the people searching for it.' },
+      { q: 'How long does it take for SEO to work?', a: 'Technical fixes can be picked up in days to weeks, but ranking improvements usually take longer, often months, and depend on competition and content.' },
+      { q: 'Can a small business really compete in search?', a: 'Yes, especially by targeting specific, less competitive searches that match what you actually offer. A clear, fast site with useful content gives a small business a real chance.' },
+      { q: 'Do I need an expert to make my website SEO-friendly?', a: 'You can handle the basics yourself with the checklist above. A specialist helps most with technical issues, such as indexing or JavaScript rendering, that are hard to spot without experience.' },
+    ],
+    relatedServices: ['services/technical-seo', 'services/website-redesign-uae'],
   },
 ]

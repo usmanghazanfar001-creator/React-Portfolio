@@ -69,14 +69,14 @@ export function nav(activePath = '') {
 <a href="/" class="font-display text-lg font-bold text-white" aria-label="${esc(PROFILE.name)} — home">${esc(PROFILE.firstName)}<span class="grad-text">.</span></a>
 <ul class="hidden items-center gap-1 md:flex">
 ${top('/', 'Home')}
-<li class="group relative"><a href="/#services" class="${link}">Services</a>
+<li class="group relative"><a href="/services" class="${link}">Services</a>
 <div class="invisible absolute left-0 top-full z-50 w-72 pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"><ul class="rounded-2xl border border-line bg-ink/95 p-2 backdrop-blur-xl">${svc}</ul></div></li>
 ${top('/portfolio', 'Portfolio')}${top('/blog', 'Blog')}${top('/about', 'About')}${top('/contact', 'Contact')}
 </ul>
 <details class="relative md:hidden"><summary aria-label="Menu" class="grid cursor-pointer list-none place-items-center p-1 [&::-webkit-details-marker]:hidden">${menuIcon}</summary>
 <ul class="absolute right-0 top-full mt-4 max-h-[calc(100dvh-6.5rem)] w-72 max-w-[calc(100vw-1.5rem)] overflow-y-auto overscroll-contain rounded-3xl border border-line bg-ink/95 p-3 backdrop-blur-xl">
 <li><a href="/" class="block rounded-xl px-4 py-3 hover:bg-white/5">Home</a></li>
-<li><a href="/#services" class="block rounded-xl px-4 py-3 hover:bg-white/5">Services</a></li>${mobileSvc}
+<li><a href="/services" class="block rounded-xl px-4 py-3 hover:bg-white/5">Services</a></li>${mobileSvc}
 <li><a href="/portfolio" class="block rounded-xl px-4 py-3 hover:bg-white/5">Portfolio</a></li>
 <li><a href="/blog" class="block rounded-xl px-4 py-3 hover:bg-white/5">Blog</a></li>
 <li><a href="/about" class="block rounded-xl px-4 py-3 hover:bg-white/5">About</a></li>
@@ -98,7 +98,7 @@ export function footer() {
 <nav aria-label="Web design services"><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">Web Design · UAE</h2>
 <ul class="${col}">${SITE.servicePages.map((s) => `<li><a class="${a}" href="/${s.slug}">${esc(s.label)}</a></li>`).join('')}</ul></nav>
 <nav aria-label="Company"><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">Company</h2>
-<ul class="${col}"><li><a class="${a}" href="/portfolio">Portfolio &amp; case studies</a></li><li><a class="${a}" href="/blog">Blog</a></li><li><a class="${a}" href="/about">About</a></li><li><a class="${a}" href="/contact">Contact</a></li><li aria-hidden="true" class="pt-3 text-xs uppercase tracking-widest text-zinc-500">Popular guides</li>${SITE.featuredGuides.map((g) => `<li><a class="${a}" href="/blog/${g.slug}">${esc(g.label)}</a></li>`).join('')}</ul></nav>
+<ul class="${col}"><li><a class="${a}" href="/services">All services</a></li><li><a class="${a}" href="/portfolio">Portfolio &amp; case studies</a></li><li><a class="${a}" href="/blog">Blog</a></li><li><a class="${a}" href="/about">About</a></li><li><a class="${a}" href="/contact">Contact</a></li><li aria-hidden="true" class="pt-3 text-xs uppercase tracking-widest text-zinc-500">Popular guides</li>${SITE.featuredGuides.map((g) => `<li><a class="${a}" href="/blog/${g.slug}">${esc(g.label)}</a></li>`).join('')}</ul></nav>
 <div><h2 class="font-display text-sm font-semibold uppercase tracking-widest text-white">Get in touch</h2>
 <ul class="${col}"><li><a class="${a}" href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a></li>
 <li><a class="${a}" href="${esc(SITE.whatsappLink)}" rel="noopener">WhatsApp ${esc(PROFILE.whatsapp)}</a></li>
@@ -161,7 +161,7 @@ ${h2(heading, 'faq')}
     )
     .join('')}</div></section>`
 
-export const ctaBlock = ({ heading, text, primary = { href: '/contact', label: 'Get a free quote' }, secondary = { href: SITE.whatsappLink, label: 'Chat on WhatsApp' } }) => `<section class="mx-auto max-w-4xl px-5 pt-20" aria-labelledby="cta">
+export const ctaBlock = ({ heading, text, primary = { href: '/contact', label: 'Get a free consultation' }, secondary = { href: SITE.whatsappLink, label: 'Chat on WhatsApp' } }) => `<section class="mx-auto max-w-4xl px-5 pt-20" aria-labelledby="cta">
 <div class="card relative overflow-hidden p-8 text-center sm:p-12"><div class="aurora absolute inset-0 opacity-60" aria-hidden="true"></div>
 <div class="relative"><h2 id="cta" class="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">${esc(heading)}</h2>
 <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-zinc-400">${inline(text)}</p>

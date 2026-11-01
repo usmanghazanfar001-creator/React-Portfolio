@@ -124,13 +124,13 @@ const UAE_POSTS = [
       {
         h2: 'Getting a fixed quote for your project',
         paragraphs: [
-          `The most reliable way to find out what your website will cost is to describe your goals to a developer and ask for a quote based on a written scope. If you are planning a new site, see my [web design service for Sharjah businesses](/web-design-sharjah). If you want to sell online, look at [e-commerce website development in the UAE](/ecommerce-website-development-uae). If you prefer a content-managed platform, there is my [WordPress development service](/wordpress-development-dubai), and if you already have a site that needs improving, read about [website redesign in the UAE](/website-redesign-uae).`,
+          `The most reliable way to find out what your website will cost is to describe your goals to a developer and ask for a quote based on a written scope. If you are planning a new site, see my [web design service for Sharjah businesses](/services/web-design-sharjah). If you want to sell online, look at [e-commerce website development in the UAE](/services/ecommerce-website-development-uae). If you prefer a content-managed platform, there is my [WordPress development service](/services/wordpress-development-dubai), and if you already have a site that needs improving, read about [website redesign in the UAE](/services/website-redesign-uae).`,
           `When you are ready, [contact me](/contact) with a short description of your business, the pages and features you need and any deadlines, and I will reply with a written scope and a quote.`,
         ],
       },
     ],
     // TODO(owner): add a real "typical price ranges" section in AED once you decide your pricing.
-    relatedServices: ['web-design-sharjah', 'ecommerce-website-development-uae'],
+    relatedServices: ['services/web-design-sharjah', 'services/ecommerce-website-development-uae'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -210,11 +210,11 @@ const UAE_POSTS = [
         h2: 'How to apply these trends without overspending',
         paragraphs: [
           `You do not need all eight at once. Start with the foundations that affect every visitor: mobile-first design, speed and a clear structure. Add WhatsApp contact points next, because they are cheap and effective. Then decide whether Arabic and AI features justify the investment for your audience, and build trust signals as you collect real reviews and results.`,
-          `If you are planning a new site, take a look at my [web design services for Sharjah businesses](/web-design-sharjah). If your current site feels dated, [website redesign in the UAE](/website-redesign-uae) explains how to modernise it without losing your search rankings, and the guide to [website costs in Sharjah](/blog/how-much-does-a-website-cost-in-sharjah) helps you budget. To talk through your own project, [get in touch](/contact).`,
+          `If you are planning a new site, take a look at my [web design services for Sharjah businesses](/services/web-design-sharjah). If your current site feels dated, [website redesign in the UAE](/services/website-redesign-uae) explains how to modernise it without losing your search rankings, and the guide to [website costs in Sharjah](/blog/how-much-does-a-website-cost-in-sharjah) helps you budget. To talk through your own project, [get in touch](/contact).`,
         ],
       },
     ],
-    relatedServices: ['web-design-sharjah', 'website-redesign-uae'],
+    relatedServices: ['services/web-design-sharjah', 'services/website-redesign-uae'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -312,11 +312,11 @@ const UAE_POSTS = [
         h2: 'Making the final decision',
         paragraphs: [
           `Narrow the list to two or three companies and compare them on the same terms: clarity of scope, quality of live work, communication, technical approach, ownership and support. Choose the one you trust to deliver, not simply the cheapest or the one with the flashiest presentation. A website is a long-term asset, and a good working relationship is part of what you are buying.`,
-          `If you would like me to be one of the providers you compare, read about my [web design service for Sharjah businesses](/web-design-sharjah), see how I approach [website redesign in the UAE](/website-redesign-uae) or look at the [trends shaping UAE web design](/blog/web-design-trends-in-the-uae). When you are ready, [contact me](/contact) and I will answer the questions above in writing for your project.`,
+          `If you would like me to be one of the providers you compare, read about my [web design service for Sharjah businesses](/services/web-design-sharjah), see how I approach [website redesign in the UAE](/services/website-redesign-uae) or look at the [trends shaping UAE web design](/blog/web-design-trends-in-the-uae). When you are ready, [contact me](/contact) and I will answer the questions above in writing for your project.`,
         ],
       },
     ],
-    relatedServices: ['web-design-sharjah', 'website-redesign-uae'],
+    relatedServices: ['services/web-design-sharjah', 'services/website-redesign-uae'],
   },
 ]
 

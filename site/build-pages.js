@@ -9,7 +9,7 @@ const today = () => new Date().toISOString().slice(0, 10)
 
 function notFound(assets) {
   const body = `${pageHeader({ crumbs: [{ name: 'Home', path: '/' }, { name: 'Page not found', path: '/404' }], h1: 'Page not found', lead: 'That page does not exist or has moved. Try one of the links below.' })}
-${wrap(p('Head back to the [home page](/), see the [web design services](/web-design-sharjah), or [contact me](/contact).'))}`
+${wrap(p('Head back to the [home page](/), see the [web design services](/services/web-design-sharjah), or [contact me](/contact).'))}`
   return { path: '/404', file: '404.html', title: 'Page Not Found | Usman Ghazanfar', description: 'This page could not be found.', noindex: true, body, assets }
 }
 

@@ -9,7 +9,7 @@ import { esc } from '../html.js'
 const showPlaceholders = () => process.env.SHOW_PLACEHOLDERS === '1'
 const liveTestimonials = () => TESTIMONIALS.filter((t) => showPlaceholders() || !t.placeholder)
 
-const FEATURED = ['web-design-sharjah', 'ecommerce-website-development-uae', 'ai-automation-services', 'ai-agent-development', 'nextjs-web-development', 'shopify-automation-services']
+const FEATURED = ['services/web-design-sharjah', 'services/ecommerce-website-development-uae', 'services/ai-automation', 'services/ai-agent-development', 'services/react-nextjs-development', 'services/shopify-automation']
 const serviceCards = () => FEATURED.map((s) => SERVICE_PAGES.find((x) => x.slug === s)).map((x) => ({ href: '/' + x.slug, title: x.nav, text: x.blurb }))
 
 function testimonialsSection() {
@@ -98,13 +98,13 @@ ${linkCards([{ href: '/portfolio', title: 'Portfolio and case studies', text: 'S
 const field = 'mt-2 w-full rounded-2xl border border-line bg-panel/70 px-4 py-3 text-white placeholder:text-zinc-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40'
 
 function contactBody() {
-  const opt = SERVICE_PAGES.map((s) => `<option>${esc(s.nav)}</option>`).join('')
+  const opt = SERVICE_PAGES.map((s) => `<option value="${esc(s.slug.replace('services/', ''))}">${esc(s.nav)}</option>`).join('')
   const method = (label, value, href, ext) => `<li class="card p-5"><span class="block text-xs text-zinc-500">${label}</span><a href="${esc(href)}"${ext ? ' rel="noopener"' : ''} class="mt-1 block break-words text-white hover:text-accent-2">${esc(value)}</a></li>`
   return `${pageHeader({
     crumbs: [{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }],
     eyebrow: 'Contact',
     h1: 'Contact Usman Ghazanfar for a Web Design Quote',
-    lead: 'Tell me about your business and your project. I will reply with questions, ideas and a clear quote for web design, e-commerce, WordPress or a website redesign in Sharjah and the UAE.',
+    lead: 'Tell me about your business and your project. I will reply with questions, ideas and a clear plan for AI automation, web development, e-commerce or SEO. I am based in Faisalabad, Pakistan, and work with clients across Pakistan, the UAE and internationally.',
   })}
 <div class="mx-auto grid grid-cols-1 max-w-6xl gap-10 px-5 lg:grid-cols-[1.3fr_1fr]">
 <section aria-labelledby="form-heading">
@@ -115,7 +115,7 @@ ${h2('Send me a message', 'form-heading')}
 <div><label for="email" class="text-sm font-medium text-white">Email</label><input id="email" name="email" type="email" autocomplete="email" required class="${field}" /></div>
 <div><label for="phone" class="text-sm font-medium text-white">Phone or WhatsApp <span class="text-zinc-500">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" class="${field}" /></div>
 </div>
-<div><label for="service" class="text-sm font-medium text-white">What do you need?</label><select id="service" name="service" class="${field}">${opt}<option>Something else</option></select></div>
+<div><label for="service" class="text-sm font-medium text-white">What do you need?</label><select id="service" name="service" class="${field}">${opt}<option value="other">Something else</option></select></div>
 <div><label for="message" class="text-sm font-medium text-white">Tell me about your project</label><textarea id="message" name="message" rows="6" required class="${field}" placeholder="Your business, the pages or features you need, and any deadline."></textarea></div>
 <div class="flex flex-wrap gap-3">
 <button type="submit" class="rounded-full bg-white px-6 py-3 font-medium text-ink transition hover:scale-105">Send by email</button>
@@ -149,14 +149,17 @@ const contactScript = `
   if (!form) return;
   var EMAIL = ${JSON.stringify(SITE.email)};
   var WA = ${JSON.stringify(SITE.whatsappLink)};
+  function service() { var s = document.getElementById('service'); return s ? s.options[s.selectedIndex].text : ''; }
+  var q = new URLSearchParams(location.search).get('service'); var sel = document.getElementById('service');
+  if (q && sel) { for (var i = 0; i < sel.options.length; i++) { if (sel.options[i].value === q) { sel.selectedIndex = i; break; } } }
   function text() {
     var d = new FormData(form);
-    return ['Name: ' + d.get('name'), 'Email: ' + d.get('email'), 'Phone/WhatsApp: ' + (d.get('phone') || '-'), 'Service: ' + d.get('service'), '', 'Message:', d.get('message')].join('\\n');
+    return ['Name: ' + d.get('name'), 'Email: ' + d.get('email'), 'Phone/WhatsApp: ' + (d.get('phone') || '-'), 'Service: ' + service(), '', 'Message:', d.get('message')].join('\\n');
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var d = new FormData(form);
-    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Website enquiry: ' + d.get('service')) + '&body=' + encodeURIComponent(text());
+    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Website enquiry: ' + service()) + '&body=' + encodeURIComponent(text());
   });
   document.getElementById('wa-btn').addEventListener('click', function () {
     if (!form.reportValidity()) return;

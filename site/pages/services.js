@@ -38,7 +38,7 @@ ${h2(page.stepsHeading, 'process')}
   const posts = (page.blogSlugs || []).map((s) => POSTS.find((x) => x.slug === s)).map((x) => ({ href: '/blog/' + x.slug, title: x.title, text: x.metaDescription }))
 
   return `${pageHeader({
-    crumbs: [{ name: 'Home', path: '/' }, { name: page.nav, path: '/' + page.slug }],
+    crumbs: [{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }, { name: page.nav, path: '/' + page.slug }],
     eyebrow: page.eyebrow,
     h1: page.h1,
     lead: page.lead,
@@ -47,7 +47,7 @@ ${sections}
 ${services}
 ${steps}
 ${faqBlock(page.faqs)}
-${ctaBlock(page.cta)}
+${ctaBlock({ ...page.cta, primary: { href: `/contact?service=${page.slug.replace('services/', '')}`, label: 'Get a free consultation' } })}
 ${linkCards(others, 'Other services', 'other-services')}
 ${posts.length ? linkCards(posts, 'Helpful guides', 'guides') : ''}`
 }
@@ -57,7 +57,7 @@ export const servicePages = () =>
     path: '/' + page.slug,
     title: page.metaTitle,
     description: page.metaDescription,
-    crumbs: [{ name: 'Home', path: '/' }, { name: page.nav, path: '/' + page.slug }],
+    crumbs: [{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }, { name: page.nav, path: '/' + page.slug }],
     body: body(page),
     schema: [serviceNode({ ...page }), faqNode('/' + page.slug, page.faqs)],
   }))

@@ -5,7 +5,7 @@ const areaWorldwide = 'Worldwide'
 export const GLOBAL_SERVICE_PAGES = [
   /* ------------------------------------------------------------------ */
   {
-    slug: 'ai-automation-services',
+    slug: 'services/ai-automation',
     serviceName: 'AI Automation Services',
     nav: 'AI Automation Services',
     blurb: 'Replace repetitive manual work with reliable AI-driven pipelines.',
@@ -79,13 +79,13 @@ export const GLOBAL_SERVICE_PAGES = [
       heading: 'Tell me which task eats your team’s time',
       text: 'Describe the process you would most like to stop doing by hand and I will tell you whether it can be automated, how and roughly what it involves.',
     },
-    related: ['ai-agent-development', 'n8n-workflow-automation', 'shopify-automation-services'],
+    related: ['services/ai-agent-development', 'services/n8n-automation', 'services/shopify-automation'],
     blogSlugs: ['ai-agents-vs-chatbots-vs-workflows', 'n8n-vs-zapier-vs-make'],
   },
 
   /* ------------------------------------------------------------------ */
   {
-    slug: 'ai-agent-development',
+    slug: 'services/ai-agent-development',
     serviceName: 'AI Agent Development',
     nav: 'AI Agent Development',
     blurb: 'Autonomous agents built with LangChain and LangGraph, with guardrails.',
@@ -157,13 +157,13 @@ export const GLOBAL_SERVICE_PAGES = [
       heading: 'Have a multi-step task an agent could handle?',
       text: 'Tell me what the task involves and what a good result looks like, and I will advise whether an agent, a workflow or something simpler is the right tool.',
     },
-    related: ['ai-automation-services', 'n8n-workflow-automation', 'shopify-automation-services'],
+    related: ['services/ai-automation', 'services/n8n-automation', 'services/shopify-automation'],
     blogSlugs: ['ai-agents-vs-chatbots-vs-workflows'],
   },
 
   /* ------------------------------------------------------------------ */
   {
-    slug: 'n8n-workflow-automation',
+    slug: 'services/n8n-automation',
     serviceName: 'n8n Workflow Automation',
     nav: 'n8n Workflow Automation',
     blurb: 'Connect your apps and AI models with robust, documented n8n workflows.',
@@ -242,13 +242,13 @@ export const GLOBAL_SERVICE_PAGES = [
       heading: 'Ready to connect your tools and stop copying data by hand?',
       text: 'Tell me which apps you use and what you want to happen between them, and I will outline a workflow and what it would take to build it.',
     },
-    related: ['ai-automation-services', 'shopify-automation-services', 'ai-agent-development'],
+    related: ['services/ai-automation', 'services/shopify-automation', 'services/ai-agent-development'],
     blogSlugs: ['n8n-vs-zapier-vs-make', 'ai-agents-vs-chatbots-vs-workflows'],
   },
 
   /* ------------------------------------------------------------------ */
   {
-    slug: 'shopify-automation-services',
+    slug: 'services/shopify-automation',
     serviceName: 'Shopify Automation Services',
     nav: 'Shopify Automation Services',
     blurb: 'Automate listings, SEO, support and reports for your Shopify store.',
@@ -341,24 +341,24 @@ export const GLOBAL_SERVICE_PAGES = [
       heading: 'Want your store to run with less manual work?',
       text: 'Send me the tasks that take most of your week and I will suggest what to automate first.',
     },
-    related: ['ai-automation-services', 'ecommerce-website-development-uae', 'n8n-workflow-automation'],
+    related: ['services/ai-automation', 'services/ecommerce-website-development-uae', 'services/n8n-automation'],
     blogSlugs: ['how-to-automate-shopify-store-with-ai'],
   },
 
   /* ------------------------------------------------------------------ */
   {
-    slug: 'nextjs-web-development',
+    slug: 'services/react-nextjs-development',
     serviceName: 'Next.js Web Development',
-    nav: 'Next.js Web Development',
+    nav: 'React & Next.js Development',
     blurb: 'Fast, SEO-friendly websites, storefronts and web apps built with Next.js.',
-    metaTitle: 'Next.js Web Development Services | Usman Ghazanfar',
+    metaTitle: 'React & Next.js Full-Stack Development | Usman Ghazanfar',
     metaDescription:
-      'Next.js web development for fast, SEO-friendly websites, e-commerce storefronts and web apps. Clean code, strong Core Web Vitals, mobile-first.',
+      'Full-stack web development with React and Next.js: business websites, storefronts and SaaS apps that are fast and SEO-friendly. Free consultation.',
     areaServed: areaWorldwide,
     eyebrow: 'Next.js development',
-    h1: 'Next.js Web Development for Fast, SEO-Friendly Websites and Apps',
+    h1: 'React and Next.js Full-Stack Development for Fast, SEO-Friendly Websites and Apps',
     lead:
-      'Next.js is the React framework behind many of the fastest, most search-friendly sites on the web. I build Next.js websites, storefronts and web apps that load quickly, rank well and stay easy to maintain as your business grows.',
+      'Looking for a full-stack web developer? I build business websites, storefronts and SaaS-style web apps with React and Next.js, the framework behind many of the fastest, most search-friendly sites on the web. They load quickly, are built for search and stay easy to maintain as your business grows.',
     sections: [
       {
         h2: 'Why Next.js suits business websites',
@@ -418,13 +418,13 @@ export const GLOBAL_SERVICE_PAGES = [
       heading: 'Need a fast site or web app?',
       text: 'Describe what you want to build and who it is for, and I will reply with a plan and a quote.',
     },
-    related: ['portfolio-website-design', 'ecommerce-website-development-uae', 'website-redesign-uae'],
+    related: ['services/portfolio-website-design', 'services/ecommerce-website-development-uae', 'services/website-redesign-uae'],
     blogSlugs: ['nextjs-vs-wordpress-for-business-websites'],
   },
 
   /* ------------------------------------------------------------------ */
   {
-    slug: 'portfolio-website-design',
+    slug: 'services/portfolio-website-design',
     serviceName: 'Portfolio Website Design',
     nav: 'Portfolio Website Design',
     blurb: 'Modern, animated portfolio sites with case studies and personal-brand SEO.',
@@ -503,7 +503,7 @@ export const GLOBAL_SERVICE_PAGES = [
       heading: 'Ready for a portfolio that works as hard as you do?',
       text: 'Tell me about your work and who you want to reach, and I will propose a design, a timeline and a quote.',
     },
-    related: ['nextjs-web-development', 'web-design-sharjah', 'website-redesign-uae'],
+    related: ['services/react-nextjs-development', 'services/web-design-sharjah', 'services/website-redesign-uae'],
     blogSlugs: ['nextjs-vs-wordpress-for-business-websites'],
   },
 ]

@@ -14,20 +14,24 @@ export const SITE = {
   ogImageAlt: 'Usman Ghazanfar — AI automation and web development',
   // Pages in the top-level "Services" menu, in display order.
   servicePages: [
-    { slug: 'web-design-sharjah', label: 'Web Design Sharjah' },
-    { slug: 'ecommerce-website-development-uae', label: 'E-commerce Website Development UAE' },
-    { slug: 'wordpress-development-dubai', label: 'WordPress Development Dubai' },
-    { slug: 'website-redesign-uae', label: 'Website Redesign UAE' },
+    { slug: 'services/web-design-sharjah', label: 'Web Design Sharjah' },
+    { slug: 'services/ecommerce-website-development-uae', label: 'E-commerce Website Development UAE' },
+    { slug: 'services/wordpress-development-dubai', label: 'WordPress Development Dubai' },
+    { slug: 'services/website-redesign-uae', label: 'Website Redesign UAE' },
   ],
   // Worldwide AI / automation / development service pages.
   globalPages: [
-    { slug: 'ai-automation-services', label: 'AI Automation Services' },
-    { slug: 'ai-agent-development', label: 'AI Agent Development' },
-    { slug: 'n8n-workflow-automation', label: 'n8n Workflow Automation' },
-    { slug: 'shopify-automation-services', label: 'Shopify Automation Services' },
-    { slug: 'nextjs-web-development', label: 'Next.js Web Development' },
-    { slug: 'portfolio-website-design', label: 'Portfolio Website Design' },
+    { slug: 'services/ai-automation', label: 'AI Automation Services' },
+    { slug: 'services/ai-agent-development', label: 'AI Agent Development' },
+    { slug: 'services/ai-chatbot-development', label: 'AI Chatbot Development' },
+    { slug: 'services/n8n-automation', label: 'n8n Workflow Automation' },
+    { slug: 'services/shopify-automation', label: 'Shopify Automation Services' },
+    { slug: 'services/shopify-development', label: 'Shopify Store Development' },
+    { slug: 'services/react-nextjs-development', label: 'React & Next.js Development' },
+    { slug: 'services/technical-seo', label: 'Technical SEO Services' },
+    { slug: 'services/portfolio-website-design', label: 'Portfolio Website Design' },
   ],
+
   // Guides linked from the home page and every footer (internal links: these posts earn the search impressions).
   featuredGuides: [
     { slug: 'how-to-automate-shopify-store-with-ai', label: 'Shopify AI Automation Guide' },

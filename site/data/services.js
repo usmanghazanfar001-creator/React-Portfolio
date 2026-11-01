@@ -7,11 +7,12 @@
 //  * Process/timeline statements are generic. Edit them to match how you actually work.
 
 import { GLOBAL_SERVICE_PAGES } from './global-services.js'
+import { NEW_SERVICE_PAGES } from './services-new.js'
 
 const UAE_PAGES = [
   /* ------------------------------------------------------------------ */
   {
-    slug: 'web-design-sharjah',
+    slug: 'services/web-design-sharjah',
     serviceName: 'Web Design in Sharjah',
     nav: 'Web Design Sharjah',
     blurb: 'Custom, mobile-first websites for Sharjah businesses, built to load fast and rank.',
@@ -35,7 +36,7 @@ const UAE_PAGES = [
         h2: 'How I approach web design for the UAE market',
         paragraphs: [
           `Every project starts with questions, not colours: who are your customers, what do they search for, and what should a visitor do next? From there I plan the page structure, help you write or sharpen the key copy, and design the layout mobile-first, because most local traffic arrives on a phone.`,
-          `Under the hood I use modern tools: React and Next.js for fast, app-quality pages, clean semantic HTML, and image formats and loading techniques that keep Core Web Vitals healthy. Speed is both a ranking signal and a conversion factor, so I treat it as a requirement rather than an optional extra.`,
+          `Whether you search for a web design company or a web designing company in Sharjah, what matters is the same: a team or freelancer who plans around your customers, builds quickly and explains every choice. Under the hood I use modern tools: React and Next.js for fast, app-quality pages, clean semantic HTML, and image formats and loading techniques that keep Core Web Vitals healthy. Speed is both a ranking signal and a conversion factor, so I treat it as a requirement rather than an optional extra.`,
           `Audiences in the UAE are multilingual, so I plan your site structure to leave room for English and Arabic, including right-to-left layouts. If Arabic is on your roadmap, tell me early and I will design the foundation so you are not forced into a rebuild later.`,
         ],
       },
@@ -90,7 +91,7 @@ const UAE_PAGES = [
 
   /* ------------------------------------------------------------------ */
   {
-    slug: 'ecommerce-website-development-uae',
+    slug: 'services/ecommerce-website-development-uae',
     serviceName: 'E-commerce Website Development in the UAE',
     nav: 'E-commerce Website Development UAE',
     blurb: 'Fast online stores with local payments, AED pricing, order tracking and automation.',
@@ -168,7 +169,7 @@ const UAE_PAGES = [
 
   /* ------------------------------------------------------------------ */
   {
-    slug: 'wordpress-development-dubai',
+    slug: 'services/wordpress-development-dubai',
     serviceName: 'WordPress Development in Dubai',
     nav: 'WordPress Development Dubai',
     blurb: 'Lightweight, secure WordPress sites your team can update without a developer.',
@@ -247,7 +248,7 @@ const UAE_PAGES = [
 
   /* ------------------------------------------------------------------ */
   {
-    slug: 'website-redesign-uae',
+    slug: 'services/website-redesign-uae',
     serviceName: 'Website Redesign in the UAE',
     nav: 'Website Redesign UAE',
     blurb: 'Modernise your site for speed, mobile and conversions without losing your search rankings.',
@@ -337,4 +338,5 @@ const UAE_PAGES = [
 export const SERVICE_PAGES = [
   ...UAE_PAGES.map((p) => ({ group: 'uae', ...p })),
   ...GLOBAL_SERVICE_PAGES.map((p) => ({ group: 'global', ...p })),
+  ...NEW_SERVICE_PAGES.map((p) => ({ group: 'global', ...p })),
 ]

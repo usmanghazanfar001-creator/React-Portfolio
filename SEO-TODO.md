@@ -1,5 +1,13 @@
 # SEO — things only you can do
 
+## After deploying the /services/ restructure (important)
+- All service pages now live under `/services/...` and the old addresses permanently redirect (see `vercel.json`).
+- In Search Console: **submit the sitemap again** and use URL Inspection → *Request indexing* for `/services` and the new service pages.
+- Expect a short wobble while Google swaps the old URLs for the new ones (days to a few weeks). Do not change the new URLs again.
+- Check that the old addresses redirect: open `https://usmanghazanfar.vercel.app/ai-automation-services` and confirm it lands on `/services/ai-automation`.
+- Shopify **store setup** has no matching case study yet. The page says so honestly; add a real store-setup project when you have one.
+- Fill in the **Volume / Difficulty** columns of `KEYWORD-MAP.md` from Keyword Planner, Semrush or Ahrefs.
+
 Search the code for `TODO(owner)` to find every placeholder.
 
 ## Before you publish
