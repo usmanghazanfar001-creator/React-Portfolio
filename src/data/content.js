@@ -22,6 +22,15 @@ export const PROFILE = {
   openToWork: true,
 };
 
+// Hero copy. The original tagline (PROFILE.tagline) is kept and used in About and the footer.
+export const HERO = {
+  kicker: "Hi, I'm Usman Ghazanfar",
+  headline: 'AI & Web Developer',
+  headlineRest: 'building intelligent, scalable digital products',
+  support: 'I build AI agents, workflow automations, and fast modern websites using Python, JavaScript, React, Next.js, and n8n.',
+  badges: ['AI Automation', 'Next.js', 'React', 'Python', 'n8n', 'LangChain'],
+};
+
 export const NAV_LINKS = [
   { href: '#home', label: 'Home' },
   { href: '#about', label: 'About' },
@@ -37,6 +46,12 @@ export const ABOUT = {
     "I'm Usman Ghazanfar, an AI & Web Developer based in Faisalabad, Pakistan. I build things people actually use — from AI agents that run parts of a Shopify store to storefronts, listing sites and web apps — using Python, JavaScript, React, Next.js and n8n.",
     "My work spans three areas. In AI & automation, I've built a LangChain and LangGraph multi-agent store manager and a Shopify management system that reduce repetitive manual work. In web products, I've shipped the MA Fabrics e-commerce storefront in Next.js, a real estate listing site with SEO built in from launch, the WeatherIQ forecast app and NexSeat, a SaaS for sharing AI tool subscriptions. Underneath it all are solid engineering foundations: DiscreteSolver, a Flask and SQLite learning app, and a Hospital Management System in C++.",
     "I'm studying for an Associate Degree in Artificial Intelligence at Punjab Group of Colleges (expected 2027) and working at SKILL SIDER, supporting SEO, online marketing and web development — so I build with both engineering and growth in mind. I'm open to work: if you need an AI agent, a workflow automation or a fast, SEO-ready website, let's talk.",
+  ],
+  highlights: [
+    { icon: 'MapPin', text: 'Based in Faisalabad, Pakistan' },
+    { icon: 'GraduationCap', text: 'Associate Degree in Artificial Intelligence, expected 2027' },
+    { icon: 'Briefcase', text: 'Working at SKILL SIDER' },
+    { icon: 'Handshake', text: 'Open to freelance and work opportunities' },
   ],
   interests: [
     'Artificial Intelligence',
@@ -143,6 +158,9 @@ export const PROJECTS = [
     badge: 'Case — E-commerce',
     title: 'MA Fabrics – Premium Fabric Store',
     category: 'Web',
+    kind: 'E-commerce',
+    filters: ['Web Development', 'E-commerce'],
+    featured: 2,
     tags: ['Next.js', 'E-commerce', 'UI/UX'],
     description:
       'A premium online storefront for a Lahore-based textile and suiting brand, with shop, collections, gallery and fabric videos.',
@@ -160,6 +178,8 @@ export const PROJECTS = [
     badge: 'Case — Real Estate',
     title: 'Real Estate Website',
     category: 'Web',
+    kind: 'Web App',
+    filters: ['Web Development'],
     tags: ['Web Development', 'SEO', 'UI/UX'],
     description:
       'A full real estate listing website featuring property search, detailed listing pages, and a clean, conversion-focused UI.',
@@ -177,6 +197,8 @@ export const PROJECTS = [
     badge: 'Case — Flask',
     title: 'DiscreteSolver – Discrete Mathematics Calculator',
     category: 'Web',
+    kind: 'Education',
+    filters: ['Web Development', 'Education'],
     tags: ['Python', 'Flask', 'SQLite'],
     description:
       'A full-stack educational web application covering logic, sets, relations, functions, combinatorics and number theory.',
@@ -194,6 +216,9 @@ export const PROJECTS = [
     badge: 'Case — SaaS',
     title: 'NexSeat – AI Subscription Sharing Platform',
     category: 'Web',
+    kind: 'SaaS',
+    filters: ['Web Development', 'SaaS'],
+    featured: 4,
     tags: ['SaaS', 'Web App'],
     description:
       'A modern SaaS platform that lets users securely share premium AI tool subscriptions with trusted groups.',
@@ -211,6 +236,9 @@ export const PROJECTS = [
     badge: 'Case — Weather App',
     title: 'WeatherIQ – Weather Forecast Web App',
     category: 'Web',
+    kind: 'Web App',
+    filters: ['Web Development'],
+    featured: 3,
     tags: ['Next.js', 'Weather API', 'SEO', 'UI/UX'],
     description:
       'A fast weather web app with current conditions, hourly and daily forecasts, and air quality for locations worldwide.',
@@ -234,6 +262,9 @@ export const PROJECTS = [
     badge: 'Case — E-commerce',
     title: 'AI E-Commerce Store Manager',
     category: 'AI',
+    kind: 'AI',
+    filters: ['AI & Automation', 'E-commerce'],
+    featured: 1,
     tags: ['LangChain', 'LangGraph', 'AI Agents', 'Shopify'],
     description:
       'An AI-powered e-commerce automation platform orchestrating specialized agents across a Shopify store.',
@@ -251,6 +282,8 @@ export const PROJECTS = [
     badge: 'Case — Shopify',
     title: 'Shopify Management Automation',
     category: 'Automation',
+    kind: 'Automation',
+    filters: ['AI & Automation', 'E-commerce'],
     tags: ['Shopify', 'AI Automation'],
     description:
       'An AI-powered Shopify management system that automates repetitive e-commerce operations.',
@@ -268,6 +301,8 @@ export const PROJECTS = [
     badge: 'Case — C++',
     title: 'Hospital Management System',
     category: 'Other',
+    kind: 'Software',
+    filters: [],
     tags: ['C++', 'GUI'],
     description:
       'A comprehensive GUI-based Hospital Management System managing core hospital operations.',
@@ -282,7 +317,7 @@ export const PROJECTS = [
   },
 ];
 
-export const PROJECT_FILTERS = ['All', 'AI', 'Web', 'Automation', 'Other'];
+export const PROJECT_FILTERS = ['All', 'AI & Automation', 'Web Development', 'E-commerce', 'SaaS', 'Education'];
 
 export const TIMELINE = [
   {
@@ -314,4 +349,13 @@ export const TIMELINE = [
       'Intelligent Systems',
     ],
   },
+];
+
+// "Why work with me": built only from facts already on the site (no invented testimonials or numbers).
+export const WHY_WORK = [
+  { icon: 'BrainCircuit', title: 'AI + web development skill set', text: 'I combine AI engineering with modern web development, so one person can design the intelligence and the product around it.' },
+  { icon: 'Workflow', title: 'Practical automation experience', text: 'Built a LangChain and LangGraph multi-agent store manager and a Shopify management system that reduce repetitive manual work.' },
+  { icon: 'Search', title: 'SEO-aware website building', text: 'Websites are built with search in mind from the start: structure, speed and metadata, not an afterthought.' },
+  { icon: 'Briefcase', title: 'Digital marketing and web experience', text: 'At SKILL SIDER I support SEO, online marketing and web development, so I build with both engineering and growth in mind.' },
+  { icon: 'Target', title: 'Usable, conversion-focused products', text: 'The focus is on products people actually use, with clear journeys that turn visitors into enquiries and customers.' },
 ];

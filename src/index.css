@@ -96,3 +96,20 @@ body { @apply bg-ink text-zinc-300 font-sans antialiased; }
 .planet-in:hover .planet-tip, .planet-in:focus-visible .planet-tip { opacity: 1; }
 .star { position: absolute; border-radius: 50%; background: #fff; animation: twinkle 4s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Project preview placeholders: themed gradient with a slow sheen (no fake screenshots). */
+.preview { position: relative; overflow: hidden; }
+.preview::after {
+  content: ''; position: absolute; inset: -40%;
+  background: linear-gradient(115deg, transparent 42%, color-mix(in srgb, var(--color-accent-2) 14%, transparent) 50%, transparent 58%);
+  animation: sheen 7s linear infinite;
+}
+@keyframes sheen { from { transform: translateX(-30%); } to { transform: translateX(30%); } }
+@media (prefers-reduced-motion: reduce) { .preview::after { animation: none; } }
+
+/* Soft cross-fade when moving between pages (progressive enhancement; ignored by browsers without support). */
+@view-transition { navigation: auto; }
+::view-transition-group(root) { animation-duration: 0.2s; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

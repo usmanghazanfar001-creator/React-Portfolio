@@ -5,7 +5,7 @@
 //   3. emits sitemap.xml (home + every generated page) with a fresh <lastmod> and robots.txt,
 //   4. statically generates the service / blog / about / contact / portfolio pages from ./site (see site/build-pages.js),
 //   5. preloads the critical latin web fonts on every page (fewer layout shifts).
-import { PROFILE, NAV_LINKS, ABOUT, SKILL_GROUPS, SERVICES, PROJECTS, TIMELINE } from './src/data/content.js'
+import { PROFILE, HERO, NAV_LINKS, ABOUT, SKILL_GROUPS, SERVICES, PROJECTS, TIMELINE, WHY_WORK } from './src/data/content.js'
 import { SITE } from './site/config.js'
 import { buildPages } from './site/build-pages.js'
 import { businessNode, serviceNode } from './site/schema.js'
@@ -27,12 +27,13 @@ function fallbackHtml() {
   return `<div class="boot" aria-hidden="true"><span></span></div><div class="seo-static">
 <header><nav aria-label="Main">${NAV_LINKS.map((l) => `<a href="${l.href}">${esc(l.label)}</a>`).join(' · ')} · ${[...SITE.globalPages, ...SITE.servicePages].map((s) => `<a href="/${s.slug}">${esc(s.label)}</a>`).join(' · ')} · ${SITE.featuredGuides.map((g) => `<a href="/blog/${g.slug}">${esc(g.label)}</a>`).join(' · ')} · <a href="/services">All services</a> · <a href="/portfolio">Portfolio</a> · <a href="/blog">Blog</a> · <a href="/about">About</a> · <a href="/contact">Contact</a></nav></header>
 <main>
-<section id="home"><h1>${esc(PROFILE.name)} — ${esc(PROFILE.title)} in ${esc(PROFILE.location)}</h1><p>${esc(PROFILE.tagline)}</p></section>
-<section id="about"><h2>About ${esc(PROFILE.name)}</h2>${ABOUT.intro.map((p) => `<p>${esc(p)}</p>`).join('')}<h3>Interests</h3>${ul(ABOUT.interests)}</section>
+<section id="home"><h1>${esc(HERO.headline)} ${esc(HERO.headlineRest)}</h1><p>${esc(HERO.kicker)} — ${esc(PROFILE.title)} in ${esc(PROFILE.location)}</p><p>${esc(HERO.support)}</p>${ul(HERO.badges)}<p>${esc(PROFILE.tagline)}</p></section>
+<section id="about"><h2>About ${esc(PROFILE.name)}</h2>${ABOUT.intro.map((p) => `<p>${esc(p)}</p>`).join('')}${ul(ABOUT.highlights.map((h) => h.text))}<h3>Interests</h3>${ul(ABOUT.interests)}</section>
 <section id="skills"><h2>Skills &amp; Technologies</h2>${skills}</section>
 <section id="services"><h2>AI, Automation &amp; Web Development Services</h2>${services}</section>
 <section id="projects"><h2>Selected Projects</h2>${projects}</section>
 <section id="experience"><h2>Experience &amp; Education</h2>${timeline}</section>
+<section id="why"><h2>Why work with me</h2>${WHY_WORK.map((w) => `<h3>${esc(w.title)}</h3><p>${esc(w.text)}</p>`).join('')}</section>
 <section id="contact"><h2>Contact ${esc(PROFILE.name)}</h2><ul>
 <li><a href="mailto:${esc(PROFILE.email)}">${esc(PROFILE.email)}</a></li>
 <li><a href="${esc(PROFILE.whatsappLink)}" rel="noopener">WhatsApp ${esc(PROFILE.whatsapp)}</a></li>
