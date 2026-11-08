@@ -34,6 +34,12 @@ for (const pg of pages) {
     if (!/\balt="[^"]+"/.test(m[0])) fail(path, 'image without alt: ' + m[0].slice(0, 80))
     if (!/\bwidth="\d+"/.test(m[0]) || !/\bheight="\d+"/.test(m[0])) fail(path, 'image without width/height')
   }
+  // accessible tables and diagrams
+  for (const m of html.matchAll(/<table\b[\s\S]*?<\/table>/g)) {
+    if (!/<caption\b/.test(m[0])) fail(path, 'table without <caption>')
+    if (!/<th scope="col"/.test(m[0])) fail(path, 'table without column headers')
+  }
+  for (const m of html.matchAll(/<svg\b[^>]*>/g)) { if (/aria-hidden="true"/.test(m[0])) continue; if (!/role="img"/.test(m[0]) || !/aria-labelledby=/.test(m[0])) fail(path, 'informative svg without role="img"/aria-labelledby') }
   // heading order: no jump from h1 straight to h3, etc.
   const levels = [...html.matchAll(/<h([1-6])[\s>]/g)].map((m) => +m[1])
   levels.forEach((l, i) => { if (i && l > levels[i - 1] + 1) fail(path, `heading jump h${levels[i - 1]} -> h${l}`) })

@@ -173,3 +173,11 @@ ${h2(heading, id)}
 <ul class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">${items
     .map((i) => `<li><a href="${i.href}" class="card glow relative block h-full p-6 transition hover:-translate-y-0.5"><span class="font-display text-lg font-semibold text-white">${esc(i.title)}</span><span class="mt-2 block text-sm leading-relaxed text-zinc-400">${esc(i.text)}</span><span class="mt-4 block text-sm text-accent-2">Read more →</span></a></li>`)
     .join('')}</ul></section>`
+
+/* ---------- tables + figures (used by blog posts) ---------- */
+export const tableBlock = ({ caption, head, rows, note }) => `<div tabindex="0" role="region" aria-label="${esc(caption)}" class="mt-6 overflow-x-auto rounded-2xl border border-line focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"><table class="w-full min-w-[34rem] border-collapse text-left text-sm">
+<caption class="sr-only">${esc(caption)}</caption>
+<thead><tr>${head.map((h, i) => `<th scope="col" class="border-b border-line bg-white/5 px-4 py-3 font-display font-semibold text-white${i === 0 ? ' w-40' : ''}">${esc(h)}</th>`).join('')}</tr></thead>
+<tbody>${rows.map((r) => `<tr>${r.map((c, i) => (i === 0 ? `<th scope="row" class="border-b border-line px-4 py-3 align-top font-medium text-white">${esc(c)}</th>` : `<td class="border-b border-line px-4 py-3 align-top text-zinc-300">${esc(c)}</td>`)).join('')}</tr>`).join('')}</tbody></table></div><p class="mt-2 text-xs text-zinc-400 md:hidden">Swipe sideways to see every column.</p>${note ? `<p class="mt-3 text-sm text-zinc-400">${inline(note)}</p>` : ''}`
+
+export const figureBlock = ({ svg, caption }) => `<figure class="mt-6 max-w-md">${svg}<figcaption class="mt-3 text-sm text-zinc-400">${esc(caption)}</figcaption></figure>`

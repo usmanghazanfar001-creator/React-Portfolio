@@ -2,12 +2,17 @@ import { POSTS } from '../data/posts.js'
 import { SERVICE_PAGES } from '../data/services.js'
 import { abs, SITE } from '../config.js'
 import { articleNode, faqNode, ids } from '../schema.js'
-import { pageHeader, wrap, h2, h3, p, ul, ctaBlock, faqBlock, linkCards } from '../layout.js'
+import { pageHeader, wrap, h2, h3, p, ul, ctaBlock, faqBlock, linkCards, tableBlock, figureBlock } from '../layout.js'
+import { pipelineSvg, decisionSvg } from '../diagrams.js'
 import { esc } from '../html.js'
 
 const fmt = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
 
+const DIAGRAMS = { pipeline: pipelineSvg, decision: decisionSvg }
+
 function postBody(post) {
+  // "On this page" index with jump links (helps readers, and Google can show jump-to links in results)
+  const toc = post.sections.length >= 5 ? `<nav aria-label="On this page" class="card mt-8 max-w-3xl p-5"><p class="font-display text-sm font-semibold uppercase tracking-widest text-white">On this page</p><ol class="mt-3 grid gap-1.5 text-sm sm:grid-cols-2">${post.sections.map((s) => `<li><a href="#${slug(s.h2)}" class="text-zinc-300 hover:text-white">${esc(s.h2.replace(/^\d+\.\s*/, ''))}</a></li>`).join('')}${post.faqs ? '<li><a href="#faq" class="text-zinc-300 hover:text-white">Frequently asked questions</a></li>' : ''}</ol></nav>` : ''
   const sections = post.sections
     .map(
       (s) => `<section class="pt-12" aria-labelledby="${slug(s.h2)}">
@@ -15,6 +20,8 @@ ${h2(s.h2, slug(s.h2))}
 ${(s.paragraphs || []).map(p).join('\n')}
 ${s.bullets ? ul(s.bullets) : ''}
 ${(s.h3s || []).map((x) => `${h3(x.h3)}\n${x.paragraphs.map(p).join('\n')}`).join('\n')}
+${s.figure ? figureBlock({ svg: DIAGRAMS[s.figure.id](), caption: s.figure.caption }) : ''}
+${s.table ? tableBlock(s.table) : ''}
 </section>`,
     )
     .join('\n')
@@ -37,6 +44,7 @@ ${(s.h3s || []).map((x) => `${h3(x.h3)}\n${x.paragraphs.map(p).join('\n')}`).joi
 <article class="mx-auto max-w-4xl px-5">
 <p class="text-sm text-zinc-500">By <a href="/about" class="text-zinc-300 hover:text-white">${esc(SITE.name)}</a> · <time datetime="${post.published}">${fmt(post.published)}</time>${post.modified !== post.published ? ` · Updated <time datetime="${post.modified}">${fmt(post.modified)}</time>` : ''} · ${post.readMinutes} min read</p>
 ${post.intro.slice(1).map(p).join('\n')}
+${toc}
 ${sections}
 </article>
 ${post.faqs ? faqBlock(post.faqs) : ''}

@@ -11,7 +11,7 @@ export const GLOBAL_POSTS = [
     metaDescription:
       'AI agents, chatbots and automated workflows solve different problems. Learn how each works, what it costs you in risk and effort, and how to choose.',
     published: '2026-10-17',
-    modified: '2026-10-17',
+    modified: '2026-11-05',
     readMinutes: 7,
     category: 'AI automation',
     about: 'Choosing between AI agents, chatbots and automated workflows',
@@ -30,6 +30,17 @@ export const GLOBAL_POSTS = [
           '**A workflow** is a fixed sequence of steps that runs automatically, such as when a form arrives, summarise it, save it and notify a person. AI can be one of the steps, but the path is decided in advance.',
           '**An agent** decides its own path. Given a goal, it chooses which tools to use, looks at the results and decides what to do next until the task is done.',
         ],
+        table: {
+          caption: 'Chatbot, workflow and agent compared',
+          head: ['', 'Chatbot', 'Workflow', 'Agent'],
+          rows: [
+            ['What it does', 'Answers questions in conversation', 'Runs fixed steps automatically', 'Chooses its own steps to reach a goal'],
+            ['Predictability', 'Medium', 'High', 'Lower'],
+            ['Running cost', 'Low to medium', 'Low', 'Higher (more model calls)'],
+            ['Best for', 'FAQs and enquiries', 'Repeatable processes', 'Research and multi-step tasks'],
+            ['Needs guardrails', 'Yes', 'Some', 'Yes, strong limits and approvals'],
+          ],
+        },
       },
       {
         h2: 'Chatbots: when conversation is the product',
@@ -64,6 +75,7 @@ export const GLOBAL_POSTS = [
           '**How costly is a mistake?** The higher the cost, the more you want fixed steps and human approval.',
           '**How often does the task run?** High volume favours cheap, predictable workflows over agents that call a model many times.',
         ],
+        figure: { id: 'decision', caption: 'Answer these three questions in order to choose between a workflow, a chatbot and an agent.' },
       },
       {
         h2: 'Combining all three',
@@ -95,7 +107,7 @@ export const GLOBAL_POSTS = [
     metaDescription: 
       'n8n vs Make vs Zapier compared on ease of use, flexibility, cost model, control and AI. See which fits your business before you pay for a plan.',
     published: '2026-10-17',
-    modified: '2026-10-30',
+    modified: '2026-11-05',
     readMinutes: 7,
     category: 'AI automation',
     about: 'Comparing workflow automation tools n8n, Zapier and Make',
@@ -124,6 +136,19 @@ export const GLOBAL_POSTS = [
           '**Simple, low-volume tasks:** Zapier or Make are usually enough.',
           '**Complex logic, higher volume or data control:** n8n is often the better fit.',
         ],
+        table: {
+          caption: 'n8n compared with Make and Zapier',
+          head: ['', 'Zapier', 'Make', 'n8n'],
+          rows: [
+            ['Best for', 'Simple, low-volume tasks', 'Visual flows with branching', 'Complex logic, custom code and data control'],
+            ['Learning curve', 'Easiest to start', 'Moderate', 'Steeper, but the most flexible'],
+            ['Builder', 'Step-by-step list', 'Visual canvas of modules', 'Visual canvas of nodes'],
+            ['Custom code', 'Code steps available', 'Some scripting and HTTP modules', 'Code nodes, HTTP requests and full API access'],
+            ['Self-hosting', 'No', 'No', 'Yes'],
+            ['Pricing model', 'Usage-based', 'Usage-based', 'Usage-based cloud plans, or self-host'],
+          ],
+          note: 'This is a general guide to how each tool is designed. Features and plans change, so check each provider before you decide.',
+        },
       },
       {
         h2: 'Zapier: the simplest to start with',
@@ -200,7 +225,7 @@ export const GLOBAL_POSTS = [
     metaDescription: 
       'New to Shopify AI automation? Get 6 practical tips for listings, SEO, support and data, plus the safeguards that keep your store safe.',
     published: '2026-10-17',
-    modified: '2026-10-30',
+    modified: '2026-11-05',
     readMinutes: 7,
     category: 'E-commerce',
     about: 'Automating a Shopify store with AI',
@@ -222,6 +247,19 @@ export const GLOBAL_POSTS = [
           'Collecting sales, traffic and product performance numbers into one report.',
           'Gathering and structuring product research and supplier information.',
         ],
+        figure: { id: 'pipeline', caption: 'A safe automation flow: nothing risky happens without a person approving it.' },
+        table: {
+          caption: 'What to automate first in a Shopify store, by risk level',
+          head: ['Task', 'Risk level', 'Review needed?'],
+          rows: [
+            ['Reports and alerts', 'Low (read-only)', 'Not usually'],
+            ['Draft listings and SEO text', 'Medium', 'Yes, before publishing'],
+            ['Support triage and draft replies', 'Medium', 'Yes, for refunds and complaints'],
+            ['Price or stock changes', 'High', 'Always, at least at first'],
+            ['Bulk catalogue edits', 'High', 'Back up first and test on a few products'],
+          ],
+          note: 'Start at the top of this table and move down as each automation proves reliable.',
+        },
       },
       {
         h2: 'Listings and SEO: draft with AI, publish with review',
@@ -407,7 +445,7 @@ export const GLOBAL_POSTS = [
     metaDescription:
       'AI automation explained in plain language: how it works, real business uses, risks, costs and how to start with one safe, useful process.',
     published: '2026-10-31',
-    modified: '2026-10-31',
+    modified: '2026-11-05',
     readMinutes: 7,
     category: 'AI automation',
     about: 'What AI automation is and how businesses can use it',
@@ -454,6 +492,7 @@ export const GLOBAL_POSTS = [
           `Almost every AI automation follows the same three-part shape. A trigger starts it, such as a new message, a new order or a scheduled time. An AI step then does the thinking: classify, summarise, extract or draft. Finally an action carries out the result: save a record, send a message, update a listing or notify a person.`,
           `Tools such as n8n, Make and Zapier connect these parts without building a full application, and custom code or an agent framework such as LangGraph is used when the logic is more complex. My comparison of [n8n, Make and Zapier](/blog/n8n-vs-zapier-vs-make) explains how to choose between the workflow tools.`,
         ],
+        figure: { id: 'pipeline', caption: 'The usual shape of an AI automation, with a person reviewing anything risky.' },
       },
       {
         h2: 'Benefits you can reasonably expect',

@@ -113,3 +113,10 @@ body { @apply bg-ink text-zinc-300 font-sans antialiased; }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
+
+/* Performance: skip layout/paint work for sections far below the fold until the visitor scrolls near them.
+   `auto` size memory keeps the scrollbar stable after a section has been seen. */
+#skills, #services, #projects, #experience, #why, #contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
