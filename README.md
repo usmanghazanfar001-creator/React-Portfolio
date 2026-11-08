@@ -6,7 +6,13 @@ Stack: React 19 · Vite · Tailwind CSS v4 · Motion · Lucide · self-hosted va
     npm run dev      # local dev
     npm run build    # production build -> dist/
 
-All your content (profile, skills, services, projects, timeline) is unchanged in `src/data/content.js`. Edit it there.
+All content (profile, skills, services, projects, timeline) lives in `src/data/content.js`. Edit it there.
+
+## Design system
+
+Tokens (colours, fonts) are in `src/index.css` under `@theme`; the rules behind them are in `design-system/usman-ghazanfar-portfolio/MASTER.md`.
+Project screenshots: drop `<project-key>.webp` into `src/assets/projects/` (see the README there) and they appear on the cards.
+Contact form: set `VITE_CONTACT_ENDPOINT` (for example a Formspree form URL) to send messages from the page; without it the form opens the visitor's email app.
 
 ## SEO architecture
 

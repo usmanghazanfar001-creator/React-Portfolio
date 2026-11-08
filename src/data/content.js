@@ -5,7 +5,7 @@ export const PROFILE = {
   name: 'Usman Ghazanfar',
   firstName: 'Usman',
   lastName: 'Ghazanfar',
-  title: 'AI & Web Developer',
+  title: 'AI Engineer & Software Enthusiast',
   location: 'Faisalabad, Pakistan',
   siteUrl: 'https://usmanghazanfar.vercel.app',
   tagline:
@@ -24,20 +24,21 @@ export const PROFILE = {
 
 // Hero copy. The original tagline (PROFILE.tagline) is kept and used in About and the footer.
 export const HERO = {
-  kicker: "Hi, I'm Usman Ghazanfar",
-  headline: 'AI & Web Developer',
-  headlineRest: 'building intelligent, scalable digital products',
-  support: 'I build AI agents, workflow automations, and fast modern websites using Python, JavaScript, React, Next.js, and n8n.',
-  badges: ['AI Automation', 'Next.js', 'React', 'Python', 'n8n', 'LangChain'],
+  kicker: 'AI engineering · Software development',
+  headline: 'Usman Ghazanfar',
+  headlineRest: 'AI Engineer & Software Enthusiast',
+  support:
+    'I design and build AI agents, workflow automations and modern web products, from LangChain and LangGraph multi-agent systems to Next.js storefronts, with Python, JavaScript, React and n8n.',
+  badges: ['AI Agents', 'LangGraph', 'Next.js', 'React', 'Python', 'n8n'],
 };
 
 export const NAV_LINKS = [
   { href: '#home', label: 'Home' },
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
-  { href: '#services', label: 'Services' },
   { href: '#projects', label: 'Projects' },
   { href: '#experience', label: 'Experience' },
+  { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -72,32 +73,46 @@ export const STATS = [
 
 export const SKILL_GROUPS = [
   {
-    key: 'programming',
-    title: 'Programming',
+    key: 'ai',
+    title: 'AI & Machine Learning',
+    description: 'Intelligent systems, models and the maths behind them.',
+    icon: 'BrainCircuit',
+    items: ['Artificial Intelligence', 'Machine Learning', 'Search Algorithms', 'Data Analysis'],
+  },
+  {
+    key: 'agents',
+    title: 'AI Agents & Automation',
+    description: 'Agents and workflows that take repetitive work off people.',
+    icon: 'Workflow',
+    items: ['AI Agents', 'LangChain', 'LangGraph', 'AI Automation', 'Workflow Automation', 'n8n'],
+  },
+  {
+    key: 'frontend',
+    title: 'Frontend Development',
+    description: 'Fast, responsive, accessible interfaces.',
+    icon: 'LayoutTemplate',
+    items: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS'],
+  },
+  {
+    key: 'backend',
+    title: 'Backend Development',
+    description: 'Server-side logic, data and integrations.',
+    icon: 'Server',
+    items: ['Flask', 'SQLite', 'PHP', 'API Integration'],
+  },
+  {
+    key: 'languages',
+    title: 'Programming Languages',
     description: 'Core languages behind everything I build.',
     icon: 'Code2',
     items: ['Python', 'C++', 'JavaScript'],
   },
   {
-    key: 'ai',
-    title: 'AI',
-    description: 'Intelligent systems and automation logic.',
-    icon: 'BrainCircuit',
-    items: ['Artificial Intelligence', 'Machine Learning', 'Search Algorithms', 'AI Automation'],
-  },
-  {
-    key: 'web',
-    title: 'Web Development',
-    description: 'End-to-end product and interface engineering.',
-    icon: 'Globe2',
-    items: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'PHP'],
-  },
-  {
-    key: 'automation',
-    title: 'Automation',
-    description: 'Connecting tools so work runs itself.',
-    icon: 'Workflow',
-    items: ['n8n', 'AI Agents', 'Workflow Automation', 'API Integration'],
+    key: 'tools',
+    title: 'Tools & Technologies',
+    description: 'Platforms I ship and operate with.',
+    icon: 'Wrench',
+    items: ['Shopify', 'GitHub', 'Vercel', 'Google Search Console', 'Microsoft Office'],
   },
 ];
 
@@ -155,12 +170,13 @@ export const SERVICES = [
 export const PROJECTS = [
   {
     key: 'ma-fabrics',
+    flow: ['Next.js storefront', 'Cart & accounts', 'Order tracking'],
     badge: 'Case — E-commerce',
     title: 'MA Fabrics – Premium Fabric Store',
     category: 'Web',
     kind: 'E-commerce',
     filters: ['Web Development', 'E-commerce'],
-    featured: 2,
+    featured: 4,
     tags: ['Next.js', 'E-commerce', 'UI/UX'],
     description:
       'A premium online storefront for a Lahore-based textile and suiting brand, with shop, collections, gallery and fabric videos.',
@@ -175,11 +191,13 @@ export const PROJECTS = [
   },
   {
     key: 'real-estate',
+    flow: ['Property search', 'Listing pages', 'SEO from launch'],
     badge: 'Case — Real Estate',
-    title: 'Real Estate Website',
+    title: 'Hussnain Estate Advisor – Real Estate Website',
     category: 'Web',
     kind: 'Web App',
     filters: ['Web Development'],
+    featured: 2,
     tags: ['Web Development', 'SEO', 'UI/UX'],
     description:
       'A full real estate listing website featuring property search, detailed listing pages, and a clean, conversion-focused UI.',
@@ -194,11 +212,13 @@ export const PROJECTS = [
   },
   {
     key: 'discrete-solver',
+    flow: ['Logic, sets, relations', 'Flask + SQLite', 'Quizzes & PDF export', 'Admin dashboard'],
     badge: 'Case — Flask',
-    title: 'DiscreteSolver – Discrete Mathematics Calculator',
+    title: 'Descretiq – Discrete Mathematics Calculator',
     category: 'Web',
     kind: 'Education',
     filters: ['Web Development', 'Education'],
+    featured: 1,
     tags: ['Python', 'Flask', 'SQLite'],
     description:
       'A full-stack educational web application covering logic, sets, relations, functions, combinatorics and number theory.',
@@ -213,12 +233,13 @@ export const PROJECTS = [
   },
   {
     key: 'nexseat',
+    flow: ['Trusted group', 'Shared plan', 'Premium AI tools'],
     badge: 'Case — SaaS',
     title: 'NexSeat – AI Subscription Sharing Platform',
     category: 'Web',
     kind: 'SaaS',
     filters: ['Web Development', 'SaaS'],
-    featured: 4,
+    featured: 5,
     tags: ['SaaS', 'Web App'],
     description:
       'A modern SaaS platform that lets users securely share premium AI tool subscriptions with trusted groups.',
@@ -233,12 +254,13 @@ export const PROJECTS = [
   },
   {
     key: 'weatheriq',
+    flow: ['City or location', 'WeatherAPI.com', 'Forecast & air quality'],
     badge: 'Case — Weather App',
     title: 'WeatherIQ – Weather Forecast Web App',
     category: 'Web',
     kind: 'Web App',
     filters: ['Web Development'],
-    featured: 3,
+    featured: 6,
     tags: ['Next.js', 'Weather API', 'SEO', 'UI/UX'],
     description:
       'A fast weather web app with current conditions, hourly and daily forecasts, and air quality for locations worldwide.',
@@ -259,12 +281,13 @@ export const PROJECTS = [
   },
   {
     key: 'ai-ecommerce',
+    flow: ['LangGraph', 'Specialised agents', 'Shopify store'],
     badge: 'Case — E-commerce',
     title: 'AI E-Commerce Store Manager',
     category: 'AI',
     kind: 'AI',
     filters: ['AI & Automation', 'E-commerce'],
-    featured: 1,
+    featured: 3,
     tags: ['LangChain', 'LangGraph', 'AI Agents', 'Shopify'],
     description:
       'An AI-powered e-commerce automation platform orchestrating specialized agents across a Shopify store.',
@@ -279,6 +302,7 @@ export const PROJECTS = [
   },
   {
     key: 'shopify-automation',
+    flow: ['Store operations', 'AI automation', 'Less manual work'],
     badge: 'Case — Shopify',
     title: 'Shopify Management Automation',
     category: 'Automation',
@@ -298,6 +322,7 @@ export const PROJECTS = [
   },
   {
     key: 'hospital-management',
+    flow: ['Menu-driven GUI', 'Core hospital operations'],
     badge: 'Case — C++',
     title: 'Hospital Management System',
     category: 'Other',
@@ -316,6 +341,20 @@ export const PROJECTS = [
     linkType: null,
   },
 ];
+
+// ---------------------------------------------------------------------------
+// TODO(owner): Lafzaly, WishCraft and JARVIS AI Assistant are not in the original content and no verified
+// details exist for them, so they are intentionally NOT rendered. Fill one in with real information and move it
+// into PROJECTS above (give it `featured: <number>` to place it in the top group). Nothing here is shown yet.
+//
+// {
+//   key: 'lafzaly', badge: 'Case — ?', title: 'Lafzaly', category: 'Web', kind: '?',
+//   filters: ['Web Development'], featured: 3, tags: [],
+//   description: '', problem: '', solution: '', features: [],
+//   link: 'https://…', linkLabel: 'View Project', linkType: 'demo',
+// },
+// Same shape for 'wishcraft' and 'jarvis' (category 'AI', filters ['AI & Automation'] for JARVIS).
+// ---------------------------------------------------------------------------
 
 export const PROJECT_FILTERS = ['All', 'AI & Automation', 'Web Development', 'E-commerce', 'SaaS', 'Education'];
 

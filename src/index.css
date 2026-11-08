@@ -1,111 +1,68 @@
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/jetbrains-mono';
 @import 'tailwindcss';
 /* The statically generated pages (service pages, blog, about, contact, portfolio) are plain JS templates in ./site; make sure Tailwind scans them. */
 @source "../site";
 
+/* ------------------------------------------------------------------
+   Design tokens — generated with UI UX Pro Max (see design-system/usman-ghazanfar-portfolio/MASTER.md)
+   Palette is the owner's brief: charcoal #0B0D12, electric blue #6C8CFF, white headings, muted grey body.
+   Token NAMES are unchanged so the statically generated pages pick up the new look automatically.
+   ------------------------------------------------------------------ */
 @theme {
   --font-sans: 'Inter Variable', system-ui, sans-serif;
   --font-display: 'Space Grotesk Variable', 'Inter Variable', sans-serif;
-  --color-ink: #050a14;
-  --color-panel: #0b1426;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-ink: #0b0d12;        /* page background */
+  --color-panel: #11141b;      /* raised surfaces */
   --color-line: rgb(255 255 255 / 0.08);
-  --color-accent: #3b82f6;
-  --color-accent-2: #22d3ee;
-  --color-accent-3: #818cf8;
-  /* Accessibility: Tailwind's default zinc-500 is only ~4:1 on this dark background; this keeps the same look at >=5:1 */
-  --color-zinc-500: #8e8e97;
+  --color-accent: #6c8cff;     /* electric blue: CTAs, rules, icons (6.3:1 on ink) */
+  --color-accent-2: #9db1ff;   /* lighter tint of the same blue for small text on dark */
+  --color-accent-3: #6c8cff;
+  --color-signal: #5ee0d0;     /* secondary teal: ONLY for diagram nodes, status dots and code accents */
+  /* Accessibility: zinc-500 / zinc-400 tuned to stay >= 5:1 on the charcoal background */
+  --color-zinc-500: #8e939f;
+  --color-zinc-400: #a3a8b4;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-body { @apply bg-ink text-zinc-300 font-sans antialiased; }
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+body { @apply bg-ink text-zinc-400 font-sans antialiased; line-height: 1.65; }
+h1, h2, h3 { text-wrap: balance; }
 ::selection { background: var(--color-accent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 6px; }
 
-.grad-text {
-  background: linear-gradient(110deg, var(--color-accent), var(--color-accent-2) 55%, var(--color-accent-3));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+/* Flat accent colour. (Kept as a class name because the static pages use it; no gradient on purpose.) */
+.grad-text { color: var(--color-accent); }
+
 .card {
-  @apply rounded-3xl border border-line bg-panel/70 backdrop-blur;
-  transition: border-color .3s, transform .3s;
+  @apply rounded-2xl border border-line bg-panel;
+  transition: border-color .25s;
 }
-.card:hover { border-color: color-mix(in srgb, var(--color-accent) 45%, transparent); }
-/* Performance: backdrop blur is expensive on phones and invisible on these near-opaque cards, so it is desktop-only. */
-@media (max-width: 767px) { .card { -webkit-backdrop-filter: none; backdrop-filter: none; } }
-.glow::before {
-  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
-  background: radial-gradient(500px circle at var(--mx,50%) var(--my,50%), color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 45%);
-  transition: opacity .3s;
-}
-.glow:hover::before { opacity: 1; }
-.chip { @apply rounded-full border border-line bg-white/5 px-3 py-1 text-xs text-zinc-300; }
-.aurora { background:
-  radial-gradient(40rem 30rem at 15% 10%, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 60%),
-  radial-gradient(35rem 28rem at 90% 20%, color-mix(in srgb, var(--color-accent-2) 14%, transparent), transparent 60%),
-  radial-gradient(30rem 25rem at 60% 90%, color-mix(in srgb, var(--color-accent-3) 10%, transparent), transparent 60%); }
-.grid-bg { background-image: linear-gradient(var(--color-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
-  background-size: 56px 56px; mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 70%); }
-@keyframes drift { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(2%,3%,0) scale(1.08); } }
-.aurora { animation: drift 16s ease-in-out infinite; }
-@keyframes scroll-x { to { transform: translateX(-50%); } }
-.marquee { animation: scroll-x 40s linear infinite; }
-.marquee:hover { animation-play-state: paused; }
-.brand-icon { background: color-mix(in srgb, var(--brand) 14%, transparent); color: var(--brand); transition: background .3s, color .3s, box-shadow .3s; }
-.brand-card:hover { border-color: color-mix(in srgb, var(--brand) 60%, transparent); }
-.brand-card:hover .brand-icon { background: var(--brand); color: var(--color-ink); box-shadow: 0 0 28px color-mix(in srgb, var(--brand) 55%, transparent); }
-/* ---- galaxy orbit around the portrait ---- */
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes twinkle { 0%,100% { opacity: .15; transform: scale(.8); } 50% { opacity: .9; transform: scale(1.3); } }
-.orbit-stage { --ps: 2.5rem; }
-@media (min-width: 640px) { .orbit-stage { --ps: 3rem; } }
-.orbit {
-  --r: calc(var(--w) * var(--k));
-  position: absolute; left: 50%; top: 50%;
-  width: calc(var(--r) * 2); height: calc(var(--r) * 2);
-  margin: calc(var(--r) * -1) 0 0 calc(var(--r) * -1);
-  border-radius: 50%; border: 1px dashed rgb(255 255 255 / .09);
-  animation: spin var(--dur) linear infinite var(--dir);
-}
-.planet {
-  position: absolute; left: 50%; top: 50%;
-  width: var(--ps); height: var(--ps); margin: calc(var(--ps) / -2);
-  transform: rotate(var(--a)) translateY(calc(var(--r) * -1)) rotate(calc(var(--a) * -1));
-  pointer-events: auto;
-}
-.planet-in {
-  position: relative; display: grid; place-items: center; width: 100%; height: 100%;
-  border-radius: 50%; color: var(--c); cursor: default; outline: none;
-  background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--c) 28%, var(--color-panel)), var(--color-ink) 75%);
-  border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
-  box-shadow: 0 0 18px color-mix(in srgb, var(--c) 30%, transparent), inset 0 0 10px rgb(0 0 0 / .5);
-  animation: spin var(--dur) linear infinite reverse;
-  transition: box-shadow .3s, border-color .3s;
-}
-.orbit[style*="reverse"] .planet-in { animation-direction: normal; }
-.planet-in svg { width: 48%; height: 48%; }
-.planet-in:hover, .planet-in:focus-visible {
-  border-color: var(--c); box-shadow: 0 0 30px color-mix(in srgb, var(--c) 65%, transparent), inset 0 0 10px rgb(0 0 0 / .5);
-}
-.orbit:has(.planet-in:hover), .orbit:has(.planet-in:focus-visible),
-.orbit:has(.planet-in:hover) .planet-in, .orbit:has(.planet-in:focus-visible) .planet-in { animation-play-state: paused; }
-.planet-tip {
-  position: absolute; top: calc(100% + .4rem); left: 50%; translate: -50% 0; white-space: nowrap;
-  font-size: .7rem; color: #fff; background: rgb(15 15 22 / .95); border: 1px solid var(--color-line);
-  padding: .15rem .55rem; border-radius: 999px; opacity: 0; pointer-events: none; transition: opacity .2s;
-}
-.planet-in:hover .planet-tip, .planet-in:focus-visible .planet-tip { opacity: 1; }
-.star { position: absolute; border-radius: 50%; background: #fff; animation: twinkle 4s ease-in-out infinite; }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+.card:hover { border-color: color-mix(in srgb, var(--color-accent) 40%, transparent); }
+/* Legacy hook used by static pages: intentionally a no-op now (the cursor spotlight was removed). */
+.glow::before { content: none; }
+.chip { @apply rounded-full border border-line bg-white/[0.03] px-3 py-1 font-mono text-[11px] text-zinc-300; }
 
-/* Project preview placeholders: themed gradient with a slow sheen (no fake screenshots). */
-.preview { position: relative; overflow: hidden; }
-.preview::after {
-  content: ''; position: absolute; inset: -40%;
-  background: linear-gradient(115deg, transparent 42%, color-mix(in srgb, var(--color-accent-2) 14%, transparent) 50%, transparent 58%);
-  animation: sheen 7s linear infinite;
-}
-@keyframes sheen { from { transform: translateX(-30%); } to { transform: translateX(30%); } }
-@media (prefers-reduced-motion: reduce) { .preview::after { animation: none; } }
+.btn { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition; }
+.btn-primary { @apply bg-accent text-ink hover:brightness-110; }
+.btn-ghost { @apply border border-line text-white hover:border-white/25 hover:bg-white/5; }
+
+.eyebrow { @apply font-mono text-xs uppercase tracking-[0.2em] text-accent-2; }
+
+/* Faint single-colour wash and hairline grid for the hero (static pages reuse these class names). */
+.aurora { background: radial-gradient(44rem 28rem at 12% 0%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 65%); }
+.grid-bg { background-image: linear-gradient(var(--color-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 64px 64px; mask-image: radial-gradient(ellipse at 50% 0%, #000 10%, transparent 65%); opacity: .6; }
+
+/* Agent-diagram connectors: one slow, quiet dash flow. */
+@keyframes flow { to { stroke-dashoffset: -24; } }
+.flow { stroke-dasharray: 4 8; animation: flow 3s linear infinite; }
+
+/* Project preview frame (placeholder until a real screenshot is dropped into src/assets/projects/). */
+.shot { @apply overflow-hidden rounded-xl border border-line bg-ink; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 
 /* Soft cross-fade when moving between pages (progressive enhancement; ignored by browsers without support). */
 @view-transition { navigation: auto; }
@@ -114,8 +71,7 @@ body { @apply bg-ink text-zinc-300 font-sans antialiased; }
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
 
-/* Performance: skip layout/paint work for sections far below the fold until the visitor scrolls near them.
-   `auto` size memory keeps the scrollbar stable after a section has been seen. */
+/* Performance: skip layout/paint work for sections far below the fold until the visitor scrolls near them. */
 #skills, #services, #projects, #experience, #why, #contact {
   content-visibility: auto;
   contain-intrinsic-size: auto 900px;
