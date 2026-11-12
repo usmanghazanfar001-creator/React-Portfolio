@@ -42,7 +42,7 @@ ${h3(pr.title).replace('mt-8', 'mt-2')}
 <p class="mt-3 text-sm leading-relaxed text-zinc-400"><strong class="text-white">Solution:</strong> ${esc(pr.solution)}</p>
 <ul class="mt-4 space-y-1.5 text-sm text-zinc-400">${pr.features.map((f) => `<li class="flex items-start gap-2"><span class="mt-2 size-1.5 shrink-0 rounded-full bg-accent-2" aria-hidden="true"></span>${esc(f)}</li>`).join('')}</ul>
 <p class="mt-4 flex flex-wrap gap-2">${pr.tags.map((t) => `<span class="chip">${esc(t)}</span>`).join('')}</p>
-${pr.link ? `<p class="mt-5"><a href="${esc(pr.link)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-ink">${esc(pr.linkLabel)}<span class="sr-only"> for ${esc(pr.title)} (opens in a new tab)</span> ↗</a></p>` : ''}
+${pr.link ? (pr.linkType === 'service' ? `<p class="mt-5"><a href="${esc(pr.link)}" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-ink">${esc(pr.linkLabel)}<span class="sr-only"> for ${esc(pr.title)}</span> →</a></p>` : `<p class="mt-5"><a href="${esc(pr.link)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-ink">${esc(pr.linkLabel)}<span class="sr-only"> for ${esc(pr.title)} (opens in a new tab)</span> ↗</a></p>`) : ''}
 </article></li>`
 }
 

@@ -45,7 +45,7 @@ export const NAV_LINKS = [
 export const ABOUT = {
   intro: [
     "I'm Usman Ghazanfar, an AI & Web Developer based in Faisalabad, Pakistan. I build things people actually use — from AI agents that run parts of a Shopify store to storefronts, listing sites and web apps — using Python, JavaScript, React, Next.js and n8n.",
-    "My work spans three areas. In AI & automation, I've built a LangChain and LangGraph multi-agent store manager and a Shopify management system that reduce repetitive manual work. In web products, I've shipped the MA Fabrics e-commerce storefront in Next.js, a real estate listing site with SEO built in from launch, the WeatherIQ forecast app and NexSeat, a SaaS for sharing AI tool subscriptions. Underneath it all are solid engineering foundations: DiscreteSolver, a Flask and SQLite learning app, and a Hospital Management System in C++.",
+    "My work spans three areas. In AI & automation, I've built a LangChain and LangGraph multi-agent store manager and a Shopify management system that reduce repetitive manual work. In web products, I've shipped the MA Fabrics e-commerce storefront in Next.js, a real estate listing site with SEO built in from launch, the WeatherIQ forecast app and Lafzaly, an AI caption and subtitle generator for Roman Urdu creators. Underneath it all are solid engineering foundations: Descretiq, a Flask and SQLite learning app.",
     "I'm studying for an Associate Degree in Artificial Intelligence at Punjab Group of Colleges (expected 2027) and working at SKILL SIDER, supporting SEO, online marketing and web development — so I build with both engineering and growth in mind. I'm open to work: if you need an AI agent, a workflow automation or a fast, SEO-ready website, let's talk.",
   ],
   highlights: [
@@ -176,7 +176,7 @@ export const PROJECTS = [
     category: 'Web',
     kind: 'E-commerce',
     filters: ['Web Development', 'E-commerce'],
-    featured: 4,
+    featured: 6,
     tags: ['Next.js', 'E-commerce', 'UI/UX'],
     description:
       'A premium online storefront for a Lahore-based textile and suiting brand, with shop, collections, gallery and fabric videos.',
@@ -197,7 +197,7 @@ export const PROJECTS = [
     category: 'Web',
     kind: 'Web App',
     filters: ['Web Development'],
-    featured: 2,
+    featured: 3,
     tags: ['Web Development', 'SEO', 'UI/UX'],
     description:
       'A full real estate listing website featuring property search, detailed listing pages, and a clean, conversion-focused UI.',
@@ -232,25 +232,52 @@ export const PROJECTS = [
     linkType: 'demo',
   },
   {
-    key: 'nexseat',
-    flow: ['Trusted group', 'Shared plan', 'Premium AI tools'],
-    badge: 'Case — SaaS',
-    title: 'NexSeat – AI Subscription Sharing Platform',
-    category: 'Web',
-    kind: 'SaaS',
-    filters: ['Web Development', 'SaaS'],
-    featured: 5,
-    tags: ['SaaS', 'Web App'],
+    key: 'lafzaly',
+    flow: ['Topic or video', 'Roman Urdu AI', 'Hook, caption & hashtags', 'SRT / VTT / MP4 export'],
+    badge: 'Case — AI Web App',
+    title: 'Lafzaly – Roman Urdu Caption Generator',
+    category: 'AI',
+    kind: 'AI Web App',
+    filters: ['AI & Automation', 'Web Development', 'SaaS'],
+    featured: 2,
+    tags: ['AI', 'Roman Urdu', 'Captions', 'Subtitles'],
     description:
-      'A modern SaaS platform that lets users securely share premium AI tool subscriptions with trusted groups.',
+      'AI-powered Roman Urdu captions and subtitles for Pakistani creators. Describe a topic or upload a video, and Lafzaly writes the hook, caption, call to action and hashtags the way your audience actually talks.',
     problem:
-      'Premium AI tool subscriptions are expensive for individuals, but plans are often built for teams.',
+      'Pakistani creators need captions and subtitles that sound the way their audience really speaks, in Roman Urdu mixed with English, not stiff word-for-word translations.',
     solution:
-      'Built NexSeat, a SaaS platform that enables users to share premium AI tool subscriptions securely with trusted groups — reducing subscription costs by letting multiple users access team plans through an intuitive, responsive experience.',
-    features: ['Secure group subscription sharing', 'Reduced per-user cost', 'Responsive, user-friendly interface'],
-    link: 'https://github.com/usmanghazanfar001-creator/NexSeat.git',
-    linkLabel: 'GitHub Repository',
-    linkType: 'github',
+      'Built Lafzaly, a web app that writes hooks, captions, CTAs and hashtags in natural Roman Urdu, Urdu or English from a topic, and turns an uploaded video or voice note into timestamped, editable subtitles with animated caption styles. It is tuned for Instagram, TikTok, YouTube Shorts, Facebook, LinkedIn and X.',
+    features: [
+      'Roman Urdu, Urdu and English output',
+      'Text-to-caption and video-to-subtitle workflows',
+      'Timestamped, editable subtitles with animated caption styles',
+      'SRT, VTT and captioned-video export',
+      'Free plan, Pro plan and a developer API',
+    ],
+    link: 'https://lafzaly.xyz/',
+    linkLabel: 'View Project',
+    linkType: 'demo',
+  },
+  {
+    key: 'ai-development',
+    flow: ['Your idea', 'Build', 'Automate', 'Optimize'],
+    badge: 'Service — AI Development',
+    title: 'AI Development & Automation',
+    category: 'AI',
+    kind: 'AI Service',
+    filters: ['AI & Automation'],
+    featured: 4,
+    tags: ['OpenAI', 'n8n', 'AI Agents', 'Python'],
+    description:
+      'AI development and automation: OpenAI integration, AI chatbots and agents, n8n and workflow automation, and custom AI solutions built with Python, Node.js and the ChatGPT API.',
+    problem:
+      'Businesses and creators have ideas for AI features and automations but need them designed, built and connected to the tools they already use.',
+    solution:
+      'I design and build AI solutions end to end: OpenAI and ChatGPT API integrations, chatbots and agents, and workflow automations in n8n, Make or Zapier.',
+    features: ['OpenAI integration', 'AI chatbots & agents', 'n8n and workflow automation', 'Custom AI solutions'],
+    link: `${PROFILE.siteUrl}/services/ai-automation`,
+    linkLabel: 'View service',
+    linkType: 'service',
   },
   {
     key: 'weatheriq',
@@ -260,7 +287,7 @@ export const PROJECTS = [
     category: 'Web',
     kind: 'Web App',
     filters: ['Web Development'],
-    featured: 6,
+    featured: 7,
     tags: ['Next.js', 'Weather API', 'SEO', 'UI/UX'],
     description:
       'A fast weather web app with current conditions, hourly and daily forecasts, and air quality for locations worldwide.',
@@ -287,7 +314,7 @@ export const PROJECTS = [
     category: 'AI',
     kind: 'AI',
     filters: ['AI & Automation', 'E-commerce'],
-    featured: 3,
+    featured: 5,
     tags: ['LangChain', 'LangGraph', 'AI Agents', 'Shopify'],
     description:
       'An AI-powered e-commerce automation platform orchestrating specialized agents across a Shopify store.',
@@ -316,26 +343,6 @@ export const PROJECTS = [
     solution:
       'Designed an AI-powered Shopify management system to automate repetitive e-commerce operations, reduce manual work, and help store owners manage their businesses more efficiently.',
     features: ['Automated store operations', 'Reduced manual workload', 'Efficiency-focused workflows'],
-    link: null,
-    linkLabel: null,
-    linkType: null,
-  },
-  {
-    key: 'hospital-management',
-    flow: ['Menu-driven GUI', 'Core hospital operations'],
-    badge: 'Case — C++',
-    title: 'Hospital Management System',
-    category: 'Other',
-    kind: 'Software',
-    filters: [],
-    tags: ['C++', 'GUI'],
-    description:
-      'A comprehensive GUI-based Hospital Management System managing core hospital operations.',
-    problem:
-      'Hospitals need a structured, menu-driven way to manage core operations without paper records.',
-    solution:
-      'Developed a comprehensive GUI-based Hospital Management System in standard C++ to manage core hospital operations through a menu-driven interface.',
-    features: ['Menu-driven interface', 'Core hospital operation management', 'Built in standard C++'],
     link: null,
     linkLabel: null,
     linkType: null,

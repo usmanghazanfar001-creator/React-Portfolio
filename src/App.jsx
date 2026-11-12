@@ -265,6 +265,8 @@ const Skills = () => (
 
 /* ---------- projects ---------- */
 const hostOf = (url) => { try { return new URL(url).host } catch { return '' } }
+const isService = (p) => p.linkType === 'service'
+const pathOf = (url) => { try { return new URL(url).pathname } catch { return url } }
 
 // Architecture overview built only from each project's real features/stack (see `flow` in content.js).
 function MiniFlow({ steps }) {
@@ -317,7 +319,7 @@ function ProjectModal({ p, no, onClose }) {
           <div><p className="eyebrow">Case {no} · {p.kind}</p><h3 id="pm-title" className="mt-2 font-display text-2xl font-semibold text-white">{p.title}</h3></div>
           <button ref={closeRef} onClick={onClose} aria-label="Close dialog" className="grid size-11 shrink-0 place-items-center rounded-full hover:bg-white/10"><X size={20} aria-hidden="true" /></button>
         </div>
-        {shot && <img src={shot} width="1280" height="800" loading="lazy" decoding="async" alt={`Screenshot of ${p.title}`} className="mt-5 aspect-[16/10] w-full rounded-xl border border-line object-cover object-top" />}
+        {shot && <img src={shot} width="1280" height="800" loading="lazy" decoding="async" alt={`Preview of ${p.title}`} className="mt-5 aspect-[16/10] w-full rounded-xl border border-line object-cover object-top" />}
         <div className="mt-5"><MiniFlow steps={p.flow} /></div>
         <div role="tablist" aria-label="Case file" onKeyDown={tabKey} className="mt-6 flex gap-1 border-b border-line">
           {TABS.map((t, i) => (
@@ -335,7 +337,9 @@ function ProjectModal({ p, no, onClose }) {
             </>
           )}
         </div>
-        {p.link && <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-7">{p.linkType === 'github' ? 'View source' : 'Open live demo'} <ArrowUpRight size={16} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>}
+        {p.link && (isService(p)
+          ? <a href={pathOf(p.link)} className="btn btn-primary mt-7">View service <ArrowUpRight size={16} aria-hidden="true" /></a>
+          : <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-7">{p.linkType === 'github' ? 'View source' : 'Open live demo'} <ArrowUpRight size={16} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>)}
       </motion.div>
     </motion.div>
   )
@@ -348,15 +352,17 @@ function ProjectCard({ p, no, onOpen, lead }) {
       className={`card flex flex-col p-5 ${lead ? 'md:col-span-3' : 'md:col-span-2'}`}>
       <div className="flex items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-widest">
         <p className="text-accent-2">Case {no} · {p.kind}</p>
-        {p.link && <p className="flex items-center gap-1.5 text-zinc-500"><span aria-hidden="true" className="size-1.5 rounded-full bg-signal" />{p.linkType === 'github' ? 'Open source' : hostOf(p.link)}</p>}
+        {p.link && <p className="flex items-center gap-1.5 text-zinc-500"><span aria-hidden="true" className="size-1.5 rounded-full bg-signal" />{p.linkType === 'github' ? 'Open source' : isService(p) ? 'Service' : hostOf(p.link)}</p>}
       </div>
       <h3 className={`mt-3 font-display font-semibold text-white ${lead ? 'text-2xl' : 'text-xl'}`}>{p.title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-zinc-400">{p.description}</p>
-      {src && <img src={src} width="1280" height="800" loading="lazy" decoding="async" alt={`Screenshot of ${p.title}`} className="mt-4 aspect-[16/10] w-full rounded-xl border border-line object-cover object-top" />}
+      {src && <img src={src} width="1280" height="800" loading="lazy" decoding="async" alt={`Preview of ${p.title}`} className="mt-4 aspect-[16/10] w-full rounded-xl border border-line object-cover object-top" />}
       <div className="mt-4"><MiniFlow steps={p.flow} /></div>
       <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies">{p.tags.map((t) => <li key={t} className="chip">{t}</li>)}</ul>
       <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
-        {p.link && <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">{p.linkType === 'github' ? 'Source' : 'Live demo'}<span className="sr-only"> for {p.title} (opens in a new tab)</span><ArrowUpRight size={15} aria-hidden="true" /></a>}
+        {p.link && (isService(p)
+          ? <a href={pathOf(p.link)} className="btn btn-primary">View service<span className="sr-only"> for {p.title}</span><ArrowUpRight size={15} aria-hidden="true" /></a>
+          : <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">{p.linkType === 'github' ? 'Source' : 'Live demo'}<span className="sr-only"> for {p.title} (opens in a new tab)</span><ArrowUpRight size={15} aria-hidden="true" /></a>)}
         <button onClick={() => onOpen(p)} className="btn btn-ghost">Case file<span className="sr-only"> for {p.title}</span></button>
       </div>
     </motion.article>
