@@ -13,6 +13,7 @@ import profileImg from './assets/images/profile.webp'
 import { SITE } from '../site/config'
 import { GithubIcon, WhatsAppIcon, FiverrIcon, GmailIcon, LinkedInIcon } from './components/BrandIcons'
 
+const BRAND = { GitHub: '#FFFFFF', LinkedIn: '#0A66C2', Email: '#EA4335', WhatsApp: '#25D366', Fiverr: '#1DBF73' } // original brand colours
 const ICONS = { Code2, BrainCircuit, Globe2, Workflow, Sparkles, LayoutTemplate, Building2, MapPin, GraduationCap, Briefcase, Handshake, Search, Target, Server, Wrench }
 const Icon = ({ name, ...p }) => { const C = ICONS[name] || Sparkles; return <C aria-hidden="true" {...p} /> }
 
@@ -159,9 +160,9 @@ function Typed({ text }) {
 
 function Hero() {
   const social = [
-    { Ic: GithubIcon, label: 'GitHub', href: PROFILE.github },
-    { Ic: LinkedInIcon, label: 'LinkedIn', href: PROFILE.linkedin },
-    { Ic: GmailIcon, label: 'Email', href: `mailto:${PROFILE.email}` },
+    { Ic: GithubIcon, label: 'GitHub', href: PROFILE.github, color: BRAND.GitHub },
+    { Ic: LinkedInIcon, label: 'LinkedIn', href: PROFILE.linkedin, color: BRAND.LinkedIn },
+    { Ic: GmailIcon, label: 'Email', href: `mailto:${PROFILE.email}`, color: BRAND.Email },
   ]
   return (
     <section id="home" aria-label="Introduction" className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
@@ -184,10 +185,10 @@ function Hero() {
               <a href="#contact" className="btn btn-ghost">Contact Me</a>
             </div>
             <ul aria-label="Social links" className="mt-8 flex flex-wrap items-center gap-2">
-              {social.map(({ Ic, label, href }) => (
+              {social.map(({ Ic, label, href, color }) => (
                 <li key={label}>
                   <a href={href} {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line px-4 text-sm text-zinc-300 transition hover:border-accent/50 hover:text-white">
-                    <Ic size={16} aria-hidden="true" />{label}{href.startsWith('http') && <span className="sr-only"> (opens in a new tab)</span>}
+                    <Ic size={16} aria-hidden="true" style={{ color }} />{label}{href.startsWith('http') && <span className="sr-only"> (opens in a new tab)</span>}
                   </a>
                 </li>
               ))}
@@ -319,7 +320,7 @@ function ProjectModal({ p, no, onClose }) {
           <div><p className="eyebrow">Case {no} · {p.kind}</p><h3 id="pm-title" className="mt-2 font-display text-2xl font-semibold text-white">{p.title}</h3></div>
           <button ref={closeRef} onClick={onClose} aria-label="Close dialog" className="grid size-11 shrink-0 place-items-center rounded-full hover:bg-white/10"><X size={20} aria-hidden="true" /></button>
         </div>
-        {shot && <img src={shot} width="1280" height="800" loading="lazy" decoding="async" alt={`Preview of ${p.title}`} className="mt-5 aspect-[16/10] w-full rounded-xl border border-line object-cover object-top" />}
+        {shot && <img src={shot} width="1200" height="900" loading="lazy" decoding="async" alt={`Preview of ${p.title}`} className="mt-5 aspect-[4/3] w-full rounded-xl border border-line object-cover" />}
         <div className="mt-5"><MiniFlow steps={p.flow} /></div>
         <div role="tablist" aria-label="Case file" onKeyDown={tabKey} className="mt-6 flex gap-1 border-b border-line">
           {TABS.map((t, i) => (
@@ -345,19 +346,23 @@ function ProjectModal({ p, no, onClose }) {
   )
 }
 
-function ProjectCard({ p, no, onOpen, lead }) {
+function ProjectCard({ p, no, onOpen }) {
   const src = shotFor(p.key)
   return (
     <motion.article layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}
-      className={`card flex flex-col p-5 ${lead ? 'md:col-span-3' : 'md:col-span-2'}`}>
-      <div className="flex items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-widest">
+      className="card group flex flex-col p-4">
+      {/* Every project preview is a 4:3 box so the grid stays uniform. */}
+      <div className="aspect-[4/3] w-full overflow-hidden rounded-xl border border-line bg-ink">
+        {src
+          ? <img src={src} width="1200" height="900" loading="lazy" decoding="async" alt={`Preview of ${p.title}`} className="size-full object-cover transition duration-500 group-hover:scale-[1.02]" />
+          : <div className="grid size-full place-items-center p-4"><MiniFlow steps={p.flow} /></div>}
+      </div>
+      <div className="mt-5 flex items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-widest">
         <p className="text-accent-2">Case {no} · {p.kind}</p>
         {p.link && <p className="flex items-center gap-1.5 text-zinc-500"><span aria-hidden="true" className="size-1.5 rounded-full bg-signal" />{p.linkType === 'github' ? 'Open source' : isService(p) ? 'Service' : hostOf(p.link)}</p>}
       </div>
-      <h3 className={`mt-3 font-display font-semibold text-white ${lead ? 'text-2xl' : 'text-xl'}`}>{p.title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{p.description}</p>
-      {src && <img src={src} width="1280" height="800" loading="lazy" decoding="async" alt={`Preview of ${p.title}`} className="mt-4 aspect-[16/10] w-full rounded-xl border border-line object-cover object-top" />}
-      <div className="mt-4"><MiniFlow steps={p.flow} /></div>
+      <h3 className="mt-3 font-display text-xl font-semibold text-white">{p.title}</h3>
+      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-zinc-400">{p.description}</p>
       <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies">{p.tags.map((t) => <li key={t} className="chip">{t}</li>)}</ul>
       <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
         {p.link && (isService(p)
@@ -383,9 +388,9 @@ function Projects() {
         ))}
       </div>
       <p className="sr-only" role="status" aria-live="polite">Showing {list.length} project{list.length === 1 ? '' : 's'}</p>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
-          {list.map((p, i) => <ProjectCard key={p.key} p={p} no={no(p)} onOpen={setSel} lead={i < 2} />)}
+          {list.map((p) => <ProjectCard key={p.key} p={p} no={no(p)} onOpen={setSel} />)}
         </AnimatePresence>
       </div>
       <AnimatePresence>{sel && <ProjectModal p={sel} no={no(sel)} onClose={() => setSel(null)} />}</AnimatePresence>
@@ -472,32 +477,32 @@ const WhyWork = () => (
 /* ---------- contact ---------- */
 const PROJECT_TYPES = [...SERVICES.map((s) => s.title), 'Something else']
 // Set VITE_CONTACT_ENDPOINT (e.g. a Formspree form URL) to send messages straight from the page. Without it the form
-// opens the visitor's email app with the message filled in, so it works with zero backend.
+// opens WhatsApp with the message filled in, so it works with zero backend.
 const ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT
 const fieldCls = (bad) => `mt-2 w-full rounded-xl border bg-ink px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-accent/50 ${bad ? 'border-red-400' : 'border-line focus:border-accent'}`
 const validate = (f) => {
   const e = {}
   if (!f.name.trim()) e.name = 'Enter your name.'
-  if (!f.email.trim()) e.email = 'Enter your email address.'
-  else if (!/^\S+@\S+\.\S+$/.test(f.email)) e.email = 'Enter an email address like name@example.com.'
+  if (ENDPOINT && !f.email.trim()) e.email = 'Enter your email address.'
+  else if (f.email.trim() && !/^\S+@\S+\.\S+$/.test(f.email)) e.email = 'Enter an email address like name@example.com.'
   if (f.message.trim().length < 10) e.message = 'Tell me a little about the project (at least 10 characters).'
   return e
 }
 function Contact() {
   const [f, setF] = useState({ name: '', email: '', type: PROJECT_TYPES[0], message: '', _gotcha: '' })
   const [errs, setErrs] = useState({})
-  const [status, setStatus] = useState('idle') // idle | sending | sent | error | mailto
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error | whatsapp
   const summary = useRef(null)
   const set = (k) => (e) => setF((v) => ({ ...v, [k]: e.target.value }))
   const blur = (k) => () => setErrs((v) => ({ ...v, [k]: validate(f)[k] }))
-  const text = () => [`Name: ${f.name}`, `Email: ${f.email}`, `Project type: ${f.type}`, '', 'Message:', f.message].join('\n')
+  const text = () => [`Name: ${f.name}`, ...(f.email.trim() ? [`Email: ${f.email}`] : []), `Project type: ${f.type}`, '', 'Message:', f.message].join('\n')
   const fail = (e) => { setErrs(e); requestAnimationFrame(() => summary.current?.focus()) }
   const submit = async (ev) => {
     ev.preventDefault()
     const e = validate(f)
     if (Object.keys(e).length) return fail(e)
     setErrs({})
-    if (!ENDPOINT) { setStatus('mailto'); window.location.href = `mailto:${PROFILE.email}?subject=${encodeURIComponent('Project enquiry: ' + f.type)}&body=${encodeURIComponent(text())}`; return }
+    if (!ENDPOINT) return openWhatsApp()
     setStatus('sending')
     try {
       const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ name: f.name, email: f.email, type: f.type, message: f.message, _gotcha: f._gotcha }) })
@@ -505,18 +510,19 @@ function Contact() {
       setStatus('sent'); setF({ name: '', email: '', type: PROJECT_TYPES[0], message: '', _gotcha: '' })
     } catch { setStatus('error') }
   }
+  const openWhatsApp = () => { setStatus('whatsapp'); window.open(`${PROFILE.whatsappLink}?text=${encodeURIComponent(text())}`, '_blank', 'noopener') }
   const whatsapp = () => {
     const e = validate(f)
     if (Object.keys(e).length) return fail(e)
-    window.open(`${PROFILE.whatsappLink}?text=${encodeURIComponent(text())}`, '_blank', 'noopener')
+    openWhatsApp()
   }
   const links = [
-    { Ic: GmailIcon, label: 'Email', value: PROFILE.email, href: `mailto:${PROFILE.email}` },
-    { Ic: GithubIcon, label: 'GitHub', value: PROFILE.githubLabel, href: PROFILE.github },
-    { Ic: LinkedInIcon, label: 'LinkedIn', value: PROFILE.linkedinLabel, href: PROFILE.linkedin },
-    { Ic: WhatsAppIcon, label: 'WhatsApp', value: PROFILE.whatsapp, href: PROFILE.whatsappLink },
+    { Ic: GmailIcon, label: 'Email', value: PROFILE.email, href: `mailto:${PROFILE.email}`, color: BRAND.Email },
+    { Ic: GithubIcon, label: 'GitHub', value: PROFILE.githubLabel, href: PROFILE.github, color: BRAND.GitHub },
+    { Ic: LinkedInIcon, label: 'LinkedIn', value: PROFILE.linkedinLabel, href: PROFILE.linkedin, color: BRAND.LinkedIn },
+    { Ic: WhatsAppIcon, label: 'WhatsApp', value: PROFILE.whatsapp, href: PROFILE.whatsappLink, color: BRAND.WhatsApp },
     { Ic: Phone, label: 'Phone', value: PROFILE.phone, href: `tel:${PROFILE.phone.replace(/\s/g, '')}` },
-    { Ic: FiverrIcon, label: 'Fiverr', value: 'fiverr.com/afidevelopers', href: PROFILE.fiverr },
+    { Ic: FiverrIcon, label: 'Fiverr', value: 'fiverr.com/afidevelopers', href: PROFILE.fiverr, color: BRAND.Fiverr },
   ]
   const errList = Object.entries(errs).filter(([, v]) => v)
   return (
@@ -525,10 +531,10 @@ function Contact() {
         <div>
           <p className="text-lg text-zinc-400">Available for AI automation, web development and modern portfolio projects. Email is the fastest way to reach me.</p>
           <ul className="mt-6 divide-y divide-line border-y border-line">
-            {links.map(({ Ic, label, value, href }) => (
+            {links.map(({ Ic, label, value, href, color }) => (
               <li key={label}>
                 <a href={href} {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="group flex min-h-14 items-center gap-4 py-3">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-ink"><Ic size={18} aria-hidden="true" /></span>
+                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/[0.06] text-accent transition group-hover:bg-white/10"><Ic size={18} aria-hidden="true" style={color ? { color } : undefined} /></span>
                   <span className="min-w-0 flex-1"><span className="block text-xs text-zinc-500">{label}</span><span className="block truncate text-white">{value}</span></span>
                   <ArrowUpRight size={16} aria-hidden="true" className="shrink-0 text-zinc-600 transition group-hover:text-white" />
                   {href.startsWith('http') && <span className="sr-only">(opens in a new tab)</span>}
@@ -548,8 +554,8 @@ function Contact() {
           <div><label htmlFor="cf-name" className="text-sm font-medium text-white">Name</label>
             <input id="cf-name" name="name" type="text" autoComplete="name" required aria-invalid={!!errs.name} aria-describedby={errs.name ? 'cf-name-e' : undefined} value={f.name} onChange={set('name')} onBlur={blur('name')} className={fieldCls(errs.name)} />
             {errs.name && <p id="cf-name-e" className="mt-1.5 text-sm text-red-300">{errs.name}</p>}</div>
-          <div><label htmlFor="cf-email" className="text-sm font-medium text-white">Email</label>
-            <input id="cf-email" name="email" type="email" autoComplete="email" required aria-invalid={!!errs.email} aria-describedby={errs.email ? 'cf-email-e' : undefined} value={f.email} onChange={set('email')} onBlur={blur('email')} className={fieldCls(errs.email)} />
+          <div><label htmlFor="cf-email" className="text-sm font-medium text-white">Email{!ENDPOINT && <span className="font-normal text-zinc-500"> (optional)</span>}</label>
+            <input id="cf-email" name="email" type="email" autoComplete="email" required={!!ENDPOINT} aria-invalid={!!errs.email} aria-describedby={errs.email ? 'cf-email-e' : undefined} value={f.email} onChange={set('email')} onBlur={blur('email')} className={fieldCls(errs.email)} />
             {errs.email && <p id="cf-email-e" className="mt-1.5 text-sm text-red-300">{errs.email}</p>}</div>
           <div><label htmlFor="cf-type" className="text-sm font-medium text-white">Project type</label>
             <select id="cf-type" name="type" value={f.type} onChange={set('type')} className={fieldCls(false)}>{PROJECT_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}</select></div>
@@ -558,14 +564,20 @@ function Contact() {
             {errs.message ? <p id="cf-message-e" className="mt-1.5 text-sm text-red-300">{errs.message}</p> : <p id="cf-message-h" className="mt-1.5 text-xs text-zinc-500">A few sentences on scope and timeline is plenty.</p>}</div>
           <div aria-hidden="true" className="absolute -left-[9999px]"><label>Leave this empty<input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" value={f._gotcha} onChange={set('_gotcha')} /></label></div>
           <div className="flex flex-wrap gap-3">
-            <button type="submit" disabled={status === 'sending'} className="btn btn-primary disabled:opacity-60"><Send size={16} aria-hidden="true" />{status === 'sending' ? 'Sending…' : ENDPOINT ? 'Send message' : 'Send by email'}</button>
-            <button type="button" onClick={whatsapp} className="btn btn-ghost">Send on WhatsApp</button>
+            {ENDPOINT ? (
+              <>
+                <button type="submit" disabled={status === 'sending'} className="btn btn-primary disabled:opacity-60"><Send size={16} aria-hidden="true" />{status === 'sending' ? 'Sending…' : 'Send message'}</button>
+                <button type="button" onClick={whatsapp} className="btn btn-ghost">Send on WhatsApp</button>
+              </>
+            ) : (
+              <button type="submit" className="btn btn-primary"><WhatsAppIcon size={16} aria-hidden="true" />Send on WhatsApp</button>
+            )}
           </div>
           <p role="status" aria-live="polite" className={`text-sm ${status === 'sent' ? 'text-emerald-300' : status === 'error' ? 'text-red-300' : 'text-zinc-500'}`}>
             {status === 'sent' && 'Thanks, your message was sent. I will reply by email.'}
             {status === 'error' && `Something went wrong sending that. Please email ${PROFILE.email} directly.`}
-            {status === 'mailto' && 'Your email app should open with the message filled in. If it does not, email me directly.'}
-            {status === 'idle' && (ENDPOINT ? 'Your message goes straight to my inbox.' : 'The buttons open your email app or WhatsApp with your message filled in, so nothing is stored on this website.')}
+            {status === 'whatsapp' && 'WhatsApp should open with your message filled in. If it does not, use the contact details on the left.'}
+            {status === 'idle' && (ENDPOINT ? 'Your message goes straight to my inbox.' : 'This opens WhatsApp with your message filled in, so nothing is stored on this website.')}
           </p>
         </form>
       </div>

@@ -7,7 +7,7 @@
 
 /* ------------------------------------------------------------------
    Design tokens — generated with UI UX Pro Max (see design-system/usman-ghazanfar-portfolio/MASTER.md)
-   Palette is the owner's brief: charcoal #0B0D12, electric blue #6C8CFF, white headings, muted grey body.
+   Palette: charcoal #0B0D12, violet accent #9B8CFF (changed from the original electric blue #6C8CFF), white headings, muted grey body.
    Token NAMES are unchanged so the statically generated pages pick up the new look automatically.
    ------------------------------------------------------------------ */
 @theme {
@@ -17,9 +17,9 @@
   --color-ink: #0b0d12;        /* page background */
   --color-panel: #11141b;      /* raised surfaces */
   --color-line: rgb(255 255 255 / 0.08);
-  --color-accent: #6c8cff;     /* electric blue: CTAs, rules, icons (6.3:1 on ink) */
-  --color-accent-2: #9db1ff;   /* lighter tint of the same blue for small text on dark */
-  --color-accent-3: #6c8cff;
+  --color-accent: #9b8cff;     /* violet: CTAs, rules, icons (7:1 on ink) */
+  --color-accent-2: #b9afff;   /* lighter tint of the same violet for small text on dark */
+  --color-accent-3: #9b8cff;
   --color-signal: #5ee0d0;     /* secondary teal: ONLY for diagram nodes, status dots and code accents */
   /* Accessibility: zinc-500 / zinc-400 tuned to stay >= 5:1 on the charcoal background */
   --color-zinc-500: #8e939f;

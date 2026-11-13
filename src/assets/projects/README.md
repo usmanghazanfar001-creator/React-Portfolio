@@ -1,7 +1,7 @@
 # Project screenshots
 
 Drop a screenshot here named after the project key and it appears on that project's card automatically
-(no code change). Use WebP, about 1280×800, under ~150 KB.
+(no code change). Use WebP at 1200×900 (4:3), under ~150 KB. Every project card shows its preview in a 4:3 box.
 
 | File | Project |
 | --- | --- |

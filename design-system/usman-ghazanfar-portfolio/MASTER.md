@@ -22,8 +22,8 @@ and a light purple palette. The owner's brief fixes the palette and fonts, so th
 |---|---|---|
 | `--color-ink` (background) | `#0B0D12` | deep charcoal |
 | `--color-panel` (surfaces) | `#11141B` | raised cards |
-| `--color-accent` | `#6C8CFF` | electric blue, 6.3:1 on ink; CTAs, rules, icons |
-| `--color-accent-2` | `#9DB1FF` | tint of the same blue for small text |
+| `--color-accent` | `#9B8CFF` | violet (changed from the original blue #6C8CFF), 7:1 on ink; CTAs, rules, icons |
+| `--color-accent-2` | `#B9AFFF` | tint of the same violet for small text |
 | Headings | `#FFFFFF` | Space Grotesk 600-700 (UI UX Pro Max: "Space Grotesk + Inter" pairing) |
 | Body / descriptions | `#A3A8B4` (zinc-400), `#8E939F` (zinc-500) | muted grey, >= 5:1 |
 | Border | `rgb(255 255 255 / .08)` | hairlines instead of shadows |
