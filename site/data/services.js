@@ -16,13 +16,13 @@ const UAE_PAGES = [
     serviceName: 'Web Design in Sharjah',
     nav: 'Web Design Sharjah',
     blurb: 'Custom, mobile-first websites for Sharjah businesses, built to load fast and rank.',
-    metaTitle: 'Web Design Company in Sharjah | Usman Ghazanfar',
+    metaTitle: 'Web Design Sharjah | Website Design Company | U. Ghazanfar',
     metaDescription:
-      'Custom, fast, mobile-first web design for Sharjah businesses. SEO-ready sites built with React and Next.js. Get a free quote from Usman Ghazanfar.',
+      'Website design in Sharjah by a web designer who builds custom, fast, mobile-first, SEO-ready sites with React and Next.js. Get a free quote today.',
     eyebrow: 'Web design · Sharjah',
     h1: 'Web Design Company in Sharjah Built to Win You Customers',
     lead:
-      'Looking for web design in Sharjah that looks sharp, loads quickly and actually brings in enquiries? I design and build custom websites for Sharjah businesses, from the first sketch to launch day, with SEO and mobile performance built in from the start.',
+      'Looking for website design in Sharjah that looks sharp, loads quickly and actually brings in enquiries? As your web designer in Sharjah, I design and build custom websites for Sharjah businesses, from the first sketch to launch day, with SEO and mobile performance built in from the start.',
     sections: [
       {
         h2: 'Why Sharjah businesses need more than a template',
@@ -36,7 +36,7 @@ const UAE_PAGES = [
         h2: 'How I approach web design for the UAE market',
         paragraphs: [
           `Every project starts with questions, not colours: who are your customers, what do they search for, and what should a visitor do next? From there I plan the page structure, help you write or sharpen the key copy, and design the layout mobile-first, because most local traffic arrives on a phone.`,
-          `Whether you search for a web design company or a web designing company in Sharjah, what matters is the same: a team or freelancer who plans around your customers, builds quickly and explains every choice. Under the hood I use modern tools: React and Next.js for fast, app-quality pages, clean semantic HTML, and image formats and loading techniques that keep Core Web Vitals healthy. Speed is both a ranking signal and a conversion factor, so I treat it as a requirement rather than an optional extra.`,
+          `Whether you are comparing a web design company, a website design company in Sharjah or an individual web designer in Sharjah, what matters is the same: someone who plans around your customers, builds quickly and explains every choice. I work as an independent web designer, so you deal with the person who actually designs and builds your site, not an account manager. Under the hood I use modern tools: React and Next.js for fast, app-quality pages, clean semantic HTML, and image formats and loading techniques that keep Core Web Vitals healthy. Speed is both a ranking signal and a conversion factor, so I treat it as a requirement rather than an optional extra.`,
           `Audiences in the UAE are multilingual, so I plan your site structure to leave room for English and Arabic, including right-to-left layouts. If Arabic is on your roadmap, tell me early and I will design the foundation so you are not forced into a rebuild later.`,
         ],
       },
@@ -78,6 +78,10 @@ const UAE_PAGES = [
         a: 'Yes, I can structure the site for both languages, including right-to-left layouts for Arabic. Tell me at the start of the project so the design and code are planned for it rather than patched in later.',
       },
       {
+        q: 'Are you a web design company or an individual web designer?',
+        a: 'I am an independent web designer and developer. You work directly with me from first call to launch, which keeps communication simple and decisions fast. If a project is large enough to need extra hands, I will tell you openly before we start.',
+      },
+      {
         q: 'Do I need to be in Sharjah to work with you?',
         a: 'No. Calls, feedback and approvals all happen online by video call, email or WhatsApp, so distance is not a barrier.',
       },
@@ -86,7 +90,7 @@ const UAE_PAGES = [
       heading: 'Ready for a website that works as hard as you do?',
       text: 'Tell me about your business and your goals and I will reply with a clear plan and a quote. There is no obligation, and you can also message me directly on WhatsApp.',
     },
-    blogSlugs: ['how-to-choose-a-web-design-company-in-sharjah', 'how-much-does-a-website-cost-in-sharjah'],
+    blogSlugs: ['how-to-choose-a-web-design-company-in-sharjah', 'how-much-does-a-website-cost-in-sharjah', 'best-website-design-practices-uae'],
   },
 
   /* ------------------------------------------------------------------ */
@@ -173,13 +177,13 @@ const UAE_PAGES = [
     serviceName: 'WordPress Development in Dubai',
     nav: 'WordPress Development Dubai',
     blurb: 'Lightweight, secure WordPress sites your team can update without a developer.',
-    metaTitle: 'WordPress Development Dubai | Usman Ghazanfar',
+    metaTitle: 'WordPress Development Dubai | WordPress Website Development',
     metaDescription:
-      'WordPress development for Dubai businesses: custom themes, fast hosting setup, WooCommerce, security and SEO. Get a quote from Usman Ghazanfar.',
+      'WordPress website development for Dubai businesses: custom themes, fast hosting setup, WooCommerce, security and SEO. Get a quote from Usman Ghazanfar.',
     eyebrow: 'WordPress · Dubai',
     h1: 'WordPress Development in Dubai for Fast, Easy-to-Manage Websites',
     lead:
-      'Need WordPress development in Dubai? I build WordPress websites that load quickly, are simple for your own team to update and are set up for search from the start, whether you need a company site, a blog or a WooCommerce store.',
+      'Need WordPress development in Dubai? My WordPress website development service delivers sites that load quickly, are simple for your own team to update and are set up for search from the start, whether you need a company site, a blog or a WooCommerce store.',
     sections: [
       {
         h2: 'Why WordPress is still a smart choice for many businesses',

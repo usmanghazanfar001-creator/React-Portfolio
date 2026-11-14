@@ -10,7 +10,7 @@ Rule used to avoid keyword cannibalisation: **one primary keyword per page**; su
 
 | Page | Primary keyword | Supporting keywords | Volume | Difficulty |
 | --- | --- | --- | --- | --- |
-| `/services/ai-automation` | ai automation services | business process automation, ai workflow automation, ai automation for small business | TODO | TODO |
+| `/services/ai-automation` | ai automation services | ai automation for business, business process automation, ai workflow automation, ai automation for small business | TODO | TODO |
 | `/services/ai-agent-development` | ai agent development services | custom ai agent developer, langchain developer, langgraph developer, multi-agent ai systems, ai agents for business | TODO | TODO |
 | `/services/ai-chatbot-development` | ai chatbot development services | custom ai chatbot developer, business chatbot, customer support chatbot | TODO | TODO |
 | `/services/n8n-automation` | n8n automation expert | n8n workflow developer, workflow automation developer | TODO | TODO |
@@ -19,9 +19,9 @@ Rule used to avoid keyword cannibalisation: **one primary keyword per page**; su
 | `/services/react-nextjs-development` | next.js developer | react developer for hire, full stack web developer, custom website development, business website development, saas web application development | TODO | TODO |
 | `/services/portfolio-website-design` | portfolio website design | developer portfolio website, personal portfolio website | TODO | TODO |
 | `/services/technical-seo` | technical seo services | website seo audit, seo-friendly web development, javascript seo | TODO | TODO |
-| `/services/web-design-sharjah` | web design company in sharjah | web designing company in sharjah, web design sharjah | TODO | TODO |
+| `/services/web-design-sharjah` | web design company in sharjah | web designing company in sharjah, website design company in sharjah, web design sharjah, website design sharjah, web designer sharjah | TODO | TODO |
 | `/services/ecommerce-website-development-uae` | e-commerce website development uae | online store development uae | TODO | TODO |
-| `/services/wordpress-development-dubai` | wordpress development dubai | wordpress developer dubai | TODO | TODO |
+| `/services/wordpress-development-dubai` | wordpress development dubai | wordpress developer dubai, wordpress website development dubai | TODO | TODO |
 | `/services/website-redesign-uae` | website redesign uae | website redesign services | TODO | TODO |
 | `/services` | ai automation and web development services | (hub page: links to every service) | TODO | TODO |
 
@@ -38,6 +38,7 @@ Rule used to avoid keyword cannibalisation: **one primary keyword per page**; su
 | `/blog/why-every-business-needs-an-seo-friendly-website` | seo friendly website | `/services/technical-seo` |
 | `/blog/how-much-does-a-website-cost-in-sharjah` | how much does a website cost in sharjah | `/services/web-design-sharjah` |
 | `/blog/web-design-trends-in-the-uae` | web design trends uae | `/services/web-design-sharjah` |
+| `/blog/best-website-design-practices-uae` | best website design practices uae | `/services/web-design-sharjah`, `/services/website-redesign-uae` |
 | `/blog/how-to-choose-a-web-design-company-in-sharjah` | how to choose a web design company in sharjah | `/services/web-design-sharjah` |
 
 ## Deliberately NOT given their own page (and why)

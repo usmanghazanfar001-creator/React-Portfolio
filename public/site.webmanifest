@@ -4,8 +4,8 @@
   "description": "AI automation, AI agents and web development for businesses worldwide, including Sharjah, Dubai and the UAE.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0b0d12",
-  "theme_color": "#0b0d12",
+  "background_color": "#080c14",
+  "theme_color": "#080c14",
   "icons": [
     {
       "src": "/icon-192.png",

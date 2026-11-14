@@ -11,12 +11,12 @@ export const GLOBAL_SERVICE_PAGES = [
     blurb: 'Replace repetitive manual work with reliable AI-driven pipelines.',
     metaTitle: 'AI Automation Services for Business | Usman Ghazanfar',
     metaDescription:
-      'AI automation services that remove repetitive work: lead handling, support triage, listings and reporting. Built with Python, n8n and LangChain. Free quote.',
+      'AI automation for business: remove repetitive work in lead handling, support triage, listings and reporting. Built with Python, n8n and LangChain. Free quote.',
     areaServed: areaWorldwide,
     eyebrow: 'AI automation',
     h1: 'AI Automation Services That Take Repetitive Work Off Your Team',
     lead:
-      'Every business has tasks that eat hours but add little value: copying data between tools, sorting enquiries, writing the same product descriptions, chasing updates. My AI automation services replace that routine work with reliable pipelines, so your team spends its time on decisions and customers.',
+      'Every business has tasks that eat hours but add little value: copying data between tools, sorting enquiries, writing the same product descriptions, chasing updates. My AI automation services for business replace that routine work with reliable pipelines, so your team spends its time on decisions and customers.',
     sections: [
       {
         h2: 'What AI automation actually means',
@@ -254,12 +254,12 @@ export const GLOBAL_SERVICE_PAGES = [
     blurb: 'Automate listings, SEO, support and reports for your Shopify store.',
     metaTitle: 'Shopify AI Automation Services | Usman Ghazanfar',
     metaDescription:
-      'Cut hours of manual Shopify work with AI automation for listings, SEO, data sync and support. Safe and reviewed. Get a free quote.',
+      'Shopify AI automation and store automation for listings, SEO, Shopify data automation and support. Safe, reviewed workflows. Get a free quote.',
     areaServed: areaWorldwide,
     eyebrow: 'Shopify automation',
     h1: 'Shopify AI Automation Services for Busier Stores and Fewer Manual Tasks',
     lead:
-      'Running a Shopify store means a long list of repetitive jobs: writing listings, updating products, answering the same questions, checking reports. I build Shopify AI automation, from data syncing to agent-based tools, that handles that routine work so you can focus on growth.',
+      'Running a Shopify store means a long list of repetitive jobs: writing listings, updating products, answering the same questions, checking reports. I build Shopify AI automation, from Shopify store automation and Shopify data automation to agent-based tools for day-to-day store operations, that handles that routine work so you can focus on growth.',
     sections: [
       {
         h2: 'Where Shopify owners lose the most time',

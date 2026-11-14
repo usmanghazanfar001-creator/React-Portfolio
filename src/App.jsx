@@ -34,7 +34,7 @@ const Section = ({ id, n, eyebrow, title, wide, children }) => (
   <section id={id} aria-labelledby={`${id}-title`} className="relative mx-auto max-w-6xl px-5 py-24 sm:py-32">
     <div className={wide ? '' : 'grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12'}>
       <Reveal className={wide ? 'mb-12 max-w-3xl' : 'lg:col-span-4'}>
-        <p className="eyebrow">{n} — {eyebrow}</p>
+        <p className="eyebrow">{eyebrow}</p>
         <h2 id={`${id}-title`} className="mt-4 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h2>
       </Reveal>
       <div className={wide ? '' : 'lg:col-span-8'}>{children}</div>

@@ -318,6 +318,80 @@ const UAE_POSTS = [
     ],
     relatedServices: ['services/web-design-sharjah', 'services/website-redesign-uae'],
   },
+
+  /* ------------------------------------------------------------------ */
+  {
+    slug: 'best-website-design-practices-uae',
+    title: 'Best Website Design Practices for UAE Businesses',
+    metaTitle: 'Best Website Design Practices in the UAE | 2026 Guide',
+    metaDescription:
+      'The best website design practices for UAE businesses: mobile-first layouts, speed, Arabic and English support, trust signals, WhatsApp contact and SEO basics.',
+    published: '2026-11-14',
+    modified: '2026-11-14',
+    readMinutes: 7,
+    category: 'Guides',
+    about: 'Website design best practices for businesses in the UAE',
+    intro: [
+      `A website in the UAE has to work for a demanding audience: busy, mostly on mobile, comparing several providers in minutes and often more comfortable in Arabic, English or both. A site that ignores these realities loses enquiries to a competitor whose page simply loads faster and is easier to act on.`,
+      `This guide covers the best website design practices for UAE businesses, from layout and speed to language, trust and search. Use it as a checklist when you brief a designer or review your current site.`,
+    ],
+    sections: [
+      {
+        h2: 'Design for the phone first',
+        paragraphs: [
+          `Most local visitors arrive on a smartphone, often while commuting, shopping or standing outside your premises. Design the small-screen layout first and enlarge it for desktop, not the other way round. Keep text readable without zooming, make buttons large enough to tap with a thumb and keep forms short.`,
+          `Test on real devices, not just a resized browser window. Check how the page looks outdoors in bright light, on a slower mobile connection and with a large system font size.`,
+        ],
+      },
+      {
+        h2: 'Make speed a requirement',
+        paragraphs: [
+          `Slow pages lose visitors before they read a word, and speed is part of how Google evaluates page experience. Compress images and serve modern formats such as WebP, load only the scripts a page needs and avoid heavy sliders and auto-playing video above the fold.`,
+          `Run your key pages through PageSpeed Insights on mobile and fix what it flags. Large images and render-blocking scripts are the usual culprits.`,
+        ],
+      },
+      {
+        h2: 'Plan for English and Arabic',
+        paragraphs: [
+          `Many UAE businesses serve customers in both languages. A proper Arabic version is more than translated text: it needs right-to-left layout, mirrored navigation and fonts that read well in Arabic. Even if you launch in English only, structure the site so Arabic can be added later without a rebuild.`,
+        ],
+        bullets: [
+          'Use a clear language switcher that is visible on every page.',
+          'Give each language its own URL so search engines can index both.',
+          'Have a native speaker review Arabic copy rather than relying on automatic translation alone.',
+        ],
+      },
+      {
+        h2: 'Make contacting you effortless',
+        paragraphs: [
+          `Customers in the UAE often prefer a quick WhatsApp message or call to filling in a long form. Put a click-to-call button and a WhatsApp link where visitors are ready to act, keep your contact details consistent across the site and offer a short enquiry form for those who prefer it.`,
+          `Give every page one primary action. A page with five competing buttons converts worse than a page that clearly says what to do next.`,
+        ],
+      },
+      {
+        h2: 'Build trust visibly',
+        paragraphs: [
+          `Visitors decide quickly whether a business is credible. Show real projects, real reviews with permission and clear information about who you are, what you offer and where you operate. Only publish claims you can support, and do not show a local address or licence you do not hold.`,
+          `Clear policies, a visible contact page and a secure HTTPS connection all contribute to the impression that you are a business worth contacting.`,
+        ],
+      },
+      {
+        h2: 'Get the SEO foundations right from day one',
+        paragraphs: [
+          `A well-designed site still needs to be found. Give each page a unique title and description, use one clear H1 and logical headings, write descriptive image alt text and add structured data where it fits. Create a page for each service you offer and for each city you genuinely serve, such as [web design in Sharjah](/services/web-design-sharjah) or [WordPress development in Dubai](/services/wordpress-development-dubai), and link them together.`,
+          `Submit an XML sitemap in Google Search Console and check the Performance report regularly to see which searches your pages appear for.`,
+        ],
+      },
+      {
+        h2: 'Keep it accessible and easy to maintain',
+        paragraphs: [
+          `Good contrast, readable type sizes, labelled form fields and keyboard-friendly navigation help every visitor and reduce legal and usability risk. Choose a setup your team can update without calling a developer for every change, and plan regular checks for broken links, outdated content and security updates.`,
+          `If your current site misses several of these points, a [website redesign](/services/website-redesign-uae) can fix them without losing the traffic you already have. To compare providers, read our guide on [how to choose a web design company in Sharjah](/blog/how-to-choose-a-web-design-company-in-sharjah), or [contact me](/contact) for a free review of your site.`,
+        ],
+      },
+    ],
+    relatedServices: ['services/web-design-sharjah', 'services/website-redesign-uae'],
+  },
 ]
 
 // All posts, in display order (newest topics first on the index page).

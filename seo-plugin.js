@@ -80,7 +80,7 @@ function jsonLd() {
 import fs from 'node:fs'
 import path from 'node:path'
 
-const FONT_RE = /^(inter|space-grotesk)-latin-wght-normal-.+\.woff2$/
+const FONT_RE = /^(manrope|fraunces)-latin-wght-normal-.+\.woff2$/
 
 // Reads the freshly built dist/index.html to learn the hashed CSS / font / image file names.
 function discoverAssets(outDir) {
