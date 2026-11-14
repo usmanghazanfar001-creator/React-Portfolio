@@ -29,6 +29,27 @@ const Reveal = ({ children, delay = 0, className = '' }) => (
   </motion.div>
 )
 
+// Cursor-driven 3D tilt: the card rotates toward the pointer and a soft highlight follows it.
+// Mouse only (skipped on touch and when the visitor prefers reduced motion). Writes CSS variables, so there are no re-renders.
+function Tilt({ children, className = '', max = 8 }) {
+  const ref = useRef(null)
+  const frame = useRef(0)
+  const reduce = useReducedMotion()
+  const set = (v) => { const el = ref.current; if (!el) return; for (const k in v) el.style.setProperty(k, v[k]) }
+  const onMove = (e) => {
+    if (reduce || e.pointerType !== 'mouse') return
+    const r = ref.current.getBoundingClientRect()
+    const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height
+    cancelAnimationFrame(frame.current)
+    frame.current = requestAnimationFrame(() => set({
+      '--rx': `${((0.5 - y) * max * 2).toFixed(2)}deg`, '--ry': `${((x - 0.5) * max * 2).toFixed(2)}deg`,
+      '--mx': `${(x * 100).toFixed(1)}%`, '--my': `${(y * 100).toFixed(1)}%`,
+    }))
+  }
+  const onLeave = () => { cancelAnimationFrame(frame.current); set({ '--rx': '0deg', '--ry': '0deg' }) }
+  return <div ref={ref} onPointerMove={onMove} onPointerLeave={onLeave} className={`tilt ${className}`}>{children}</div>
+}
+
 // Editorial layout: title column on the left (desktop), content on the right. `wide` stacks them for dense content.
 const Section = ({ id, n, eyebrow, title, wide, children }) => (
   <section id={id} aria-labelledby={`${id}-title`} className="relative mx-auto max-w-6xl px-5 py-24 sm:py-32">
@@ -251,12 +272,12 @@ const Skills = () => (
       {SKILL_GROUPS.map((g, i) => (
         <li key={g.key}>
           <Reveal delay={(i % 3) * 0.05} className="h-full">
-            <div className="card h-full p-6">
+            <Tilt className="card h-full p-6">
               <Icon name={g.icon} className="text-accent" size={24} />
               <h3 className="mt-4 font-display text-lg font-semibold text-white">{g.title}</h3>
               <p className="mt-1 text-sm text-zinc-500">{g.description}</p>
               <ul className="mt-5 flex flex-wrap gap-2">{g.items.map((s) => <li key={s} className="chip">{s}</li>)}</ul>
-            </div>
+            </Tilt>
           </Reveal>
         </li>
       ))}
@@ -350,7 +371,8 @@ function ProjectCard({ p, no, onOpen }) {
   const src = shotFor(p.key)
   return (
     <motion.article layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}
-      className="card group flex flex-col p-4">
+      className="h-full">
+      <Tilt className="card group flex h-full flex-col p-4">
       {/* Every project preview is a 4:3 box so the grid stays uniform. */}
       <div className="aspect-[4/3] w-full overflow-hidden rounded-xl border border-line bg-ink">
         {src
@@ -370,6 +392,7 @@ function ProjectCard({ p, no, onOpen }) {
           : <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">{p.linkType === 'github' ? 'Source' : 'Live demo'}<span className="sr-only"> for {p.title} (opens in a new tab)</span><ArrowUpRight size={15} aria-hidden="true" /></a>)}
         <button onClick={() => onOpen(p)} className="btn btn-ghost">Case file<span className="sr-only"> for {p.title}</span></button>
       </div>
+      </Tilt>
     </motion.article>
   )
 }

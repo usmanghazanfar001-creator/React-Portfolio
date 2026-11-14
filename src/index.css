@@ -52,6 +52,18 @@ html { scrollbar-width: thin; scrollbar-color: rgb(205 215 240 / 0.22) transpare
   transition: border-color .25s, transform .25s;
 }
 .card:hover { border-color: color-mix(in srgb, var(--color-accent) 45%, transparent); }
+/* Cursor tilt (see <Tilt> in App.jsx): rotation comes from --rx/--ry, the highlight from --mx/--my. */
+.tilt { --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 50%; position: relative; transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform .5s cubic-bezier(.22, 1, .36, 1), border-color .25s; }
+.tilt:hover { transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.02);
+  transition: transform .12s linear, border-color .25s; will-change: transform; }
+.tilt::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(18rem circle at var(--mx) var(--my), color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 60%); }
+.tilt:hover::after { opacity: 1; }
+.tilt h3 { transform: translateZ(24px); }
+@media (hover: none) { .tilt:hover { transform: none; } .tilt::after { display: none; } }
+
 /* Legacy hook used by static pages: intentionally a no-op now (the cursor spotlight was removed). */
 .glow::before { content: none; }
 .chip { @apply rounded-full border border-line bg-white/[0.03] px-3 py-1 font-mono text-[11px] text-zinc-300; }
