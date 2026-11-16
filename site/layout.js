@@ -2,7 +2,7 @@
 // Uses the same Tailwind tokens/classes as the React home page so the look stays consistent.
 // No client JavaScript is needed (menus use :hover/:focus-within and <details>), which keeps Core Web Vitals clean.
 import { PROFILE } from '../src/data/content.js'
-import { SITE, abs } from './config.js'
+import { SITE, abs, gaSnippet } from './config.js'
 import { esc, inline, jsonLdScript } from './html.js'
 
 const link = 'rounded-full px-3 py-1.5 text-sm transition hover:text-white'
@@ -50,7 +50,7 @@ export function head({ title, description, path, type = 'website', jsonLd, asset
 <style>html,body{background:#080c14;color:#a6aebf}</style>
 ${assets?.headHtml || ''}
 ${jsonLd ? jsonLdScript(jsonLd) : ''}
-</head>`
+${gaSnippet()}</head>`
 }
 
 const menuIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>`

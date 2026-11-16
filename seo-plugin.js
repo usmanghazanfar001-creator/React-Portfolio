@@ -6,7 +6,7 @@
 //   4. statically generates the service / blog / about / contact / portfolio pages from ./site (see site/build-pages.js),
 //   5. preloads the critical latin web fonts on every page (fewer layout shifts).
 import { PROFILE, HERO, NAV_LINKS, ABOUT, SKILL_GROUPS, SERVICES, PROJECTS, TIMELINE, WHY_WORK } from './src/data/content.js'
-import { SITE } from './site/config.js'
+import { SITE, gaSnippet } from './site/config.js'
 import { buildPages } from './site/build-pages.js'
 import { businessNode, serviceNode } from './site/schema.js'
 import { SERVICE_PAGES } from './site/data/services.js'
@@ -123,7 +123,7 @@ export default function seoPlugin() {
     transformIndexHtml: {
       order: 'pre',
       handler(html) {
-        return html.replaceAll('%SITE_URL%', PROFILE.siteUrl).replace('<!--SEO_JSON_LD-->', jsonLd()).replace('<!--SEO_FALLBACK-->', fallbackHtml())
+        return html.replaceAll('%SITE_URL%', PROFILE.siteUrl).replace('<!--SEO_JSON_LD-->', jsonLd()).replace('<!--SEO_FALLBACK-->', fallbackHtml()).replace('</head>', gaSnippet() + '</head>')
       },
     },
     configResolved(cfg) { outDir = path.resolve(cfg.root, cfg.build.outDir) },

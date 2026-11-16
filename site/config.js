@@ -44,4 +44,12 @@ export const SITE = {
   extraSameAs: [],
 }
 
+// Google Analytics 4. Set GA_ID (or VITE_GA_ID) to your Measurement ID, e.g. G-XXXXXXXXXX, in Vercel > Settings > Environment Variables.
+// With no valid ID nothing is injected, so the site never ships a broken tag.
+export function gaSnippet() {
+  const id = (process.env.VITE_GA_ID || process.env.GA_ID || '').trim()
+  if (!/^G-[A-Z0-9]{6,12}$/.test(id)) return ''
+  return `<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${id}');</script>\n`
+}
+
 export const abs = (p = '/') => SITE.url + (p === '/' ? '/' : p)
