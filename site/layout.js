@@ -18,6 +18,8 @@ export function head({ title, description, path, type = 'website', jsonLd, asset
 <meta name="author" content="${esc(PROFILE.name)}" />
 <meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1'}" />
 <link rel="canonical" href="${url}" />
+<link rel="alternate" hreflang="en" href="${url}" />
+<link rel="alternate" hreflang="x-default" href="${url}" />
 <link rel="icon" href="/favicon.ico" sizes="48x48" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
