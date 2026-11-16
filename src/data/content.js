@@ -5,7 +5,7 @@ export const PROFILE = {
   name: 'Usman Ghazanfar',
   firstName: 'Usman',
   lastName: 'Ghazanfar',
-  title: 'AI Engineer & Software Enthusiast',
+  title: 'Web Developer & AI Engineer',
   location: 'Faisalabad, Pakistan',
   siteUrl: 'https://usmanghazanfar.vercel.app',
   tagline:
@@ -26,9 +26,9 @@ export const PROFILE = {
 export const HERO = {
   kicker: 'AI engineering · Software development',
   headline: 'Usman Ghazanfar',
-  headlineRest: 'AI Engineer & Software Enthusiast',
+  headlineRest: 'Web Developer & AI Engineer',
   support:
-    'I design and build AI agents, workflow automations and modern web products, from LangChain and LangGraph multi-agent systems to Next.js storefronts, with Python, JavaScript, React and n8n.',
+    'I build fast, SEO-ready websites for businesses in Pakistan, and AI agents and workflow automations that cut manual work, with React, Next.js, Python and n8n.',
   badges: ['AI Agents', 'LangGraph', 'Next.js', 'React', 'Python', 'n8n'],
 };
 
