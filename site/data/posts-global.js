@@ -92,7 +92,7 @@ export const GLOBAL_POSTS = [
       {
         h2: 'How to get started',
         paragraphs: [
-          `Pick one process that is repetitive, well understood and low risk, and describe it step by step. That description usually reveals whether you need a workflow, a chatbot or an agent. I built an AI E-Commerce Store Manager with LangChain and LangGraph that coordinates specialised agents, and many of its pieces work best as fixed workflows, which is exactly the point of this guide. If you want a second opinion on your own idea, [get in touch](/contact) and tell me what you would like to automate.`,
+          `Pick one process that is repetitive, well understood and low risk, and describe it step by step. That description usually reveals whether you need a workflow, a chatbot or an agent. I built an AI E-Commerce Store Manager with LangChain and LangGraph that coordinates specialised agents, and many of its pieces work best as fixed workflows, which is exactly the point of this guide. If you want a second opinion on your own idea, [get in touch](/contact) and tell me what you would like to automate. When you are ready to build, follow the steps in [how to build an AI agent for your business](/blog/how-to-build-an-ai-agent-for-your-business).`,
         ],
       },
     ],
@@ -231,7 +231,7 @@ export const GLOBAL_POSTS = [
     metaDescription: 
       'New to Shopify AI automation? Get 6 practical tips for listings, SEO, support and data, plus the safeguards that keep your store safe.',
     published: '2026-10-17',
-    modified: '2026-11-05',
+    modified: '2026-11-20',
     readMinutes: 7,
     category: 'E-commerce',
     about: 'Automating a Shopify store with AI',
@@ -344,7 +344,7 @@ export const GLOBAL_POSTS = [
         h2: 'A sensible rollout',
         paragraphs: [
           `Automate in stages. First, set up reporting and alerts. Second, add drafted listings and SEO text with human review. Third, introduce support triage with drafted replies. Only then consider letting selected tasks run without approval, one at a time, once they have proved reliable on real data. Each stage teaches you how much to trust the system and what to adjust.`,
-          `I have built an AI-powered Shopify management system and an AI E-Commerce Store Manager that coordinates agents for product research, SEO, listing generation, customer support, analytics and store management, and this staged approach is how I think about both. If you would like help planning yours, see my [Shopify automation services](/services/shopify-automation) or [send me a message](/contact).`,
+          `I have built an AI-powered Shopify management system and an AI E-Commerce Store Manager that coordinates agents for product research, SEO, listing generation, customer support, analytics and store management, and this staged approach is how I think about both. If you would like help planning yours, see my [Shopify automation services](/services/shopify-automation) or [send me a message](/contact). If you want to go beyond simple automations, see how to [build an AI agent for your business](/blog/how-to-build-an-ai-agent-for-your-business).`,
         ],
       },
     ],
@@ -460,11 +460,11 @@ export const GLOBAL_POSTS = [
   {
     slug: 'what-is-ai-automation',
     title: 'What Is AI Automation and How Can Businesses Use It?',
-    metaTitle: 'What Is AI Automation? A Practical Business Guide',
+    metaTitle: 'What Is AI Automation? Plain-English Guide for Business',
     metaDescription:
-      'AI automation explained in plain language: how it works, real business uses, risks, costs and how to start with one safe, useful process.',
+      'What is AI automation? A plain-English guide with real business examples, benefits, risks, costs and how to start with one safe process.',
     published: '2026-10-31',
-    modified: '2026-11-05',
+    modified: '2026-11-20',
     readMinutes: 7,
     category: 'AI automation',
     about: 'What AI automation is and how businesses can use it',
@@ -547,7 +547,7 @@ export const GLOBAL_POSTS = [
       {
         h2: 'Where to go next',
         paragraphs: [
-          `If you would like help choosing a first process, see my [AI automation services](/services/ai-automation), or read about [AI agents, chatbots and workflows](/blog/ai-agents-vs-chatbots-vs-workflows) to understand which design fits your problem. When you are ready, [get in touch](/contact) and describe the task you would most like to stop doing by hand.`,
+          `If you would like help choosing a first process, see my [AI automation services](/services/ai-automation), or read about [AI agents, chatbots and workflows](/blog/ai-agents-vs-chatbots-vs-workflows) to understand which design fits your problem. Ready to go further? Follow the steps in [how to build an AI agent for your business](/blog/how-to-build-an-ai-agent-for-your-business), or see how it works in a store in my [Shopify AI automation guide](/blog/how-to-automate-shopify-store-with-ai). When you are ready, [get in touch](/contact) and describe the task you would most like to stop doing by hand.`,
         ],
       },
     ],
@@ -556,6 +556,7 @@ export const GLOBAL_POSTS = [
       { q: 'What is the difference between AI and automation?', a: 'Automation follows fixed rules, while AI can interpret messy input like text and documents. AI automation combines them so a process can handle variety and still run reliably.' },
       { q: 'Is AI automation expensive for a small business?', a: 'It does not have to be. A single focused workflow is far cheaper than a large system, and starting with one process lets you prove the value before spending more.' },
       { q: 'Will AI automation replace my staff?', a: 'It is best used to remove repetitive tasks so people can spend time on work that needs judgement and relationships. Keeping a person in charge of important decisions is good practice.' },
+      { q: 'What are examples of AI automation?', a: 'Common examples include sorting incoming enquiries and routing them to the right person, drafting product descriptions for review, summarising long documents and sending regular reports or alerts. In each case a person approves the important actions.' },
     ],
     relatedServices: ['services/ai-automation', 'services/n8n-automation'],
   },
@@ -564,11 +565,11 @@ export const GLOBAL_POSTS = [
   {
     slug: 'how-to-build-an-ai-agent-for-your-business',
     title: 'How to Build an AI Agent for Your Business',
-    metaTitle: 'How to Build an AI Agent for Your Business: 7 Steps',
+    metaTitle: 'How to Build an AI Agent for Business: 7 Steps + Example',
     metaDescription:
-      'A practical 7-step guide to building an AI agent for your business: choosing the job, tools, guardrails, testing and launch, without the hype.',
+      'Build an AI agent for your business in 7 steps: pick one job, choose tools, add guardrails, test on real cases and launch small. Includes a real example.',
     published: '2026-10-31',
-    modified: '2026-10-31',
+    modified: '2026-11-20',
     readMinutes: 8,
     category: 'AI agents',
     about: 'Building an AI agent for a business',
@@ -622,13 +623,13 @@ export const GLOBAL_POSTS = [
       {
         h2: 'A real example',
         paragraphs: [
-          `My AI E-Commerce Store Manager uses LangGraph and LangChain to coordinate specialised agents for product research, SEO, listing generation, customer support, analytics and Shopify store management. Each agent has a narrow role, and the system is built so a person stays in control of what goes live. You can see the approach in my [portfolio case studies](/portfolio).`,
+          `My AI E-Commerce Store Manager uses LangGraph and LangChain to coordinate specialised agents for product research, SEO, listing generation, customer support, analytics and Shopify store management. Each agent has a narrow role, and the system is built so a person stays in control of what goes live. You can see the approach in my [portfolio case studies](/portfolio). For the e-commerce side of this work, read my beginner's guide to [Shopify AI automation](/blog/how-to-automate-shopify-store-with-ai).`,
         ],
       },
       {
         h2: 'Should you build it yourself or hire a developer?',
         paragraphs: [
-          `Simple automations can be built with no-code tools. A multi-step agent that touches your customers or your data benefits from a developer who understands testing, security and failure handling. If you would like help, see my [AI agent development](/services/ai-agent-development) service, or [contact me](/contact) with the job you have in mind.`,
+          `Simple automations can be built with no-code tools. A multi-step agent that touches your customers or your data benefits from a developer who understands testing, security and failure handling. New to the topic? Start with [what AI automation is](/blog/what-is-ai-automation). If you would like help, see my [AI agent development](/services/ai-agent-development) service, or [contact me](/contact) with the job you have in mind.`,
         ],
       },
     ],
@@ -637,6 +638,7 @@ export const GLOBAL_POSTS = [
       { q: 'Do I need to know how to code to build an AI agent?', a: 'Simple automations can be built with no-code tools. A reliable multi-step agent usually needs a developer, especially for testing, security and error handling.' },
       { q: 'Is an AI agent safe to run on its own?', a: 'It can be, if its tools and permissions are limited, its actions are logged and risky actions need human approval. Start with approvals and relax them as trust grows.' },
       { q: 'What does an AI agent cost to run?', a: 'Running cost depends mainly on how many model calls each task needs and how often it runs. Agents make more calls than fixed workflows, so set limits and monitor the cost per task.' },
+      { q: 'Can a small business build its own AI agent?', a: 'Yes, for narrow jobs. Start with one specific task, use no-code or workflow tools where you can, keep a person approving important actions and bring in a developer when the agent touches customers or sensitive data.' },
     ],
     relatedServices: ['services/ai-agent-development', 'services/ai-chatbot-development'],
   },
