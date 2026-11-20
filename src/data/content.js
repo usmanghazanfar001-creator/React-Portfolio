@@ -44,9 +44,9 @@ export const NAV_LINKS = [
 
 export const ABOUT = {
   intro: [
-    "I'm Usman Ghazanfar, an AI & Web Developer based in Faisalabad, Pakistan. I build things people actually use — from AI agents that run parts of a Shopify store to storefronts, listing sites and web apps — using Python, JavaScript, React, Next.js and n8n.",
-    "My work spans three areas. In AI & automation, I've built a LangChain and LangGraph multi-agent store manager and a Shopify management system that reduce repetitive manual work. In web products, I've shipped the MA Fabrics e-commerce storefront in Next.js, a real estate listing site with SEO built in from launch, the WeatherIQ forecast app and Lafzaly, an AI caption and subtitle generator for Roman Urdu creators. Underneath it all are solid engineering foundations: Descretiq, a Flask and SQLite learning app.",
-    "I'm studying for an Associate Degree in Artificial Intelligence at Punjab Group of Colleges (expected 2027) and working at SKILL SIDER, supporting SEO, online marketing and web development — so I build with both engineering and growth in mind. I'm open to work: if you need an AI agent, a workflow automation or a fast, SEO-ready website, let's talk.",
+    "I'm Usman Ghazanfar, a web developer and AI engineer based in Faisalabad, Pakistan. I build websites and AI systems that people actually use, from storefronts and listing sites to agents that run parts of a Shopify store, with Python, JavaScript, React, Next.js and n8n.",
+    "My work falls into three areas. In AI and automation, I've built a LangChain and LangGraph multi-agent store manager and a Shopify management system that cut repetitive manual work. In web products, I've shipped the MA Fabrics e-commerce storefront in Next.js, a real estate listing site with SEO built in from launch, the WeatherIQ forecast app and Lafzaly, an AI caption and subtitle generator for Roman Urdu creators. Behind them sits Descretiq, a Flask and SQLite learning app for discrete mathematics, which is where I sharpened my engineering foundations.",
+    "I'm studying for an Associate Degree in Artificial Intelligence at Punjab Group of Colleges (expected 2027) and working at SKILL SIDER, supporting SEO, online marketing and web development, so I build with both engineering and growth in mind. I'm open to work: if you need an AI agent, a workflow automation or a fast, SEO-ready website, get in touch.",
   ],
   highlights: [
     { icon: 'MapPin', text: 'Based in Faisalabad, Pakistan' },
@@ -66,7 +66,7 @@ export const ABOUT = {
 
 // Stats are literal counts derived from the real data below — nothing estimated.
 export const STATS = [
-  { label: 'Projects Completed', value: 8, suffix: '' },
+  { label: 'Projects Built', value: 7, suffix: '' },
   { label: 'Core Technologies', value: 16, suffix: '+' },
   { label: 'Services Offered', value: 6, suffix: '' },
 ];
@@ -373,11 +373,11 @@ export const TIMELINE = [
     title: 'Tech & Marketing Operations Assistant',
     place: 'SKILL SIDER · Faisalabad, Pakistan',
     bullets: [
-      'Assisting in digital marketing and operational activities.',
-      'Utilizing Microsoft Office tools for documentation and reporting.',
-      'Supporting SEO, online marketing and web development initiatives.',
-      'Managing data organization and workflow optimization.',
-      'Contributing to technology-driven solutions and business operations.',
+      'Support SEO, online marketing and web development initiatives.',
+      'Assist with digital marketing and day-to-day operations.',
+      'Prepare documentation and reports in Microsoft Office.',
+      'Organize data and streamline team workflows.',
+      'Contribute to technology-driven solutions for the business.',
     ],
   },
   {

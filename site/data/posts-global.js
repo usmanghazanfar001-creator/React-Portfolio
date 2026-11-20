@@ -11,7 +11,7 @@ export const GLOBAL_POSTS = [
     metaDescription:
       'AI agents, chatbots and automated workflows solve different problems. Learn how each works, what it costs you in risk and effort, and how to choose.',
     published: '2026-10-17',
-    modified: '2026-11-05',
+    modified: '2026-11-20',
     readMinutes: 7,
     category: 'AI automation',
     about: 'Choosing between AI agents, chatbots and automated workflows',
@@ -95,6 +95,12 @@ export const GLOBAL_POSTS = [
           `Pick one process that is repetitive, well understood and low risk, and describe it step by step. That description usually reveals whether you need a workflow, a chatbot or an agent. I built an AI E-Commerce Store Manager with LangChain and LangGraph that coordinates specialised agents, and many of its pieces work best as fixed workflows, which is exactly the point of this guide. If you want a second opinion on your own idea, [get in touch](/contact) and tell me what you would like to automate.`,
         ],
       },
+    ],
+    faqs: [
+      { q: 'What is the difference between an AI agent and a chatbot?', a: 'A chatbot answers questions in conversation. An agent is given a goal and chooses which tools to use and what to do next until the task is done.' },
+      { q: 'When should I use a workflow instead of an agent?', a: 'Use a workflow when the steps are known in advance. Workflows are predictable, quick and cheap, and AI can handle the one messy step inside them. Agents earn their higher cost only when the path cannot be fixed ahead of time.' },
+      { q: 'Are AI agents reliable enough for business use?', a: 'For narrow, well-defined jobs, yes, provided they have guardrails: limited tool access, human approval for important actions and testing on real cases. Without those limits an agent can take wrong or costly actions.' },
+      { q: 'Can I combine chatbots, workflows and agents?', a: 'Yes, and many good systems do. A chatbot can be the front door, workflows can run the predictable steps and an agent can be used only where judgement is needed.' },
     ],
     relatedServices: ['services/ai-agent-development', 'services/ai-automation'],
   },
@@ -360,13 +366,13 @@ export const GLOBAL_POSTS = [
     metaDescription:
       'Next.js or WordPress? Compare editing, speed, SEO, security, cost and maintenance to choose the right platform for your business website.',
     published: '2026-10-17',
-    modified: '2026-10-17',
+    modified: '2026-11-20',
     readMinutes: 7,
     category: 'Web development',
     about: 'Choosing between Next.js and WordPress for a business website',
     intro: [
       `When you plan a new business website, one of the first technical questions is which platform to build it on. Two popular answers are WordPress, the content management system behind a huge portion of the web, and Next.js, a modern framework for building fast React websites and applications. Both can produce excellent sites, and both can produce poor ones.`,
-      `The honest answer to which is better is that it depends on who will edit the site, what it needs to do and how you want to manage it over time. This guide compares them in plain language across the factors that matter to a business owner. I build with both, so there is no side I need you to pick.`,
+      `The honest answer to which is better is that it depends on who will edit the site, what it needs to do and how you want to manage it over time. This guide compares them in plain language across the factors that matter to a business owner. It aims to be even-handed, so use it to decide what fits your team rather than to pick a side.`,
     ],
     sections: [
       {
@@ -416,6 +422,13 @@ export const GLOBAL_POSTS = [
         ],
       },
       {
+        h2: 'A real example: the MA Fabrics storefront',
+        paragraphs: [
+          `For MA Fabrics, a Lahore-based textile and suiting brand, I built a custom Next.js storefront with curated collections, a photo gallery, fabric videos, customer accounts, a cart, order tracking and a WhatsApp button for personal fabric advice. A custom build suited the brief because the brand wanted an elegant store where customers could see fabric in motion.`,
+          `The trade-off is the one described above: changes to design or structure take developer time. For a catalogue that changes often and is managed by non-technical staff, a CMS-based setup could have been the better fit. You can see the result in my [portfolio](/portfolio).`,
+        ],
+      },
+      {
         h2: 'A quick decision guide',
         paragraphs: [
           `Use this as a starting point rather than a rule.`,
@@ -433,6 +446,12 @@ export const GLOBAL_POSTS = [
           `The right platform is the one that fits your team and goals, not the one with the biggest reputation. Explore my [WordPress development](/services/wordpress-development-dubai) and [Next.js web development](/services/react-nextjs-development) services to see how I approach each, or [contact me](/contact) with your requirements and I will recommend one in writing.`,
         ],
       },
+    ],
+    faqs: [
+      { q: 'Is Next.js better than WordPress for SEO?', a: 'Neither has an inherent ranking advantage. Search engines rank pages on content, relevance, links and technical quality, and both platforms can be built to be search-friendly.' },
+      { q: 'Can non-technical staff edit a Next.js website?', a: 'Yes, if the site is connected to a content management system, but that is an extra component to set up and pay for. Without one, changes usually need a developer.' },
+      { q: 'Is WordPress less secure than Next.js?', a: 'WordPress is a popular target and vulnerable plugins are a common way in, so updates, trusted plugins and backups matter. A mostly static Next.js site has a smaller attack surface, but any custom code or integration still needs careful maintenance.' },
+      { q: 'Which is cheaper, WordPress or Next.js?', a: 'Neither is automatically cheaper. WordPress often costs less to start but needs ongoing maintenance and may carry licence fees, while Next.js has fewer parts to update but design changes need developer time. Compare the total cost of ownership.' },
     ],
     relatedServices: ['services/react-nextjs-development', 'services/wordpress-development-dubai'],
   },

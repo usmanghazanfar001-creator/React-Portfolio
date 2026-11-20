@@ -4,6 +4,7 @@
 
 import { GLOBAL_POSTS } from './posts-global.js'
 
+// TODO(owner): add a real "typical price ranges" section in AED to the Sharjah cost post once you decide your pricing.
 const UAE_POSTS = [
   /* ------------------------------------------------------------------ */
   {
@@ -13,7 +14,7 @@ const UAE_POSTS = [
     metaDescription:
       'What affects website prices in Sharjah, what is usually included, hidden costs to watch for and how to compare quotes before you hire anyone.',
     published: '2026-10-17',
-    modified: '2026-10-17',
+    modified: '2026-11-20',
     readMinutes: 7,
     category: 'Pricing',
     about: 'Website development pricing in Sharjah, UAE',
@@ -91,7 +92,7 @@ const UAE_POSTS = [
         h2: 'Website builder, freelancer or agency?',
         paragraphs: [
           `Who builds your site changes both the price and the experience. A do-it-yourself website builder has the lowest upfront cost, but you do the work, and you are limited by the platform's templates and features. It can be fine for a very simple site.`,
-          `A freelance developer usually offers direct communication, flexibility and lower overheads, so you talk to the person who actually builds the site. An agency brings a larger team, project managers and a wider range of in-house skills, with higher overheads reflected in the price. Neither is automatically better. The right choice depends on the complexity of your project and how much hand-holding you want. Our guide on [how to choose a web design company in Sharjah](/blog/how-to-choose-a-web-design-company-in-sharjah) covers this in more detail.`,
+          `A freelance developer usually offers direct communication, flexibility and lower overheads, so you talk to the person who actually builds the site. An agency brings a larger team, project managers and a wider range of in-house skills, with higher overheads reflected in the price. Neither is automatically better. The right choice depends on the complexity of your project and how much hand-holding you want. My guide on [how to choose a web design company in Sharjah](/blog/how-to-choose-a-web-design-company-in-sharjah) covers this in more detail.`,
         ],
       },
       {
@@ -129,7 +130,12 @@ const UAE_POSTS = [
         ],
       },
     ],
-    // TODO(owner): add a real "typical price ranges" section in AED once you decide your pricing.
+    faqs: [
+      { q: 'How much does a basic business website cost in Sharjah?', a: 'There is no single price, because it depends on the number of pages, custom design or a template, features such as bookings or payments, and whether you need Arabic and English. Ask each provider for a written quote that lists pages, features, revisions and SEO setup so you can compare like with like.' },
+      { q: 'Are hosting and a domain included in a website quote?', a: 'Not always. Domain, hosting, SSL, maintenance and paid plugins are often separate recurring costs, so ask what is included and for how long.' },
+      { q: 'Is a bilingual Arabic and English website more expensive?', a: 'Usually yes, because right-to-left layouts, natural translation and extra testing add work. It is cheaper to plan for both languages at the start than to add Arabic later.' },
+      { q: 'Should I pay the full amount before the work starts?', a: 'It is safer to pay in milestones tied to delivered work, with the scope, number of revisions and ownership of the design, code and domain agreed in writing first.' },
+    ],
     relatedServices: ['services/web-design-sharjah', 'services/ecommerce-website-development-uae'],
   },
 
@@ -141,7 +147,7 @@ const UAE_POSTS = [
     metaDescription:
       'Eight web design trends shaping UAE websites in 2026: bilingual Arabic layouts, mobile speed, WhatsApp-led conversion, AI features and more.',
     published: '2026-10-17',
-    modified: '2026-10-17',
+    modified: '2026-11-20',
     readMinutes: 8,
     category: 'Trends',
     about: 'Web design trends for businesses in the United Arab Emirates',
@@ -214,6 +220,12 @@ const UAE_POSTS = [
         ],
       },
     ],
+    faqs: [
+      { q: 'What are the main web design trends in the UAE?', a: 'Bilingual sites with proper right-to-left design, mobile-first speed, WhatsApp as a contact channel, minimal design with purposeful motion, accessibility, sensible AI features, answer-ready content for search and visible trust signals.' },
+      { q: 'Do I need an Arabic version of my website?', a: 'If a meaningful share of your customers prefer Arabic, yes, and each language should have its own URL. Even if you launch in English only, structure the site so Arabic can be added later without a rebuild.' },
+      { q: 'Is a WhatsApp button worth adding to my website?', a: 'For many UAE businesses it is, because customers often prefer a quick message to a long form. Place it where visitors are ready to act and make sure someone replies promptly.' },
+      { q: 'Do I have to follow every web design trend?', a: 'No. Choose the trends that serve your customers and your budget, and skip the rest. A fast, clear, trustworthy site beats one that copies every trend.' },
+    ],
     relatedServices: ['services/web-design-sharjah', 'services/website-redesign-uae'],
   },
 
@@ -225,7 +237,7 @@ const UAE_POSTS = [
     metaDescription:
       'A practical checklist for choosing a web design company in Sharjah: portfolio, process, pricing, SEO, ownership, support and red flags to avoid.',
     published: '2026-10-17',
-    modified: '2026-10-17',
+    modified: '2026-11-20',
     readMinutes: 8,
     category: 'Guides',
     about: 'Choosing a web design company in Sharjah, UAE',
@@ -316,6 +328,12 @@ const UAE_POSTS = [
         ],
       },
     ],
+    faqs: [
+      { q: 'How do I choose a web design company in Sharjah?', a: 'Start with your own goals, look at live projects rather than screenshots, ask every provider the same questions, check technical basics such as mobile speed and SEO setup, and get the scope, price and ownership terms in writing.' },
+      { q: 'Should I hire a freelancer, a studio or an agency?', a: 'It depends on the size of the project and how much support you want. A freelancer offers direct contact and lower overheads, while an agency brings a larger team and project management at a higher price.' },
+      { q: 'Does a web design company need to be based in Sharjah?', a: 'Not necessarily. Clear communication, reliable delivery and relevant experience matter more than the address, although knowledge of UAE customers and Arabic content can help. Be cautious of any provider who claims a local address or licence they do not hold.' },
+      { q: 'What are the red flags when hiring a web designer?', a: 'Guaranteed Google rankings, no live examples, refusing to put the scope in writing, a price far below every other quote and demands for full payment before any work begins.' },
+    ],
     relatedServices: ['services/web-design-sharjah', 'services/website-redesign-uae'],
   },
 
@@ -327,7 +345,7 @@ const UAE_POSTS = [
     metaDescription:
       'The best website design practices for UAE businesses: mobile-first layouts, speed, Arabic and English support, trust signals, WhatsApp contact and SEO basics.',
     published: '2026-11-14',
-    modified: '2026-11-14',
+    modified: '2026-11-20',
     readMinutes: 7,
     category: 'Guides',
     about: 'Website design best practices for businesses in the UAE',
@@ -383,12 +401,44 @@ const UAE_POSTS = [
         ],
       },
       {
+        h2: 'Keep navigation and structure simple',
+        paragraphs: [
+          `Visitors should reach your main services within a couple of taps. Limit the main menu to the pages people actually look for, give each service its own page and use descriptive link text such as "web design in Sharjah" instead of "click here". A clear structure helps people find what they need and helps search engines understand how your pages relate.`,
+          `Add breadcrumbs on deeper pages and link related pages together, so a visitor reading about one service can reach the next logical step without going back to the menu.`,
+        ],
+      },
+      {
+        h2: 'Write for the visitor and give each page one job',
+        paragraphs: [
+          `Open every page with a headline that says what you do and who it is for. Use short paragraphs, plain language and subheadings that people can scan. Answer the questions customers ask before they buy, such as what is included, how long it takes and how to get started.`,
+          `Then point to a single next step. A page that explains your service and ends with one clear action will out-perform a page that tries to do everything.`,
+        ],
+      },
+      {
+        h2: 'Use images and video with care',
+        paragraphs: [
+          `Real photos of your work, team and premises build more trust than generic stock images. Compress every image, use modern formats such as WebP, set width and height so the layout does not jump while loading and write descriptive alt text. Load images below the fold lazily and avoid autoplaying video that slows the first screen.`,
+        ],
+      },
+      {
+        h2: 'Measure and improve after launch',
+        paragraphs: [
+          `A launch is the start, not the finish. Set up Google Search Console and an analytics tool, then check monthly which pages bring visitors and which lead to enquiries. Change one thing at a time, such as a headline or a button, so you can tell what worked. Small, regular improvements add up faster than a full redesign every few years.`,
+        ],
+      },
+      {
         h2: 'Keep it accessible and easy to maintain',
         paragraphs: [
           `Good contrast, readable type sizes, labelled form fields and keyboard-friendly navigation help every visitor and reduce legal and usability risk. Choose a setup your team can update without calling a developer for every change, and plan regular checks for broken links, outdated content and security updates.`,
-          `If your current site misses several of these points, a [website redesign](/services/website-redesign-uae) can fix them without losing the traffic you already have. To compare providers, read our guide on [how to choose a web design company in Sharjah](/blog/how-to-choose-a-web-design-company-in-sharjah), or [contact me](/contact) for a free review of your site.`,
+          `If your current site misses several of these points, a [website redesign](/services/website-redesign-uae) can fix them without losing the traffic you already have. To compare providers, read my guide on [how to choose a web design company in Sharjah](/blog/how-to-choose-a-web-design-company-in-sharjah), or [contact me](/contact) for a free review of your site.`,
         ],
       },
+    ],
+    faqs: [
+      { q: 'What makes a good website design for UAE businesses?', a: 'A mobile-first layout, fast loading, English and Arabic support where your customers need it, an easy way to contact you, visible trust signals and solid SEO foundations.' },
+      { q: 'How fast should my website load?', a: 'As fast as you reasonably can. Run your key pages through PageSpeed Insights on mobile and fix what it flags, which is usually large images and render-blocking scripts.' },
+      { q: 'Is WhatsApp better than a contact form?', a: 'Offer both. WhatsApp and click-to-call suit visitors who are ready to act, while a short form suits people who prefer to write details down.' },
+      { q: 'Can I add an Arabic version later?', a: 'Yes, if the site is built for it from the start, with a separate URL for each language and flexible layouts. Retrofitting right-to-left design onto a site that was not planned for it is harder and costs more.' },
     ],
     relatedServices: ['services/web-design-sharjah', 'services/website-redesign-uae'],
   },
